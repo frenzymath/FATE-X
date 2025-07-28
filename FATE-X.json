@@ -1,0 +1,1102 @@
+[
+  {
+    "id": 1,
+    "informal_statement": "Let $R$ be a UFD with two nonassociate prime elements $p$ and $q$ such that every prime element is an associate of either $p$ or $q$. \n\tProve that $R$ is a PID.",
+    "formal_statement": "import Mathlib\n\n/-- Let $R$ be a UFD with two nonassociate prime elements $p$ and $q$ such that every prime\nelement is an associate of either $p$ or $q$.  Prove that $R$ is a PID. -/\ntheorem isPrincipalIdealRing_of_associated_or_associated {R : Type} [CommRing R] [IsDomain R]\n    [UniqueFactorizationMonoid R] {p q : R} (hp : Prime p) (hq : Prime q) (hpq : ¬ Associated p q)\n    (h : ∀ {x : R}, Prime x → Associated x p ∨ Associated x q) :\n    IsPrincipalIdealRing R := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Ring Theory",
+      "PID, ED and UFD"
+    ]
+  },
+  {
+    "id": 2,
+    "informal_statement": "Let $G$ be a finite group and $L$ a maximal subgroup of $G$. Suppose $L$ is non-Abelian and simple. Then there exist at most two minimal normal subgroups in $G$.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $G$ be a finite group and $L$ a maximal subgroup of $G$. Suppose $L$ is non-Abelian and simple.\nThen there exist at most two minimal normal subgroups in $G$.\n-/\ntheorem card_minimal_normal_subgroup_le_2 (G : Type) [Group G] [Finite G]\n    (L : Subgroup G) (h_ne_top : L ≠ ⊤) (h_maximal : IsMax (⟨L, h_ne_top⟩ : {H : Subgroup G // H ≠ ⊤}))\n    (h_simple : IsSimpleGroup L) (h_non_comm : ∃ (x y : L), x * y ≠ y * x) :\n    {H : {H : Subgroup G // H.Normal} | IsMin H}.ncard ≤ 2 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Group Theory",
+      "Subgroups and Quotient groups"
+    ]
+  },
+  {
+    "id": 3,
+    "informal_statement": "Let $H$ be a subgroup of finite index of a group $G$. Show that there exists a subset $S$ of $G$, such that\n$S$ is both a set of representatives of the left and the right cosets of $H$ in $G$.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $H$ be a subgroup of finite index of a group $G$. Show that there exists a subset $S$ of $G$, such that\n$S$ is both a set of representatives of the left and the right cosets of $H$ in $G$.\n-/\ntheorem exists_leftCoset_rightCoset_representative\n    (G : Type) [Group G] (H : Subgroup G) [H.FiniteIndex] :\n    ∃ S : Set G, Subgroup.IsComplement S H ∧ Subgroup.IsComplement H S := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Group Theory",
+      "Subgroups and Quotient groups"
+    ]
+  },
+  {
+    "id": 4,
+    "informal_statement": "Let $p$ be an odd prime number, and let $G$ be a finite group of order $p(p + 1)$. Assume that $G$\ndoes not have a normal Sylow $p$-subgroup.\nProve that $p + 1$ is a power of $2$.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $p$ be an odd prime number, and let $G$ be a finite group of order $p(p + 1)$. Assume that $G$\ndoes not have a normal Sylow $p$-subgroup. Prove that $p + 1$ is a power of $2$.\n-/\ntheorem add_one_eq_two_pow_of_sylow_subgroup_not_normal (p : ℕ) (h_odd : Odd p) (G : Type)\n    (hp : p.Prime) [Finite G] [Group G] (h_card : Nat.card G = p * (p + 1))\n    (h_sylow : ∀ (H : Sylow p G), ¬ H.Normal) : ∃ (n : ℕ), p + 1 = 2 ^ n := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Group Theory",
+      "Group Actions and Sylow theorems"
+    ]
+  },
+  {
+    "id": 5,
+    "informal_statement": "Let \\(p\\) be a prime, let \\(G\\) be a finite p-group. Let A be a maximal normal abelian subgroup of \\(G\\). Prove that A is also a maximal abelian subgroup of \\(G\\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\(p\\) be a prime, let \\(G\\) be a finite p-group. Let A be a maximal normal abelian subgroup of \\(G\\).\nProve that A is also a maximal abelian subgroup of \\(G\\).-/\ntheorem maximal_abelian_normal_subgroup_of_p_group_is_maximal_abelian_subgroup\n    (p : ℕ) (hp : p.Prime) (G : Type) [Group G] [Finite G] (h_pgroup : IsPGroup p G)\n    (H : Subgroup G) (h_normal : H.Normal) (h_comm : IsMulCommutative H)\n    (h_maximal_normal_abelian : ∀ (K : Subgroup G), K.Normal → IsMulCommutative K → H ≤ K → H = K) :\n    ∀ (K : Subgroup G), IsMulCommutative K → H ≤ K → H = K := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Group Theory",
+      "p-Groups, Nilpotent Groups and Solvable Groups"
+    ]
+  },
+  {
+    "id": 6,
+    "informal_statement": "Prove that if $\\#G = 396$ then $G$ is not simple.",
+    "formal_statement": "import Mathlib\n\n/-- Prove that if $\\#G = 396$ then $G$ is not simple. -/\ntheorem not_isSimpleGroup_of_card_eq_396 (G : Type) [Group G]\n    [Finite G] (h_card : Nat.card G = 396) : ¬ IsSimpleGroup G := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Group Theory",
+      "Group Actions and Sylow theorems"
+    ]
+  },
+  {
+    "id": 7,
+    "informal_statement": "Prove that if $\\#G = 1785$ then $G$ is not simple.",
+    "formal_statement": "import Mathlib\n\n/-- Prove that if $\\#G = 1785$ then $G$ is not simple. -/\ntheorem not_isSimpleGroup_of_card_eq_1785 (G : Type) [Group G]\n    [Finite G] (h_card : Nat.card G = 1785) : ¬ IsSimpleGroup G := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Group Theory",
+      "Group Actions and Sylow theorems"
+    ]
+  },
+  {
+    "id": 8,
+    "informal_statement": "Let $A, B \\in \\mathbb{Q}^\\times$ be rational numbers. Consider the quaternion ring\n$$\nD_{A, B, \\mathbb{R}} = \\{a+b\\boldsymbol{i} +c\\boldsymbol{j}+d\\boldsymbol{k}\\;|\\; a,b,c,d \\in \\mathbb{R}\\}\n$$\nin which the multiplication satisfies relations: $\\boldsymbol{i}^2 = A$, $\\boldsymbol{j}^ 2 = B$, and $\\boldsymbol{i}\\boldsymbol{j}= -\\boldsymbol{j}\\boldsymbol{i} = \\boldsymbol{k}$.\n\nShow that $D_{A, B, \\mathbb{R}}$ is either isomorphic to $\\mathbb{H}$ (Hamilton quaternion) or isomorphic to $\\mathrm{Mat}_{2\\times 2}(\\mathbb{R})$ as $\\mathbb{R}$-algebras.",
+    "formal_statement": "import Mathlib\n\nopen Quaternion\n\n/--\nLet $A, B \\in \\mathbb{Q}^\\times$ be rational numbers. Consider the quaternion ring\n$$\nD_{A, B, \\mathbb{R}} = \\{a+b\\boldsymbol{i} +c\\boldsymbol{j}+d\\boldsymbol{k}\\;|\\; a,b,c,d \\in\n\\mathbb{R}\\}$$\nin which the multiplication satisfies relations: $\\boldsymbol{i}^2 = A$, $\\boldsymbol{j}^ 2 = B$,\nand $\\boldsymbol{i}\\boldsymbol{j}= -\\boldsymbol{j}\\boldsymbol{i} = \\boldsymbol{k}$.\nShow that $D_{A, B, \\mathbb{R}}$ is either isomorphic to $\\mathbb{H}$ (Hamilton quaternion) or\nisomorphic to $\\mathrm{Mat}_{2\\times 2}(\\mathbb{R})$ as $\\mathbb{R}$-algebras.\n-/\ntheorem quaternionAlgebra_isomorphic_to_matrix_ring_or_quaternion_ring\n    (A B : ℚ) (ha : A ≠ 0) (hb : B ≠ 0) :\n    ((Nonempty (ℍ[ℝ, A, B] ≃ₐ[ℝ] ℍ[ℝ, -1, -1])) ∨ (Nonempty (ℍ[ℝ, A, B] ≃ₐ[ℝ] Matrix (Fin 2) (Fin 2) ℝ)))\n    ∧ IsEmpty (Matrix (Fin 2) (Fin 2) ℝ ≃ₐ[ℝ] ℍ[ℝ, -1, -1]) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Group Theory",
+      "Group Actions and Sylow theorems"
+    ]
+  },
+  {
+    "id": 9,
+    "informal_statement": "Let $G$ be a finite group and let $\\mathrm{Syl}_p(G)$ denote its set of Sylow $p$-subgroups.\n\tSuppose that $S$ and $T$ are distinct members of \n\t$\\mathrm{Syl}_p(G)$ chosen so that $\\#(S \\cap T)$ is maximal\namong all such intersections. Prove that the normalizer $N_G(S \\cap  T)$ does not admit normal Sylow $p$-subgroup.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $G$ be a finite group and let $\\mathrm{Syl}_p(G)$ denote its set of Sylow $p$-subgroups.\n\tSuppose that $S$ and $T$ are distinct members of\n\t$\\mathrm{Syl}_p(G)$ chosen so that $\\#(S \\cap T)$ is maximal\namong all such intersections. Prove that the normalizer $N_G(S \\cap  T)$ does not admit normal\nSylow $p$-subgroup.-/\ntheorem sylow_subgroup_not_normal_of_maximal_intersection (G : Type) [Finite G] [Group G]\n    (p : ℕ) [Fact (Nat.Prime p)] (S T : Sylow p G) (h_ne : S ≠ T)\n    (h_maximal : ∀ (S' T' : Sylow p G), S' ≠ T' →\n    ((S' : Set G) ⊓ T').ncard ≤ ((S : Set G) ⊓ T).ncard) :\n    ∀ (P : Sylow p ((S : Subgroup G) ⊓ T).normalizer), ¬ P.Normal := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Ring Theory",
+      "Polynomials"
+    ]
+  },
+  {
+    "id": 10,
+    "informal_statement": "Let \\( A = \\mathbb{R}[X, Y]/(X^2 + Y^2 + 1) \\). Then it is a principal ideal domain.",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( A = \\mathbb{R}[X, Y]/(X^2 + Y^2 + 1) \\). Then it is a principal ideal domain. -/\ntheorem isPrincipalIdealRing_quot_X_pow_two_plus_Y_pow_two_plus_one :\n    IsPrincipalIdealRing ((MvPolynomial (Fin 2) ℝ) ⧸\n    Ideal.span {(.X 0 ^ 2 + .X 1 ^ 2 + .C 1 : (MvPolynomial (Fin 2) ℝ))}) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Algebraic Number Theory and Valuation Theory"
+    ]
+  },
+  {
+    "id": 11,
+    "informal_statement": "Let \\( A = \\mathbb{R}[X, Y]/(X^2 + Y^2 + 1) \\). Then it is not a Euclidean domain.",
+    "formal_statement": "import Mathlib\n\n/--\nDefinition of a Euclidean norm taking value in \\(\\mathbb{N}\\).\n-/\nclass EuclideanNormNat (R : Type) [CommRing R] extends Nontrivial R where\n  quotient : R → R → R\n  quotient_zero : ∀ a, quotient a 0 = 0\n  remainder : R → R → R\n  quotient_mul_add_remainder_eq : ∀ a b, b * quotient a b + remainder a b = a\n  norm : R → ℕ\n  remainder_lt : ∀ (a) {b}, b ≠ 0 → norm (remainder a b) < norm b\n  mul_left_not_lt : ∀ (a) {b}, b ≠ 0 → ¬ norm (a * b) < norm a\n\n/--\nLet \\( A = \\mathbb{R}[X, Y]/(X^2 + Y^2 + 1) \\). Then it is not a Euclidean domain.\n-/\ntheorem not_isomorphic_euclideanDomain : IsEmpty <| EuclideanNormNat (((MvPolynomial ℝ (Fin 2)) ⧸ Ideal.span {(.X 0 ^ 2 + .X 1 ^ 2 + .C 1: MvPolynomial ℝ (Fin 2))})) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Ring Theory",
+      "Basic Definitions and Examples"
+    ]
+  },
+  {
+    "id": 12,
+    "informal_statement": "Prove that the ring $\\mathbb{Z}[\\frac{1+\\sqrt{-19}}{2}]$ is a principal ideal domain.",
+    "formal_statement": "import Mathlib\n\n/--\nProve that the ring $\\mathbb{Z}[\\frac{1+\\sqrt{-19}}{2}]$ is a principal ideal domain.\n-/\ntheorem isPrincipalIdealRing_of_quadratic_integer_19 :\n    IsPrincipalIdealRing (Algebra.adjoin ℤ {(1 + (Real.sqrt 19) * Complex.I) / 2}) ∧ IsDomain (Algebra.adjoin ℤ {(1 + (Real.sqrt 19) * Complex.I) / 2}) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
+    ]
+  },
+  {
+    "id": 13,
+    "informal_statement": "Let $(R,+,\\cdot)$ be a (not necessarily commutative) ring. If we know that $R$ is not a field and $x^2=x$ for any $x\\in R,$ where $x$ is not invertible. Prove that $x^2=x$ for any $x.$",
+    "formal_statement": "import Mathlib\n\n/--\nLet $(R,+,\\cdot)$ be a (not necessarily commutative) ring.\nIf we know that $R$ is not a field and $x^2=x$ for any $x\\in R,$\nwhere $x$ is not invertible. Prove that $x^2=x$ for any $x.$\n-/\ntheorem sq_eq_self_of_not_unit {R : Type} [Ring R] (h : ¬ IsField R)\n    (h2 : ∀ x : R, ¬ IsUnit x → x^2 = x) (x : R) : x^2 = x := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 14,
+    "informal_statement": "Show that if $R$\n is a unique factorization domain such that the quotient field of $R$\n is isomorphic to $\\mathbb{R}$\n, then R is isomorphic to $\\mathbb{R}$.",
+    "formal_statement": "import Mathlib\n\n/--\nShow that if $R$ is a unique factorization domain such that the quotient field of $R$ is isomorphic\nto $\\mathbb{R}$, then R is isomorphic to $\\mathbb{R}$.\n-/\ntheorem isomorphic_real_of_fractionRing_isomorphic_real_of_UFD (R : Type) [CommRing R] [IsDomain R]\n    [UniqueFactorizationMonoid R] (h : Nonempty ((FractionRing R) ≃+* ℝ)) :\n    Nonempty (R ≃+* ℝ) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 15,
+    "informal_statement": "Let $p,q,r$ be three distinct prime numbers, $t$ a positive integer. Let $G$ be a finite group, $H$ a normal subgroup of $G$ such that the cardinality of $G/H$ is $r^{t}$. Suppose that there exists a composition series\n    \\[\n\\{e\\} = H_0 \\triangleleft H_1 \\triangleleft \\cdots \\triangleleft H_n = H,\n\\]\nof $H$ that satisfies $n=2$, $H_1/H_0 = \\mathbb{Z}/p\\mathbb{Z}$, $H_2/H_1 = \\mathbb{Z}/q\\mathbb{Z}$. Further suppose that there exists a composition series\n\\[\n\\{e\\} = G_0 \\triangleleft G_1 \\triangleleft \\cdots \\triangleleft G_n = G,\n\\]\nand positive integers $i<j\\leq n$ such that $G_{i}/G_{i-1} = \\mathbb{Z}/q\\mathbb{Z}$, $G_{j}/G_{j-1} = \\mathbb{Z}/p\\mathbb{Z}$. Show that there exists a composition series\n    \\[\n\\{e\\} = H_0 \\triangleleft H_1 \\triangleleft \\cdots \\triangleleft H_n = H,\n\\]\nof $H$ that satisfies $n=2$, $H_1/H_0 = \\mathbb{Z}/q\\mathbb{Z}$, $H_2/H_1 = \\mathbb{Z}/p\\mathbb{Z}$.",
+    "formal_statement": "import Mathlib\n\n/--\nA subgroup `H₁` is a maximal normal subgroup of `H₂` if it is contained in `H₂`,\nand `H₁` is maximal normal in `H₂`.\n-/\nstructure Subgroup.IsMaximalNormal {G : Type} [Group G] (H₁ H₂ : Subgroup G) : Prop where\n  le : H₁ ≤ H₂\n  subgroupOf_normal : (H₁.subgroupOf H₂).Normal\n  is_maximal : ∀ H : Subgroup G, H₁ ≤ H → H ≤ H₂ → (H.subgroupOf H₂).Normal → (H = H₁ ∨ H = H₂)\n\n/--\nA normal subgroup composition series of a group `G` is a *maximal* finite chain of normal subgroups\n\\[\n\\{e\\} = G_0 \\triangleleft G_1 \\triangleleft \\cdots \\triangleleft G_n = G\n\\]\nsuch that each quotient `G_{i+1}/G_i` is a simple group.\n-/\nstructure NormalSubgroupCompositionSeries (G : Type) [Group G] : Type where\n  toRelSeries : RelSeries (Subgroup.IsMaximalNormal (G := G))\n  maximal : ∀ s : RelSeries (Subgroup.IsMaximalNormal (G := G)), s.length ≤ toRelSeries.length\n\n/--\nThe \\(i\\)-th factor of a normal subgroup composition series, which is the quotient of the \\(i + 1\\)-th\nsubgroup by the previous one.\n-/\ndef StepwiseQuotient {G : Type} [Group G] (s : NormalSubgroupCompositionSeries G) (i : Fin s.toRelSeries.length) :\n    Type :=\n  s.toRelSeries i.succ ⧸ (s.toRelSeries i.castSucc).subgroupOf _\n\n/--\nThe \\(i\\)-th factor of a normal subgroup composition series is a group.\n-/\ninstance {G : Type} [Group G] (s : NormalSubgroupCompositionSeries G) (i : Fin s.toRelSeries.length) :\n    Group (StepwiseQuotient s i) := QuotientGroup.Quotient.group _ (nN := (s.toRelSeries.step i).subgroupOf_normal)\n\n/--\nLet $p,q,r$ be three distinct prime numbers, $t$ a positive integer. Let $G$ be a finite group,\n$H$ a normal subgroup of $G$ such that the cardinality of $G/H$ is $r^{t}$.\nSuppose that there exists a composition series\n\\[\n\\{e\\} = H_0 \\triangleleft H_1 \\triangleleft \\cdots \\triangleleft H_n = H,\n\\]\nof $H$ that satisfies $n=2$, $H_1/H_0 = \\mathbb{Z}/p\\mathbb{Z}$,\n$H_2/H_1 = \\mathbb{Z}/q\\mathbb{Z}$. Further suppose that there exists a composition series\n\\[\n\\{e\\} = G_0 \\triangleleft G_1 \\triangleleft \\cdots \\triangleleft G_n = G,\n\\]\nand positive integers $i < j\\leq n$ such that $G_{i}/G_{i-1} = \\mathbb{Z}/q\\mathbb{Z}$,\n$G_{j}/G_{j-1} = \\mathbb{Z}/p\\mathbb{Z}$. Show that there exists a composition series\n\\[\n\\{e\\} = H_0 \\triangleleft H_1 \\triangleleft \\cdots \\triangleleft H_n = H,\n\\]\nof $H$ that satisfies $n=2$, $H_1/H_0 = \\mathbb{Z}/q\\mathbb{Z}$,\n$H_2/H_1 = \\mathbb{Z}/p\\mathbb{Z}$.\n-/\ntheorem exists_swap_stepwiseQuotient {p q r t : ℕ} (hp : p.Prime) (hq : q.Prime) (hr : r.Prime)\n    (ht : 0 < t) (G : Type) [Group G] [Fintype G] (H : Subgroup G) [H.Normal]\n    (hH : Nat.card (G ⧸ H) = r ^ t) (Hs : NormalSubgroupCompositionSeries H)\n    (hHs: Hs.toRelSeries.length = 2) (hHs0 : StepwiseQuotient Hs ⟨0, by omega⟩ ≃* ZMod p)\n    (hHs1 : StepwiseQuotient Hs ⟨1, by omega⟩ ≃* ZMod q)\n    (Gs : NormalSubgroupCompositionSeries G) (i j : Fin Gs.toRelSeries.length) (hij : i < j)\n    (hGi : StepwiseQuotient Gs i ≃* ZMod q) (hGj : StepwiseQuotient Gs j ≃* ZMod p) :\n    ∃ (Hs' : NormalSubgroupCompositionSeries H) (hlen : Hs'.toRelSeries.length = 2),\n    Nonempty (StepwiseQuotient Hs' ⟨0, by omega⟩  ≃* ZMod q) ∧\n    Nonempty (StepwiseQuotient Hs' ⟨1, by omega⟩  ≃* ZMod p) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 16,
+    "informal_statement": "Let $p$ be a prime and let $F$ be a field. Let $K$ be a finite Galois extension of $F$ whose Galois group is a $p$-group (i.e., the degree $[K : F]$ is a power of $p$). Such an extension is called a \\emph{$p$-extension} (note that $p$-extensions are Galois by definition). Let $L$ be a $p$-extension of $K$. Prove that the Galois closure of $L$ over $F$ is a $p$-extension of $F$.",
+    "formal_statement": "import Mathlib\n\n/--\nA Galois extension such that the degree of the extension is a power of a prime \\( p \\) is\ncalled a p-extension.\n-/\nclass IsPExtension (F E : Type) [Field F] [Field E] [Algebra F E]\n    (p : ℕ) : Prop extends IsGalois F E where\n    rank_eq_pow : ∃ (n : ℕ), Module.rank F E = p ^ n\n\n/--\nLet $p$ be a prime and let $F$ be a field.\nLet $K$ be a finite Galois extension of $F$ whose Galois group is a $p$-group (i.e., the degree\n$[K : F]$ is a power of $p$). Such an extension is called a \\emph{$p$-extension} (note that\n$p$-extensions are Galois by definition). Let $L$ be a $p$-extension of $K$. Prove that the\nGalois closure of $L$ over $F$ is a $p$-extension of $F$.\n-/\ntheorem normalClosure_isPExtension_of_isPExtension (F E : Type) [Field F] [Field E]\n    [Algebra F E] (L : IntermediateField F E) (K : IntermediateField F L) (p : ℕ) (hp : p.Prime)\n    [IsPExtension F K p] [IsGalois K L] [IsPExtension K L p]\n    (h_normalClosure : IsNormalClosure F L E) : IsPExtension F E p := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Explicit Computations"
+    ]
+  },
+  {
+    "id": 17,
+    "informal_statement": "Let $K$ be a subfield of $\\mathbb{C}$ maximal with respect to the property that $\\sqrt 2 \\notin K$. Deduce that $[\\mathbb{C} : K]$ is countable (and not finite).",
+    "formal_statement": "import Mathlib\n\n/--\nLet $K$ be a subfield of $\\mathbb{C}$ maximal with respect to the property that $\\sqrt 2 \\notin K$.\nDeduce that $[\\mathbb{C} : K]$ is countable (and not finite).\n-/\ntheorem countable_index_of_maximal_subfield_sqrt_2_nmem\n    (K : Subfield ℂ) (h_nmem : (Real.sqrt 2 : ℂ) ∉ K)\n    (h : ∀ (L : Subfield ℂ), K ≤ L → (Real.sqrt 2 : ℂ) ∉ L → K = L) :\n    Module.rank K ℂ = Cardinal.aleph0 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 18,
+    "informal_statement": "Let \\( E \\) be a subfield of \\( \\mathbb{R} \\) and let \\( K/E \\) be a finite Galois extension of odd degree \\( > 1 \\). Prove that \\( K \\) cannot be \\( E \\)-embedded into a radical tower that is a subfield of \\( \\mathbb{R} \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( E \\) be a commutative ring, \\( F \\) be an \\( E \\)-algebra, then we say \\( F \\) is\na radical extension over \\( E \\), if \\( F \\) is generated by a single element \\( x \\in F \\) over \\( E \\)\nsuch that \\( x ^ n - e = 0 \\) for some \\( e \\in E \\).\n-/\ndef IsRadicalExtension (E F : Type) [CommRing E] [CommRing F] [Algebra E F] : Prop :=\n    ∃ (x : F), Algebra.adjoin E {x} = ⊤ ∧ (∃ (n : ℕ) (e : E), n ≥ 1 ∧ x ^ n - (algebraMap E F) e = 0)\n\n/--\nAn algebra is said to be a radical tower over the base ring if it can be written as\ncomposition of radical extensions.\n-/\ninductive IsRadicalTower : ∀ (E : Type) (F : Type) [CommRing E] [CommRing F] [Algebra E F], Prop\n  | of_isRadicalExtension (E : Type) (F : Type)\n      [CommRing E] [CommRing F] [Algebra E F] : IsRadicalExtension E F → IsRadicalTower E F\n  | of_composition (E : Type) (F : Type) [CommRing E] [CommRing F] [Algebra E F] (F' : Subalgebra E F) :\n      IsRadicalExtension F' F → IsRadicalTower E F' → IsRadicalTower E F\n\n/--\nLet \\( E \\) be a subfield of \\( \\mathbb{R} \\) and let \\( K/E \\) be a finite Galois extension of odd degree \\( > 1 \\).\nProve that \\( K \\) cannot be \\( E \\)-embedded into a radical tower that is a subfield of \\( \\mathbb{R} \\).\n-/\ntheorem isEmpty_embedding_intermediateField_of_odd_degree_galois (E : Subfield ℝ) (K : Type)\n    [Field K] [Algebra E K] [IsGalois E K] (n : ℕ) (h_odd : Odd n) (hn : n > 1) (h_deg_eq : Module.rank E K = n)\n    (K' : IntermediateField E ℝ) (h_radical : IsRadicalTower E K') :\n    IsEmpty (K →ₐ[E] K') := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 19,
+    "informal_statement": "Let $\\alpha = \\sqrt{(2+\\sqrt 2)(3+\\sqrt 3)}$ and consider the extension $E =\\mathbb{Q}(\\alpha)$. Show that $\\mathrm{Gal}(E/\\mathbb{Q}) \\cong Q_8$, the quaternion group of order $8$.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $E$ denote the algebra $\\mathbb{Q}(\\sqrt{(2+\\sqrt 2)(3+\\sqrt 3)})\n-/\nabbrev E : Type := (Algebra.adjoin ℚ {Real.sqrt ((2 + Real.sqrt 2) * (3 + Real.sqrt 3))})\n\n/--\nLet $\\alpha = \\sqrt{(2+\\sqrt 2)(3+\\sqrt 3)}$ and consider the extension $E =\\mathbb{Q}(\\alpha)$.\nShow that $\\mathrm{Gal}(E/\\mathbb{Q}) \\cong Q_8$, the quaternion group of order $8$.\n-/\ntheorem galoisGroup_iso_quaternion_group : Nonempty ((E ≃ₐ[ℚ] E) ≃* (QuaternionGroup 2)) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Algebraic Number Theory and Valuation Theory"
+    ]
+  },
+  {
+    "id": 20,
+    "informal_statement": "Let $p$ be a prime number. Let $L/K$ be a finite extension of fields of characteristic $p$, and let $\\sigma:x\\mapsto x^p$ denote the $p$-Frobenius endomorphism on $L$, which of course stabilizes $K$. Prove that if $[L:K\\sigma(L)] \\leq p$, then $L/K$ can be generated by one element.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $p$ be a prime number. Let $L/K$ be a finite extension of fields of characteristic $p$,\nand let $\\sigma:x\\mapsto x^p$ denote the $p$-Frobenius endomorphism on $L$, which of course stabilizes $K$.\nProve that if $[L:K\\sigma(L)] \\leq p$, then $L/K$ can be generated by one element.\n-/\ntheorem generated_single_elem_of_degree_le_p (p : ℕ) [Fact (Nat.Prime p)]\n    (K L : Type) [Field K] [Field L] [CharP L p] [Algebra K L] [FiniteDimensional K L]\n    (h : Module.rank (IntermediateField.adjoin K ((frobenius L p).range : Set L)) L ≤ p) :\n    ∃ (x : L), IntermediateField.adjoin K {x} = ⊤ := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 21,
+    "informal_statement": "Let $F$ be a field and let $f(x) \\in F[x]$ be an irreducible polynomial. Suppose that $K$ is a splitting field for $f(x)$ over $F$ and assume that there exists an element $\\alpha \\in K$ such that both $\\alpha$ and $\\alpha+1$ are roots of $f(x)$. Prove that there exists an intermediate field $E$ between $K$ and $F$ such that $[K:E]$ is equal to the characteristic of $F$. (In particular, the characteristic of $F$ is not zero)",
+    "formal_statement": "import Mathlib\n\nopen Polynomial\n\n/--\nLet $F$ be a field and let $f(x) \\in F[x]$ be an irreducible polynomial.\nSuppose that $K$ is a splitting field for $f(x)$ over $F$ and assume that there exists an element\n$\\alpha \\in K$ such that both $\\alpha$ and $\\alpha+1$ are roots of $f(x)$.\nProve that there exists an intermediate field $E$ between $K$ and $F$ such that $[K:E]$\nis equal to the characteristic of $F$. (In particular, the characteristic of $F$ is not zero)\n-/\ntheorem intermediateField_rank_eq_ringChar (F : Type) [Field F] (f : Polynomial F) (hf : Irreducible f)\n    (K : Type) [Field K] [Algebra F K] (hK : f.IsSplittingField F K) (α : K)\n    (hα : f.aeval α = 0) (hα1 : f.aeval (α + 1) = 0) :\n    ∃ (E : IntermediateField F K), Module.rank E K = ringChar F := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 22,
+    "informal_statement": "Let $F$ be a field with $\\mathbb{Q} \\subseteq F \\subseteq \\mathbb{C}$, where $F/\\mathbb{Q}$ is a finite \\emph{abelian} Galois extension. Prove that $F$ contains only finitely many algebraic integers (i.e. elements in $F$ whose minimal polynomial over $\\mathbb{Q}$ have coefficients in $\\mathbb{Z}$) having absolute value $1$, and each of the algebraic integers is a root of unity.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $F$ be a field with $\\mathbb{Q} \\subseteq F \\subseteq \\mathbb{C}$, where $F/\\mathbb{Q}$\nis a finite \\emph{abelian} Galois extension. Prove that $F$ contains only finitely many algebraic integers\n(i.e. elements in $F$ whose minimal polynomial over $\\mathbb{Q}$ have coefficients in $\\mathbb{Z}$) having absolute value $1$,\nand each of the algebraic integers is a root of unity.\n-/\ntheorem finite_algebraic_integers_of_finite_module\n    (F : IntermediateField ℚ ℂ) (h_fin : Module.Finite ℚ F) [IsGalois ℚ F]\n    (h : IsMulCommutative (F ≃ₐ[ℚ] F)) : {x : F | IsIntegral ℤ x ∧ ‖(x : ℂ)‖ = 1}.Finite ∧\n    (∀ x : F, IsIntegral ℤ x → ‖(x : ℂ)‖ = 1 → ∃ n,  x ^ n = 1) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 23,
+    "informal_statement": "Let $f(X)\\in\\mathbb{Z}[X]$ be an irreducible polynomial, $n_p$ is the number of solutions of $f(X)$ in $\\mathbb{F}_p$, show that $$\\lim\\limits_{s\\rightarrow 1^{+}}\\frac{\\sum\\limits_{p\\textbf{ prime}}\\frac{n_p}{p^s}}{\\sum\\limits_{p\\textbf{ prime}}\\frac{1}{p^s}}=1$$.",
+    "formal_statement": "import Mathlib\n\nlocal instance (p : Nat.Primes) : NeZero p.1 := ⟨p.2.ne_zero⟩\nlocal instance (p : Nat.Primes) : IsDomain (ZMod p) := @ZMod.instIsDomain p ⟨p.2⟩\n\n/--\nLet $f(X)\\in\\mathbb{Z}[X]$ be an irreducible polynomial, $n_p$ is the number of solutions of $f(X)$ in $\\mathbb{F}_p$,\nshow that $$\\lim\\limits_{s\\rightarrow 1^{+}}\\frac{\\sum\\limits_{p\\textbf{ prime}}\\frac{n_p}{p^s}}{\\sum\\limits_{p\\textbf{ prime}}\\frac{1}{p^s}}=1$$.\n-/\ntheorem ratio_tendsto_one_of_irreducible (f : Polynomial ℤ) (h_irr : Irreducible f) :\n    Function.rightLim\n    (fun (s : ℝ) ↦\n    (tsum (fun p : Nat.Primes ↦ (f.rootSet (ZMod p)).ncard * ((p : ℝ) ^ (-s)))) /\n    (tsum (fun p : Nat.Primes ↦ (p : ℝ) ^ (-s)))) 1 = 1 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 24,
+    "informal_statement": "Let $p_1, \\dots, p_r$ be $r$ different prime numbers. Prove that the Galois group of $K =\\mathbb{Q}(\\sqrt{p_1}, \\dots, \\sqrt{p_r})$ over $\\mathbb{Q}$ is $(\\mathbb{Z}/2\\mathbb{Z})^r$, here $\\mathbb{Z}/2\\mathbb{Z}$ is the cyclic group of order 2.",
+    "formal_statement": "import Mathlib\n\n/--\nThe field $K = \\mathbb{Q}(\\sqrt{p_1}, \\dots, \\sqrt{p_r})$\nfor a finite list of integers $p_1, \\dots, p_r$.\n-/\nabbrev RatAdjoinSqrt {I : Type} (p : I → ℕ) : Type :=\n  Algebra.adjoin ℚ (Set.range (fun i ↦ Real.sqrt (p i)))\n\n/--\nLet $p_1, \\dots, p_r$ be $r$ different prime numbers.\nProve that the Galois group of $K =\\mathbb{Q}(\\sqrt{p_1}, \\dots, \\sqrt{p_r})$ over $\\mathbb{Q}$\nis $(\\mathbb{Z}/2\\mathbb{Z})^r$, here $\\mathbb{Z}/2\\mathbb{Z}$ is the cyclic group of order 2.\n-/\ntheorem galoisGroup_iso_of_distinct_primes {I : Type} [Finite I] (p : I → ℕ)\n    (hp : ∀ (i : I), (p i).Prime) (h_inj : p.Injective) :\n    Nonempty ((RatAdjoinSqrt p ≃ₐ[ℚ] RatAdjoinSqrt p) ≃* (Multiplicative (I → (ZMod 2)))) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
+    ]
+  },
+  {
+    "id": 25,
+    "informal_statement": "Prove that the automorphism group of $\\mathbb{F}_2(t)$ is isomorphic to $S_3$, and its fixed field is $\\mathbb{F}_2(u)$ with $$u = \\frac{(t^4-t)^3}{(t^2-t)^5} = \\frac{(t^2+t+1)^3}{(t^2-t)^2}$$.",
+    "formal_statement": "import Mathlib\n\n/--\nProve that the automorphism group of $\\mathbb{F}_2(t)$ is isomorphic to $S_3$, and its fixed field is\n$\\mathbb{F}_2(u)$ with $$u = \\frac{(t^4-t)^3}{(t^2-t)^5} = \\frac{(t^2+t+1)^3}{(t^2-t)^2}$$.\n-/\ntheorem fixedField_eq_algebra_adjoin :\n    Nonempty ((RatFunc (ZMod 2) ≃+* RatFunc (ZMod 2)) ≃* (Equiv.Perm (Fin 3))) ∧\n    IntermediateField.fixedField (F := ZMod 2) (E := RatFunc (ZMod 2)) ⊤ =\n    IntermediateField.adjoin (ZMod 2) {((.X ^ 4 - .X) ^ 3 / (.X ^ 2 - .X) ^ 5 : (RatFunc (ZMod 2)))} := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
+    ]
+  },
+  {
+    "id": 26,
+    "informal_statement": "Let $K/\\mathbb{Q}$ be a finite extension. Let $H$ be a closed subgroup of the absolute Galois group $G(K)$ of $K$. If $H$ is finite, then the cardinality of $H$ is either one or two.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $K/\\mathbb{Q}$ be a finite extension.\nLet $H$ be a closed subgroup of the absolute Galois group $G(K)$ of $K$.\nIf $H$ is finite, then the cardinality of $H$ is either one or two.\n-/\ntheorem card_one_or_two_of_finite_closed_subgroup_of_absoluteGaloisGroup\n    (K : Type) [Field K] [Algebra ℚ K] [Module.Finite ℚ K]\n    (H : Subgroup (Field.absoluteGaloisGroup K))\n    (h_closed : IsClosed (H : Set (Field.absoluteGaloisGroup K)))\n    (h_fin : Finite H) : Nat.card H = 1 ∨ Nat.card H = 2 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
+    ]
+  },
+  {
+    "id": 27,
+    "informal_statement": "Let $p$ be a prime number. Let $K/\\mathbb{Q}$ be a finite extension, such that the $p^{2}$th root of unity is contained in $K$. Let $L/K$ be a Galois extension of degree $p$, show that there exists a Galois extension $L'/L$ of degree $p$, such that the extension $L'/K$ is Galois.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $p$ be a prime number. Let $K/\\mathbb{Q}$ be a finite extension, such that the $p^{2}$th root of unity is contained in $K$.\nLet $L/K$ be a Galois extension of degree $p$, show that there exists a Galois extension $L'/L$ of degree $p$,\nsuch that the extension $L'/K$ is Galois.\n-/\ntheorem isGalois_and_rank_eq_of_isPrimitiveRoot_sq (p : ℕ) (hp : p.Prime) {K : Type} [Field K]\n    [NumberField K] {ζ : K} (h : IsPrimitiveRoot ζ (p^2))\n    {L : IntermediateField K (AlgebraicClosure K)} [IsGalois K L]\n    (hdeg : Module.rank K L = p) :\n    ∃ (L' : Type) (_ : Field L') (_ : Algebra K L')\n    (_ : Algebra L L') (_ : IsScalarTower K L L'),\n    IsGalois K L' ∧ IsGalois L L' ∧ Module.rank L L' = p := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
+    ]
+  },
+  {
+    "id": 28,
+    "informal_statement": "Let $K/\\mathbb{Q}$ be a finite extension. Let $g$ be a nontrivial element of the absolute Galois group $G(K)$ of $K$. Show that $g$ admits an infinite number of conjugates.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $K/\\mathbb{Q}$ be a finite extension.\nLet $g$ be a nontrivial element of the absolute Galois group $G(K)$ of $K$.\nShow that $g$ admits an infinite number of conjugates.\n-/\ntheorem infinite_conj_of_ne_1_absoluteGaloisGroup (K : Type)\n    [Field K] [Algebra ℚ K] [Module.Finite ℚ K] (g : Field.absoluteGaloisGroup K) (h : g ≠ 1) :\n    {g' : Field.absoluteGaloisGroup K | IsConj g g'}.Infinite := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 29,
+    "informal_statement": "Let $K/\\mathbb{Q}$ be a finite extension. Let $g$ be an element of the absolute Galois group $G(K)$ of $K$. Show that the subgroup generated by $g$ is closed in $G(K)$ if and only if $g$ is torsion.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $K/\\mathbb{Q}$ be a finite extension. Let $g$ be an element of the absolute Galois group $G(K)$ of $K$.\nShow that the subgroup generated by $g$ is closed in $G(K)$ if and only if $g$ is torsion.\n-/\ntheorem isClosed_zpowers_iff_isOfFinOrder (K : Type)\n    [Field K] [Algebra ℚ K] [Module.Finite ℚ K] (g : Field.absoluteGaloisGroup K) :\n    IsClosed ((Subgroup.zpowers g) : Set (Field.absoluteGaloisGroup K)) ↔ IsOfFinOrder g := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 30,
+    "informal_statement": "Let \\( A \\) be a subring of a ring \\( B \\), such that the set \\( B \\setminus A \\) is closed under multiplication. Show that \\( A \\) is integrally closed in \\( B \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( A \\) be a subring of a ring \\( B \\), such that the set \\( B \\setminus A \\) is closed under multiplication.\nShow that \\( A \\) is integrally closed in \\( B \\).\n-/\ntheorem integrallyClosedIn_of_complement_multiplicatively_closed (B : Type) [CommRing B] (A : Subring B)\n    (h : ∀ (x y : B), x ∉ A → y ∉ A → x * y ∉ A) : IsIntegrallyClosedIn A B := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
+    ]
+  },
+  {
+    "id": 31,
+    "informal_statement": "Let \\( R = \\mathbb{C}[x_1, \\dots, x_n]/(x_1^2 + x_2^2 + \\dots + x_n^2) \\). Then \\( R \\) is a unique factorization domain for \\(n \\geq 5 \\).",
+    "formal_statement": "import Mathlib\n\nopen MvPolynomial\n\n/--\nLet \\( R = \\mathbb{C}[x_1, \\dots, x_n]/(x_1^2 + x_2^2 + \\dots + x_n^2) \\).\n-/\nabbrev R (n : ℕ) : Type :=\n  MvPolynomial (Fin n) ℂ ⧸ Ideal.span {(∑ i : Fin n, X i ^ 2 : MvPolynomial (Fin n) ℂ)}\n\n/--\nLet \\( R = \\mathbb{C}[x_1, \\dots, x_n]/(x_1^2 + x_2^2 + \\dots + x_n^2) \\).\nThen \\( R \\) is a unique factorization domain for \\( n \\geq 5 \\).-/\ntheorem UFD_of_ge_5 (n : ℕ) (h : n ≥ 5) :\n    ∃ (h : IsDomain (R n)), UniqueFactorizationMonoid (R n) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 32,
+    "informal_statement": "Let \\( A \\) be a Noetherian local ring such that its completion \\( \\widehat{A} \\) is a unique factorization domain. Then \\( A \\) is a unique factorization domain.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing\n\n/--\nLet \\( A \\) be a Noetherian local ring such that its completion \\( \\widehat{A} \\) is a unique factorization domain.\nThen \\( A \\) is a unique factorization domain.-/\ntheorem UFD_of_adicCompletion_UFD (R : Type) [CommRing R] [IsLocalRing R] [IsNoetherianRing R]\n    [IsDomain (AdicCompletion (maximalIdeal R) R)]\n    [UniqueFactorizationMonoid (AdicCompletion (maximalIdeal R) R)] :\n    ∃ (h : IsDomain R), UniqueFactorizationMonoid R := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 33,
+    "informal_statement": "Let $A\\subset B$ be commutative rings such that $B$ is finitely generated as a module over $A$. If $B$ is a noetherian ring, show that $A$ is also a noetherian ring.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $A\\subset B$ be commutative rings such that $B$ is finitely generated as a module over $A$.\nIf $B$ is a noetherian ring, show that $A$ is also a noetherian ring.\n-/\ntheorem isNoetherianRing_of_fg_of_isNoetherianRing (B : Type) [CommRing B] [IsNoetherianRing B]\n    (A : Subring B) (h : Module.Finite A B) : IsNoetherianRing A := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Ring Theory",
+      "PID, ED and UFD"
+    ]
+  },
+  {
+    "id": 34,
+    "informal_statement": "If \\( R \\) is a valuation ring of Krull dimension \\( \\geq 2 \\), then the formal power series ring \\( R[[X]] \\) is not integrally closed.",
+    "formal_statement": "import Mathlib\n\nopen PowerSeries\n\n/--\nIf \\( R \\) is a valuation ring of Krull dimension \\( \\geq 2 \\),\nthen the formal power series ring \\( R[[X]] \\) is not integrally closed.-/\ntheorem powerSeries_not_integrallyClosed_of_two_lt_ringKrullDim (R : Type) [CommRing R]\n    [IsDomain R] [ValuationRing R] (two_lt : 2 ≤ ringKrullDim R) :\n    ¬ (IsIntegrallyClosed R⟦X⟧) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Tensor Product and Flatness"
+    ]
+  },
+  {
+    "id": 35,
+    "informal_statement": "A commutative ring whose prime ideals are finitely generated is Noetherian.",
+    "formal_statement": "import Mathlib\n\n/--\nA commutative ring whose prime ideals are finitely generated is Noetherian. -/\ntheorem noetherian_of_prime_ideals_fg (R : Type) [CommRing R]\n    (h_fg : ∀ (p : Ideal R), p.IsPrime → p.FG) : IsNoetherianRing R := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Ideals and Modules"
+    ]
+  },
+  {
+    "id": 36,
+    "informal_statement": "If \\( R \\) is Noetherian and \\( M \\) and \\( N \\) are finitely generated \\( R \\)-modules, show that\n\\[\n\\operatorname{Ass} \\operatorname{Hom}_R(M, N) = \\operatorname{Supp} M \\cap \\operatorname{Ass} N,\n\\]\nwhere \\( \\operatorname{Supp} M \\) is the set of all primes containing the annihilator of \\( M \\).",
+    "formal_statement": "import Mathlib\n\n/--\nIf \\( R \\) is Noetherian and \\( M \\) and \\( N \\) are finitely generated \\( R \\)-modules, show that\n\\[\n\\operatorname{Ass} \\operatorname{Hom}_R(M, N) = \\operatorname{Supp} M \\cap \\operatorname{Ass} N,\n\\]\nwhere \\( \\operatorname{Supp} M \\) is the set of all primes containing the annihilator of \\( M \\).-/\ntheorem associatedPrimes_hom_eq_support_inter_associatedPrimes (R : Type) [CommRing R]\n    [IsNoetherianRing R] (M N : Type) [AddCommGroup M] [AddCommGroup N] [Module R M] [Module R N]\n    [Module.Finite R M] [Module.Finite R N] : associatedPrimes R (M →ₗ[R] N) =\n    {p | p ∈ associatedPrimes R N ∧ Module.annihilator R M ≤ p} := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
+    ]
+  },
+  {
+    "id": 37,
+    "informal_statement": "Let $R=\\mathbb{C}[x_{11},x_{12},\\dots,x_{1n},x_{21},x_{22},\\dots,\nx_{2n},\\dots,x_{n1},x_{n2},\\dots,x_{nn}]/(\\det(x_{ij})-1)$,\nshow that $R$ is a unique factorization domain.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $R=\\mathbb{C}[x_{11},x_{12},\\dots,x_{1n},x_{21},x_{22},\\dots,\nx_{2n},\\dots,x_{n1},x_{n2},\\dots,x_{nn}]/(\\det(x_{ij})-1)$.\n-/\nabbrev QuotDetSubOne (n : ℕ) : Type := MvPolynomial ((Fin n) × (Fin n)) ℂ ⧸ Ideal.span {\n      Matrix.det (fun (i : Fin n) ↦ (fun (j : Fin n) ↦ (.X ⟨i, j⟩ : (MvPolynomial ((Fin n) × (Fin n)) ℂ)))) - .C 1}\n\n/--\nLet $R=\\mathbb{C}[x_{11},x_{12},\\dots,x_{1n},x_{21},x_{22},\\dots,\nx_{2n},\\dots,x_{n1},x_{n2},\\dots,x_{nn}]/(\\det(x_{ij})-1)$,\nshow that $R$ is a unique factorization domain.\n-/\ntheorem ufd_quotDetSubOne (n : ℕ) (h : n ≥ 1) : ∃ (h : IsDomain (QuotDetSubOne n)),\n    UniqueFactorizationMonoid (QuotDetSubOne n) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
+    ]
+  },
+  {
+    "id": 38,
+    "informal_statement": "Let \\( k \\) be a field, and let \\( R = k[t]/(t^2) \\). Set\n\\[\np(x) = tx^3 + tx^2 - x^2 - x \\in R[x].\n\\]\nShow that \\( S = R[x]/(p) \\) is a free \\( R \\)-module of rank \\( 2 \\).",
+    "formal_statement": "import Mathlib\n\nopen Polynomial DualNumber\n\n/--\nLet \\( k \\) be a field, and let \\( R = k[t]/(t^2) \\). Set\n\\[\np(x) = tx^3 + tx^2 - x^2 - x \\in R[x].\n\\]\nLet \\( S = R[x]/(p) \\).\n-/\nabbrev S (k : Type) [Field k] : Type := ((DualNumber k)[X] ⧸ Ideal.span {((C ε) * X^3 + (C ε) * X^2 - X^2 - X : (DualNumber k)[X])})\n\n/--\n\\(S\\) has a \\(R\\) module structure inherited from R[x].\n-/\nnoncomputable instance (k : Type) [Field k] : Module (DualNumber k) (S k) := Module.compHom _ C\n\n/--\nLet \\( k \\) be a field, and let \\( R = k[t]/(t^2) \\). Set\n\\[\np(x) = tx^3 + tx^2 - x^2 - x \\in R[x].\n\\]\nShow that \\( S = R[x]/(p) \\) is a free \\( R \\)-module of rank \\( 2 \\).\n-/\ntheorem free_dualNumber_and_rank_eq_2 (k : Type) [Field k] :\n    Module.Free (DualNumber k) (S k) ∧ Module.rank (DualNumber k) (S k) = 2 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Tensor Product and Flatness"
+    ]
+  },
+  {
+    "id": 39,
+    "informal_statement": "Let \\( R \\) be a normal Noetherian domain, \\( K \\) its fraction field, \\( L/K \\) a finite field extension, and \\( \\overline{R} \\) the integral closure of \\( R \\) in \\( L \\). Prove that only finitely many primes \\( \\mathfrak{P} \\) of \\( \\overline{R} \\) lie over a given prime \\( \\mathfrak{p} \\) of \\( R \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( R \\) be a normal Noetherian domain, \\( K \\) its fraction field, \\( L/K \\) a finite field extension,\nand \\( \\overline{R} \\) the integral closure of \\( R \\) in \\( L \\).\nProve that only finitely many primes \\( \\mathfrak{P} \\) of \\( \\overline{R} \\) lie over a given prime \\( \\mathfrak{p} \\) of \\( R \\).-/\ntheorem finite_primes_lies_over_of_finite_extension (R : Type) [CommRing R] [IsDomain R]\n    [IsNoetherianRing R] [IsIntegrallyClosed R] (L : Type) [Field L] [Algebra R L]\n    [Algebra (FractionRing R) L] [IsScalarTower R (FractionRing R) L]\n    [FiniteDimensional (FractionRing R) L] (p : Ideal R) [p.IsPrime] :\n    (p.primesOver (integralClosure R L)).Finite := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
+    ]
+  },
+  {
+    "id": 40,
+    "informal_statement": "Let $A$ be a reduced local ring with residue field $k$ and finite set $\\Sigma$ of minimal primes. For each $\\mathfrak{p}\\in\\Sigma$, set $K(\\mathfrak{p})=\\mathrm{Frac}(A/\\mathfrak{p})$. Let $P$ be a finitely generated module. Show that $P$ is free of rank $r$ if and only if $\\dim_k(P\\otimes_A k) = r$ and $\\dim_{K(\\mathfrak{p})}(P\\otimes_A K(\\mathfrak{p})) = r$ for each $\\mathfrak{p}\\in\\Sigma$.",
+    "formal_statement": "import Mathlib\n\nopen TensorProduct\n\n/--\nLet $A$ be a reduced local ring with residue field $k$ and finite set $\\Sigma$ of minimal primes.\nFor each $\\mathfrak{p}\\in\\Sigma$, set $K(\\mathfrak{p})=\\mathrm{Frac}(A/\\mathfrak{p})$.\nLet $P$ be a finitely generated module. Show that $P$ is free of rank $r$ if and only if\n$\\dim_k(P\\otimes_A k) = r$ and $\\dim_{K(\\mathfrak{p})}(P\\otimes_A K(\\mathfrak{p})) = r$ for each $\\mathfrak{p}\\in\\Sigma$.-/\ntheorem free_of_rank_iff (R : Type) [CommRing R] [IsLocalRing R] [IsReduced R]\n    (h : (minimalPrimes R).Finite) (r : ℕ) (M : Type) [AddCommGroup M] [Module R M] [Module.Finite R M] :\n    Module.Free R M ∧ Module.rank R M = r ↔\n    (Module.rank (IsLocalRing.ResidueField R) ((IsLocalRing.ResidueField R) ⊗[R] M) = r ∧\n    ∀ p ∈ minimalPrimes R,\n    Module.rank (FractionRing (R ⧸ p)) ((FractionRing (R ⧸ p)) ⊗[R] M) = r) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Regular Sequences and Regular Local Rings"
+    ]
+  },
+  {
+    "id": 41,
+    "informal_statement": "Let \\( k \\) be a field, \\( A := k[X_1, X_2, \\dots] \\) a polynomial ring, \\( m_1 < m_2 < \\cdots \\) positive integers with \\( m_{i+1} - m_i > m_i - m_{i-1} \\) for \\( i > 1 \\). Set \\[\\mathfrak{p}_i := (X_{m_i+1}, \\dots, X_{m_{i+1}})\\] and \\( S := A - \\bigcup_{i \\geq 1} \\mathfrak{p}_i \\). Show that  \\( S^{-1}A \\) is noetherian with infinite krull dimension.",
+    "formal_statement": "import Mathlib\n\n/--\nThe multiplicative subset generated by elements\nnot in a given family of ideals.\n-/\ndef compl_all {α R : Type} [CommRing R] (I : α → Ideal R) : Submonoid R :=\n  Submonoid.closure (⋃ (i : α), (I i : Set R))ᶜ\n\n/--\nThe ideal generated by a set of single\nvariables in a multivariate polynomial ring.\n-/\ndef ideal_x {α : Type} (R : Type) [CommRing R] (J : Set α) : Ideal (MvPolynomial α R) :=\n  Ideal.span ((MvPolynomial.X)'' J)\n\n/--\nLet \\( A := k[X_1, X_2, \\dots] \\).\nSet \\[\\mathfrak{p}_i := (X_{m_i+1}, \\dots, X_{m_{i+1}})\\] and\n\\( S := A - \\bigcup_{i \\geq 1} \\mathfrak{p}_i \\).\nThis is the ring  \\( S^{-1}A \\).\n-/\nabbrev SInvA (k : Type) [Field k] (m : ℕ → ℕ) : Type := (Localization (compl_all fun (n : ℕ) ↦ ideal_x k (Set.Ioc (m n) (m (n + 1)))))\n\n/--\nLet \\( k \\) be a field, \\( A := k[X_1, X_2, \\dots] \\) a polynomial ring, \\( m_1 < m_2 < \\cdots \\) positive integers\nwith \\( m_{i+1} - m_i > m_i - m_{i-1} \\) for \\( i > 1 \\).\nSet \\[\\mathfrak{p}_i := (X_{m_i+1}, \\dots, X_{m_{i+1}})\\] and \\( S := A - \\bigcup_{i \\geq 1} \\mathfrak{p}_i \\).\nShow that  \\( S^{-1}A \\) is noetherian with infinite krull dimension.\n-/\ntheorem isNoetherianRing_and_krullDim_eq_top (k : Type) [Field k] (m : ℕ → ℕ) (h : StrictMono m) (h_diff_mono : StrictMono (fun (i : ℕ) ↦ m (i + 1) - m i)) :\n    IsNoetherianRing (SInvA k m) ∧\n    ringKrullDim (SInvA k m) = ⊤ := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Tensor Product and Flatness"
+    ]
+  },
+  {
+    "id": 42,
+    "informal_statement": "Let \\(k\\) be any field. Suppose that \\(A = k[[x,y]]/(f)\\) and \\(B = k[[u,v]]/(g)\\), where \\(f = xy\\) and \\(g = uv + \\delta\\) with \\(\\delta \\in (u,v)^{3}\\). Show that \\(A\\) and \\(B\\) are isomorphic.",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\(k\\) be any field. Suppose that \\(A = k[[x,y]]/(f)\\) and \\(B = k[[u,v]]/(g)\\),\nwhere \\(f = xy\\) and \\(g = uv + \\delta\\) with \\(\\delta \\in (u,v)^{3}\\). Show that \\(A\\) and \\(B\\) are isomorphic.\n-/\ntheorem nonEmpty_ringEquiv_of_sub_in_cube (k : Type) [Field k]\n    (g : MvPowerSeries (Fin 2) k) (hg : g - .X 0 * .X 1 ∈ (Ideal.span {MvPowerSeries.X 0, .X 1}) ^ 3) :\n    Nonempty (((MvPowerSeries (Fin 2) k) ⧸ Ideal.span {(.X 0 * .X 1 : (MvPowerSeries (Fin 2) k))}) ≃+*\n    ((MvPowerSeries (Fin 2) k) ⧸ Ideal.span {g})) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Tensor Product and Flatness"
+    ]
+  },
+  {
+    "id": 43,
+    "informal_statement": "Let $A$ be a reduced Noetherian local ring, $\\mathrm{Char}\\ A = p$. Show that the absolute Frobenius $F_A\\colon A\\to A, a\\mapsto a^p$ is flat if and only if $A$ is regular.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing\n\n/-- A commutative local noetherian ring $R$ is regular if $\\dim m/m^2 = \\dim R$. -/\nclass IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R\n\n/--\nLet $A$ be a reduced Noetherian local ring, $\\mathrm{Char}\\ A = p$.\nShow that the absolute Frobenius $F_A\\colon A\\to A, a\\mapsto a^p$ is flat if and only if $A$ is regular.-/\ntheorem IsRegularLocalRing.frobenius_flat {A : Type} [CommRing A] [IsNoetherianRing A]\n    [IsLocalRing A] [IsReduced A] (p : ℕ) [Fact p.Prime] [CharP A p] :\n    (frobenius A p).Flat ↔ IsRegularLocalRing A := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Ideals and Modules"
+    ]
+  },
+  {
+    "id": 44,
+    "informal_statement": "Let \\( k \\) be a field, and set \\( A = k[X, Y, Z]/(X^2 - Y^2, Y^2 - Z^2, XY, YZ, ZX) \\). Show that \\( A \\) is not a global complete intersection.",
+    "formal_statement": "import Mathlib\n\nopen MvPolynomial\n\n/-- Let $k$ be a field. Let $S$ be a finite type $k$-algebra. We say that $S$ is a\n  \\textit{global complete intersection over $k$} if there exists a presentation\n  $S = k[x_1, \\dots, x_n]/(f_1, \\dots, f_c)$ such that $\\dim(S) = n - c$. -/\nclass IsGlobalCompleteIntersection (k : Type) [Field k] (S : Type) [CommRing S] [Algebra k S] :\n    Prop extends Algebra.FiniteType k S where\n  isGlobalCompleteIntersection : ∃ n : ℕ, ∃ rs : List (MvPolynomial (Fin n) k),\n    Nonempty (S ≃ₐ[k] (MvPolynomial (Fin n) k) ⧸ Ideal.ofList rs) ∧ ringKrullDim S + rs.length = n\n\n/--\nLet \\( k \\) be a field, and set \\( A = k[X, Y, Z]/(X^2 - Y^2, Y^2 - Z^2, XY, YZ, ZX) \\).\nShow that \\( A \\) is not a global complete intersection. -/\ntheorem quot_x2_sub_y2_y2_sub_z2_xy_yz_zx_not_global_complete_intersection (k : Type) [Field k] :\n    ¬ IsGlobalCompleteIntersection k (MvPolynomial (Fin 3) k ⧸ Ideal.span\n    ({(X 0)^ 2 - (X 1)^2, (X 1)^2 - (X 2)^2, (X 0) * (X 1), (X 1) * (X 2), (X 2) * (X 0)} :\n    Set (MvPolynomial (Fin 3) k))) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Completions and Hensel's lemma"
+    ]
+  },
+  {
+    "id": 45,
+    "informal_statement": "Let $k$ be a field and $A = k[x_1, \\dots, x_r]$ the polynomial ring in $r$ variables. Let $M$ be a graded module over $A$, and let\n\\[\n0 \\to K \\to L_{r-1} \\to \\cdots \\to L_0 \\to M \\to 0\n\\]\nbe an exact sequence of graded homomorphisms of graded modules, such that $L_0, \\dots, L_{r-1}$ are free. Then $K$ is free. {Gradings of modules are by $\\mathbb{Z}_{\\geq 0}$.}",
+    "formal_statement": "import Mathlib\n\n/--\nA linear map `f` between graded modules is a graded homomorphism if it respects the\ngrading structure.\n-/\ndef IsGradedHom {R M N ι : Type} [CommRing R] [AddCommGroup M] [AddCommGroup N]\n    [Module R M] [Module R N] (𝓜 : ι → Submodule R M) (𝒩 : ι → Submodule R N)\n    (f : M →ₗ[R] N) : Prop := ∀ (i : ι) (x : 𝓜 i), f x ∈ 𝒩 i\n\n/--\nLet $k$ be a field and $A = k[x_1, \\dots, x_r]$ the polynomial ring in $r$ variables. Let $M$ be a graded module over $A$, and let\n\\[\n0 \\to K \\to L_{r-1} \\to \\cdots \\to L_0 \\to M \\to 0\n\\]\nbe an exact sequence of graded homomorphisms of graded modules, such that $L_0, \\dots, L_{r-1}$ are free. Then $K$ is free. {Gradings of modules are by $\\mathbb{Z}_{\\geq 0}$.}\n-/\ntheorem free_of_free_resolution {k : Type} [Field k] {r : ℕ}\n    (C : ChainComplex (ModuleCat.{0} (MvPolynomial (Fin r) k)) ℕ)\n    (hC : ∀ (n : ℕ), n > (r + 1) → CategoryTheory.Limits.IsZero (C.X n))\n    (𝓜 : ∀ (n : ℕ), (ℕ → Submodule (MvPolynomial (Fin r) k) (C.X n)))\n    [hM : ∀ (n : ℕ), DirectSum.Decomposition (𝓜 n)]\n    [hM' : ∀ (n : ℕ), SetLike.GradedSMul (MvPolynomial.homogeneousSubmodule (Fin r) k) (𝓜 n)]\n    (h_exact : C.Acyclic)\n    (h_gr : ∀ (i j : ℕ), IsGradedHom (𝓜 i) (𝓜 j) (C.d i j).hom)\n    (h_free : ∀ (n : ℕ), 1 ≤ n ∧ n ≤ r → Module.Free (MvPolynomial (Fin r) k) (C.X n)) :\n    Module.Free (MvPolynomial (Fin r) k) (C.X (r + 1)) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Completions and Hensel's lemma"
+    ]
+  },
+  {
+    "id": 46,
+    "informal_statement": "Let \\(M\\) be an \\(R\\)-module. Then \\(M\\) is flat if and only if the following condition holds: if \\(P\\) is a finitely presented \\(R\\)-module and \\(f: P \\to M\\) a \\(R\\)-linear map, then there is a free finite \\(R\\)-module \\(F\\) and module maps \\(h: P \\to F\\) and \\(g: F \\to M\\) such that \\(f = g \\circ h\\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\(M\\) be an \\(R\\)-module. Then \\(M\\) is flat if and only if the following condition holds:\nif \\(P\\) is a finitely presented \\(R\\)-module and \\(f: P \\to M\\) a \\(R\\)-linear map,\nthen there is a free finite \\(R\\)-module \\(F\\) and module maps \\(h: P \\to F\\) and \\(g: F \\to M\\) such that \\(f = g \\circ h\\).\n-/\ntheorem module_flat_iff (R : Type) [CommRing R] (M : Type) [AddCommGroup M] [Module R M] :\n    Module.Flat R M ↔\n    ∀ P : Type, ∀ (_ : AddCommGroup P), ∀ (_ : Module R P), ∀ f : P →ₗ[R] M, Module.FinitePresentation R P →\n      ∃ (F : Type) (_ : AddCommGroup F) (_ : Module R F), Module.Finite R F ∧ Module.Free R F ∧\n      ∃ h : P →ₗ[R] F, ∃ g : F →ₗ[R] M, f = g.comp h := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Ideals and Modules"
+    ]
+  },
+  {
+    "id": 47,
+    "informal_statement": "Show that the ring \\(A = k[x,y]/(y^{2} - f(x))\\) is a Dedekind domain and the class group of the ring \\(A\\) is not trivial, where \\(k\\) is a field of characteristic not 2, \\(f(x) = (x - t_{1})\\ldots(x - t_{n})\\) with \\(t_{1},\\ldots,t_{n} \\in k\\) distinct and \\(n \\geq 3\\) is an odd integer.",
+    "formal_statement": "import Mathlib\n\n/--\nThe ring \\(A = k[x,y]/(y^{2} - f(x))\\),\nwhere \\(k\\) is a field and \\(f(x) = (x - t_{1})\\ldots(x - t_{n})\\).\n-/\nabbrev A {k : Type} [Field k] {n : ℕ} (t : (Fin n) → k) : Type := (MvPolynomial (Fin 2) k) ⧸ Ideal.span {(.X 1 ^ 2) - ∏ (m : Fin n), (.X 0 - .C (t m) : (MvPolynomial (Fin 2) k))}\n\n\n/--\nShow that the ring \\(A = k[x,y]/(y^{2} - f(x))\\) is a Dedekind domain and the class group of the ring \\(A\\) is not trivial,\nwhere \\(k\\) is a field of characteristic not 2, \\(f(x) = (x - t_{1})\\ldots(x - t_{n})\\)\nwith \\(t_{1},\\ldots,t_{n} \\in k\\) distinct and \\(n \\geq 3\\) is an odd integer.-/\ntheorem isEmpty_isomorphism_UFD_of_quotient (k : Type) [Field k] (h_char : ¬ CharP k 2)\n    (n : ℕ) (h_ge : n ≥ 3) (h_odd : Odd n) (t : (Fin n) → k) (h_inj : Function.Injective t) :\n    ∃ _ : IsDedekindDomain (A t), Nontrivial (ClassGroup (A t)) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+    ]
+  },
+  {
+    "id": 48,
+    "informal_statement": "A commutative ring \\( A \\) is \\textit{absolutely flat} if every \\( A \\)-module is flat. Prove that \\( A \\) is absolutely flat if and only if every principal ideal is idempotent.",
+    "formal_statement": "import Mathlib\n\n/--\nA commutative ring \\( A \\) is \\textit{absolutely flat} if every \\( A \\)-module is flat.\n-/\nclass IsAbsolutelyFlat (R : Type) [CommRing R] : Prop where\n  out ⦃P : Type⦄ [AddCommGroup P] [Module R P] : Module.Flat R P\n\n/--\nProve that \\( A \\) is absolutely flat if and only if every principal ideal is idempotent.\n-/\ntheorem isAbsolutelyFlat_iff_principal_ideal_idempotent (R : Type) [CommRing R] :\n    IsAbsolutelyFlat R ↔ (∀ I : Ideal R, I.IsPrincipal → I ^ 2 = I) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Smoothness and the Module of Differentials"
+    ]
+  },
+  {
+    "id": 49,
+    "informal_statement": "Let \\( A \\) be a commutative ring. Prove that every principal ideal of \\( A \\) is idempotent if and only if every finitely generated ideal is a direct summand of \\( A \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( A \\) be a commutative ring. Prove that every principal ideal of \\( A \\) is idempotent\nif and only if every finitely generated ideal is a direct summand of \\( A \\).\n-/\ntheorem principal_ideal_idempotent_iff_fg_ideal_is_direct_summand (A : Type) [CommRing A] :\n    (∀ I : Ideal A, I.IsPrincipal → I ^ 2 = I) ↔\n    (∀ I : Ideal A, I.FG → (∃ J : Ideal A, I ⊔ J = ⊤ ∧ I ⊓ J = ⊥ )) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Ideals and Modules"
+    ]
+  },
+  {
+    "id": 50,
+    "informal_statement": "Let \\((A, \\mathfrak{m}, K)\\) be a complete local ring containing a field, and suppose that \\(\\mathfrak{m}\\) is finitely generated over \\(A\\). Then \\(A\\) is Noetherian.",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\((A, \\mathfrak{m}, K)\\) be a complete local ring containing a field,\nand suppose that \\(\\mathfrak{m}\\) is finitely generated over \\(A\\). Then \\(A\\) is Noetherian.\n-/\ntheorem isNoetherianRing_of_isLocalRing_of_field_inj_of_adicComplete_of_maximalIdeal_finite\n    (R : Type) [CommRing R] [IsLocalRing R] [IsAdicComplete (IsLocalRing.maximalIdeal R) R]\n    (k : Type) [Field k] [Algebra k R] [NoZeroSMulDivisors k R]\n    (hfg : (IsLocalRing.maximalIdeal R).FG) : IsNoetherianRing R := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Tensor Product and Flatness"
+    ]
+  },
+  {
+    "id": 51,
+    "informal_statement": "A Noetherian topological ring in which the topology is defined by an ideal contained in the Jacobson radical is called a \\textit{Zariski ring}. Let \\( A \\) be a Noetherian ring, \\( \\mathfrak{a} \\) an ideal of \\( A \\), and \\( \\widehat{A} \\) the \\( \\mathfrak{a} \\)-adic completion of $A$. Prove that \\( \\widehat{A} \\) is faithfully flat over \\( A \\) if and only if \\( A \\) is a Zariski ring for the \\( \\mathfrak{a} \\)-topology.",
+    "formal_statement": "import Mathlib\n\n/--\nA Noetherian topological ring in which the topology is defined by an ideal contained in the Jacobson radical is called a \\textit{Zariski ring}.\nLet \\( A \\) be a Noetherian ring, \\( \\mathfrak{a} \\) an ideal of \\( A \\), and \\( \\widehat{A} \\) the \\( \\mathfrak{a} \\)-adic completion of $A$.\nProve that \\( \\widehat{A} \\) is faithfully flat over \\( A \\) if and only if \\( A \\) is a Zariski ring for the \\( \\mathfrak{a} \\)-topology.\n-/\ntheorem adicCompletion_faithfullyFlat_iff (A : Type) [CommRing A] [IsNoetherianRing A]\n    (I : Ideal A) : Module.FaithfullyFlat A (AdicCompletion I A) ↔ I ≤ Ring.jacobson A := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Ring Theory",
+      "Polynomials"
+    ]
+  },
+  {
+    "id": 52,
+    "informal_statement": "Let $R$ be a ring, \\( \\mathfrak{m} \\) is an ideal in the Jacobson radical of \\( R \\), and \\( G_{1}, G_{2} \\in R[x] \\) are polynomials such that $G_1$ is monic. If $G_i \\mod \\mathfrak{m}$ gnerate the unit ideal of $R/\\mathfrak{m}[x]$, then \\( G_{1}, G_{2} \\) together generate the unit ideal of \\( R[x] \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet $R$ be a ring, \\( \\mathfrak{m} \\) is an ideal in the Jacobson radical of \\( R \\),\nand \\( G_{1}, G_{2} \\in R[x] \\) are polynomials such that $G_1$ is monic.\nIf $G_i \\mod \\mathfrak{m}$ gnerate the unit ideal of $R/\\mathfrak{m}[x]$,\nthen \\( G_{1}, G_{2} \\) together generate the unit ideal of \\( R[x] \\).\n-/\ntheorem generate_unit_ideal_of_quotient (R : Type) [CommRing R] (m : Ideal R)\n    (h_le_jac : m ≤ Ring.jacobson R) (G₁ G₂ : Polynomial R) (h_monic : G₁.Monic)\n    (h_gen : Ideal.span {G₁.map (Ideal.Quotient.mk m), G₂.map (Ideal.Quotient.mk m)} = ⊤) :\n    Ideal.span {G₁, G₂} = ⊤ := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Regular Sequences and Regular Local Rings"
+    ]
+  },
+  {
+    "id": 53,
+    "informal_statement": "Let \\( k \\) be a field, and set \\( A = k[X, Y, Z]/(X^2 - Y^2, Y^2 - Z^2, XY, YZ, ZX) \\). Show that \\( A \\) is Gorenstein.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing ModuleCat CategoryTheory MvPolynomial\n\ninstance (R : Type) [CommRing R] : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives.{0} (ModuleCat.{0} R)\n\n/-- A Noetherian local ring $R$ is a Gorenstein ring if $\\mathrm{inj}.\\dim_R R < +\\infty$. -/\nclass IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)\n\n/-- A Noetherian ring is a Gorenstein ring if its localization at every maximal ideal is a\n  Gorenstein local ring. -/\nclass IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)\n\n/--\nLet \\( k \\) be a field, and set \\( A = k[X, Y, Z]/(X^2 - Y^2, Y^2 - Z^2, XY, YZ, ZX) \\).\nShow that \\( A \\) is Gorenstein.-/\ntheorem isGorensteinRing_quot_x2_sub_y2_y2_sub_z2_xy_yz_zx (k : Type) [Field k] :\n    IsGorensteinRing <| MvPolynomial (Fin 3) k ⧸ Ideal.span ({(X 0)^ 2 - (X 1)^2, (X 1)^2 - (X 2)^2,\n    (X 0) * (X 1), (X 1) * (X 2), (X 2) * (X 0)} : Set (MvPolynomial (Fin 3) k)) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Tensor Product and Flatness"
+    ]
+  },
+  {
+    "id": 54,
+    "informal_statement": "Let \\( A \\) be a $\\mathbb{Q}$-algebra.\nSuppose that \\( x \\in A \\) and \\( D \\in \\operatorname{Der}(A) \\) are such that \\( Dx = 1 \\) and \\( \\bigcap_{n=1}^{\\infty} x^n A = (0) \\). Show that \\( x \\) is a non-zero-divisor of \\( A \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( A \\) be a $\\mathbb{Q}$-algebra.\nSuppose that \\( x \\in A \\) and \\( D \\in \\operatorname{Der}(A) \\) are such that \\( Dx = 1 \\) and \\( \\bigcap_{n=1}^{\\infty} x^n A = (0) \\).\nShow that \\( x \\) is a non-zero-divisor of \\( A \\).\n-/\ntheorem not_zero_divisor_of_hausdorff_of_der_eq_one (A : Type) [CommRing A] [Algebra ℚ A]\n    (x : A) (D : Derivation ℤ A A) (h_dx : D x = 1) (h_hausdorff : IsHausdorff (Ideal.span {x}) A) :\n    x ∈ nonZeroDivisors A := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Ring Theory",
+      "Basic Definitions and Examples"
+    ]
+  },
+  {
+    "id": 55,
+    "informal_statement": "A module \\( M \\) over a ring \\( R \\) is \\textit{stably free} if there exists a free finitely generated module \\( F \\) over \\( R \\) such that \n\\[\nM \\oplus F\n\\]\nis a free module.\nProve that if $M$ is stably free and not finitely generated then $M$ is free.",
+    "formal_statement": "import Mathlib\n\n/--\nA module \\( M \\) over a ring \\( R \\) is \\textit{stably free} if there exists a free finitely generated module \\( F \\) over \\( R \\) such that\n\\[\nM \\oplus F\n\\]\nis a free module.\n-/\ndef IsStablyFree (R : Type) (M : Type) [CommRing R] [AddCommGroup M] [Module R M] : Prop :=\n    ∃ (N : Type) (_ : AddCommGroup N) (_ : Module R N),\n    Module.Finite R N ∧ Module.Free R N ∧ Module.Free R (M × N)\n\n/--\nProve that if $M$ is stably free and not finitely generated then $M$ is free.\n-/\ntheorem stablyFree_iff_free_of_not_fg (R : Type) (M : Type) [CommRing R] [AddCommGroup M]\n    [Module R M] (h : ¬ Module.Finite R M) : Module.Free R M ↔ IsStablyFree R M := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Ideals and Modules"
+    ]
+  },
+  {
+    "id": 56,
+    "informal_statement": "Let \\( R \\to S \\) be a faithfully flat ring map. Let \\( M \\) be an \\( R \\)-module. If the \\( S \\)-module \\( S \\otimes_{R} M \\) is projective, then \\( M \\) is projective.",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( R \\to S \\) be a faithfully flat ring map. Let \\( M \\) be an \\( R \\)-module.\nIf the \\( S \\)-module \\( S \\otimes_{R} M \\) is projective, then \\( M \\) is projective.\n-/\ntheorem projective_of_faithfullyFlat_base_change (R S M : Type) [CommRing R] [CommRing S]\n    [Algebra R S] [Module.FaithfullyFlat R S] [AddCommGroup M] [Module R M]\n    [Module.Projective S (TensorProduct R S M)] : Module.Projective R M := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Smoothness and the Module of Differentials"
+    ]
+  },
+  {
+    "id": 57,
+    "informal_statement": "Let \\( A \\) be a domain and \\( K \\) its field of fractions. \\( x \\in K \\) is called almost integral if there exists an element \\( r\\in A, r \\ne 0 \\) such that \\( rx^n \\in A \\) for all \\( n \\ge 0 \\). \\( A \\) is called \\textit{completely integrally closed} if every almost integral element of \\( K \\) is contained in \\( A \\). Show that if \\( A \\) is completely integrally closed, so is \\( A[X] \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( A \\) be a domain and \\( K \\) its field of fractions.\n\\( x \\in K \\) is called almost integral if there exists an element \\( r\\in A, r \\ne 0 \\) such that \\( rx^n \\in A \\) for all \\( n \\ge 0 \\).\n-/\ndef IsAlmostIntegral {A : Type} [CommRing A] [IsDomain A] (x : FractionRing A) : Prop :=\n  ∃ r : A, r ≠ 0 ∧ ∀ n : ℕ, ∃ y : A, r • (x ^ n) = algebraMap A (FractionRing A) y\n\n/--\n\\( A \\) is called \\textit{completely integrally closed} if every almost integral element of \\( K \\) is contained in \\( A \\).\n-/\ndef IsCompletelyIntegrallyClosed (A : Type) [CommRing A] [IsDomain A] : Prop :=\n  ∀ x : FractionRing A, IsAlmostIntegral x → ∃ y : A, x = algebraMap A (FractionRing A) y\n\n/--\nLet \\( A \\) be a domain. Show that if \\( A \\) is completely integrally closed, so is \\( A[X] \\). -/\ntheorem completely_integrally_closed_polynomial_ring {A : Type} [CommRing A] [IsDomain A]\n    (h : IsCompletelyIntegrallyClosed A) : IsCompletelyIntegrallyClosed (Polynomial A) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Dedekind Domains and DVRs"
+    ]
+  },
+  {
+    "id": 58,
+    "informal_statement": "Suppose that $(R, \\mathfrak{P})$ is a local Noetherian ring, and let $(S, \\mathfrak{Q})$ be a local Noetherian $R$-algebra such that $\\mathfrak{P}S \\subseteq \\mathfrak{Q}$. If $M$ is a finitely generated $S$-module, show that $M$ is flat as an $R$-module if $M / \\mathfrak{P}^n M$ is flat as an $R / \\mathfrak{P}^n$-module for every $n$.",
+    "formal_statement": "import Mathlib\n\nopen TensorProduct\n\n/--\nSuppose that $(R, \\mathfrak{P})$ is a local Noetherian ring,\nand let $(S, \\mathfrak{Q})$ be a local Noetherian $R$-algebra such that $\\mathfrak{P}S \\subseteq \\mathfrak{Q}$.\nIf $M$ is a finitely generated $S$-module, show that $M$ is flat as an $R$-module\nif $M / \\mathfrak{P}^n M$ is flat as an $R / \\mathfrak{P}^n$-module for every $n$.-/\ntheorem flat_of_flat_over_quotient (R S : Type) [CommRing R] [CommRing S]\n    [IsLocalRing R] [IsLocalRing S] [IsNoetherianRing R] [IsNoetherianRing S] [Algebra R S]\n    (h_map : Ideal.map (algebraMap R S) (IsLocalRing.maximalIdeal R) ≤ IsLocalRing.maximalIdeal S)\n    (M : Type) [AddCommGroup M] [Module S M] [Module R M] [IsScalarTower R S M] [Module.Finite S M]\n    (h_flat_quotient : ∀ (n : ℕ), Module.Flat (R ⧸ (IsLocalRing.maximalIdeal R) ^ n) ((R ⧸ (IsLocalRing.maximalIdeal R) ^ n) ⊗[R] M)) :\n    Module.Flat R M := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Homological Methods"
+    ]
+  },
+  {
+    "id": 59,
+    "informal_statement": "Let \\( k \\) be a field, \\( X \\) and \\( Y \\) indeterminates, and suppose that \\( \\alpha \\) is a positive irrational number. Show the map \\( v: k[X, Y] \\rightarrow \\mathbb{R} \\cup \\{\\infty\\} \\) defined by\n\\[\nv\\left(\\sum c_{n,m} X^n Y^m\\right) = \\min\\{n + m\\alpha \\mid c_{n,m} \\neq 0\\}\n\\]\ndetermines a valuation of \\( k(X, Y) \\) with value group \\( \\mathbb{Z} + \\mathbb{Z}\\alpha \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( k \\) be a field, \\( X \\) and \\( Y \\) indeterminates, and suppose that \\( \\alpha \\) is a positive irrational number.\nShow the map \\( v: k[X, Y] \\rightarrow \\mathbb{R} \\cup \\{\\infty\\} \\) defined by\n\\[\nv\\left(\\sum c_{n,m} X^n Y^m\\right) = \\min\\{n + m\\alpha \\mid c_{n,m} \\neq 0\\}\n\\]\ndetermines a valuation of \\( k(X, Y) \\) with value group \\( \\mathbb{Z} + \\mathbb{Z}\\alpha \\).\n-/\ntheorem exists_unique_valuation_eq (α : ℝ) (h_pos : α > 0) (h_irr : Irrational α)\n    (k : Type) [Field k] : ∃! (v : AddValuation (FractionRing (MvPolynomial (Fin 2) k)) (WithTop ℝ)),\n    ∀ (f : MvPolynomial (Fin 2) k), v (algebraMap _ _ f) = Finset.inf (Finset.image (fun s ↦ ((s 0 + α * s 1) : WithTop ℝ)) f.support) id := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Ring Theory",
+      "Polynomials"
+    ]
+  },
+  {
+    "id": 60,
+    "informal_statement": "Let $R$ be a Noetherian domain, and suppose that for every maximal ideal $P$ of $R$ the ring $R_P$ is factorial. Let $I \\subset R$ be an ideal. Prove that $I$ is an invertible module iff $I$ has pure codimension $1$.\n    (We say that an ideal $I$ in a ring $R$ has pure codimension $1$ if every associated prime ideal of $I$ has codimension $1$. We include the case when $I$ has no associated primes at all---that is, when $I = R$.)",
+    "formal_statement": "import Mathlib\n\n/--\nFor a Noetherian domain \\( R \\), we say that an ideal \\( I \\subset R \\) is invertible if\nit is it not the zero ideal and there exists an ideal \\( N \\) such that \\( N \\cdot I \\) is principal\nand \\( N \\) is not the zero ideal.\n-/\ndef Ideal.Invertible {R : Type} [CommRing R] [IsDomain R] (I : Ideal R) : Prop :=\n    I ≠ ⊥ ∧ ∃ (N : Ideal R), (N * I).IsPrincipal ∧ N ≠ ⊥\n\n/--\nLet $R$ be a Noetherian domain, and suppose that for every maximal ideal $P$ of $R$ the ring $R_P$ is factorial.\nLet $I \\subset R$ be an ideal. Prove that $I$ is an invertible module iff $I$ has pure codimension $1$.\n(We say that an ideal $I$ in a ring $R$ has pure codimension $1$ if every associated prime ideal of $I$ has codimension $1$. We include the case when $I$ has no associated primes at all---that is, when $I = R$.)\n-/\ntheorem invertible_iff_codimension_one (R : Type) [CommRing R] [IsDomain R] [IsNoetherianRing R]\n    (h_ufd : ∀ (p : Ideal R), (h : p.IsMaximal) → UniqueFactorizationMonoid (Localization.AtPrime p))\n    (I : Ideal R) : I.Invertible ↔ ∀ (p : associatedPrimes R I), ringKrullDim (R ⧸ p.1) = 1 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+    ]
+  },
+  {
+    "id": 61,
+    "informal_statement": "Let \\( R \\to S \\) be a ring map. Let \\( I \\subset R \\) be an ideal. Assume\n\\begin{enumerate}\n    \\item \\( I^{2} = 0 \\),\n    \\item \\( R \\to S \\) is flat, and\n    \\item \\( R/I \\to S/IS \\) is formally smooth.\n\\end{enumerate}\nShow \\( R \\to S \\) is formally smooth.",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( R \\to S \\) be a ring map. Let \\( I \\subset R \\) be an ideal. Assume\n\\begin{enumerate}\n    \\item \\( I^{2} = 0 \\),\n    \\item \\( R \\to S \\) is flat, and\n    \\item \\( R/I \\to S/IS \\) is formally smooth.\n\\end{enumerate}\nShow \\( R \\to S \\) is formally smooth.\n-/\ntheorem formallySmooth_of_formallySmooth_quotient (R S : Type) [CommRing R] [CommRing S]\n    [Algebra R S] [Module.Flat R S] (I : Ideal R) (h : I ^ 2 = 0)\n    [Algebra.FormallySmooth (R ⧸ I) (S ⧸ (I.map (algebraMap R S)))] :\n    Algebra.FormallySmooth R S := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
+    ]
+  },
+  {
+    "id": 62,
+    "informal_statement": "Let \\( \\varphi: R \\to S \\) be a smooth ring map. Let \\( \\sigma: S \\to R \\) be a left inverse to \\( \\varphi \\). Set \\( I = \\operatorname{Ker}(\\sigma) \\). If \\( I / I^{2} \\) is free, show \\( S^{\\wedge} \\cong R[[t_{1}, \\ldots, t_{d}]] \\) as \\( R \\)-algebras, where \\( S^{\\wedge} \\) is the \\( I \\)-adic completion of \\( S \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( \\varphi: R \\to S \\) be a smooth ring map. Let \\( \\sigma: S \\to R \\) be a left inverse to \\( \\varphi \\).\nSet \\( I = \\operatorname{Ker}(\\sigma) \\). If \\( I / I^{2} \\) is free,\nshow \\( S^{\\wedge} \\cong R[[t_{1}, \\ldots, t_{d}]] \\) as \\( R \\)-algebras,\nwhere \\( S^{\\wedge} \\) is the \\( I \\)-adic completion of \\( S \\).\n-/\ntheorem adicCompletion_equiv_of_smooth (R S : Type) [CommRing R] [CommRing S]\n    [Algebra R S] [Algebra.Smooth R S] (σ : S →+* R)\n    (h : Function.LeftInverse σ (algebraMap R S)) (hf : Module.Free R σ.ker.Cotangent) :\n    ∃ d : ℕ, Nonempty (AdicCompletion (RingHom.ker σ) S ≃ₐ[R] MvPowerSeries (Fin d) R) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Tensor Product and Flatness"
+    ]
+  },
+  {
+    "id": 63,
+    "informal_statement": "Let \\( R \\to S \\) be a formally unramified ring map. Show there exists a surjection of \\( R \\)-algebras \\( S' \\to S \\) whose kernel is an ideal of square zero with the following universal property:\nGiven any commutative diagram\n\\[\n\\begin{tikzcd}\nS \\arrow[r, \"a\"] & A/I \\\\\nR \\arrow[u] \\arrow[r, \"b\"] & A \\arrow[u]\n\\end{tikzcd}\n\\]\nwhere \\( I \\subset A \\) is an ideal of square zero, there is a unique \\( R \\)-algebra map \\( \\alpha': S' \\to A \\) such that \\( S' \\to A \\to A/I \\) is equal to \\( S' \\to S \\to A/I \\).",
+    "formal_statement": "import Mathlib\n\n/--\nThe universal property:\nGiven any commutative diagram\n\\[\n\\begin{tikzcd}\nS \\arrow[r, \"a\"] & A/I \\\\\nR \\arrow[u] \\arrow[r, \"b\"] & A \\arrow[u]\n\\end{tikzcd}\n\\]\nwhere \\( I \\subset A \\) is an ideal of square zero, there is a unique \\( R \\)-algebra map \\( \\alpha': S' \\to A \\) such that \\( S' \\to A \\to A/I \\) is equal to \\( S' \\to S \\to A/I \\).\n-/\ndef UniversalProperty.liftOfSqZeroIdeal {R S S' : Type} [CommRing R] [CommRing S] [CommRing S']\n    [Algebra R S] [Algebra R S'] (f : S' →ₐ[R] S) :=\n  ∀ (A : Type) [CommRing A] [Algebra R A] (I : Ideal A) (g : S →ₐ[R] A⧸I),\n  I^2 = 0 → (g.toRingHom.comp (algebraMap R S) = (Ideal.Quotient.mk I).comp (algebraMap R A)) →\n  ∃! (g' : S' →ₐ[R] A), (Ideal.Quotient.mk I).comp g'.toRingHom  = g.comp f\n\n/--\nLet \\( R \\to S \\) be a formally unramified ring map. Show there exists a surjection of \\( R \\)-algebras \\( S' \\to S \\) whose kernel is an ideal of square zero with the following universal property:\nGiven any commutative diagram\n\\[\n\\begin{tikzcd}\nS \\arrow[r, \"a\"] & A/I \\\\\nR \\arrow[u] \\arrow[r, \"b\"] & A \\arrow[u]\n\\end{tikzcd}\n\\]\nwhere \\( I \\subset A \\) is an ideal of square zero, there is a unique \\( R \\)-algebra map \\( \\alpha': S' \\to A \\) such that \\( S' \\to A \\to A/I \\) is equal to \\( S' \\to S \\to A/I \\).\n-/\ntheorem surjection_of_formally_unramified (R S : Type) [CommRing R] [CommRing S]\n    [Algebra R S] [Algebra.FormallyUnramified R S] :\n    ∃ (S' : Type) (_ : CommRing S') (_ : Algebra R S') (f : S' →ₐ[R] S), (RingHom.ker f) ^ 2 = 0 ∧ UniversalProperty.liftOfSqZeroIdeal f := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Ideals and Modules"
+    ]
+  },
+  {
+    "id": 64,
+    "informal_statement": "Prove that the homogeneous coordinate ring of a smooth rational quartic in three-space\n    \\[\n    R=k[s^4, s^3t, st^3, t^4] \\subset k[s,t]\n    \\]\n    is not Cohen-Macaulay.",
+    "formal_statement": "import Mathlib\n\nsection\n\nopen CategoryTheory Abelian\n\nvariable {R : Type} [CommRing R]\n\ninstance : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives (ModuleCat R)\n\nnoncomputable def moduleDepth (N M : ModuleCat.{0} R) : ℕ∞ :=\n  sSup {n : ℕ∞ | ∀ i : ℕ, i < n → Subsingleton (CategoryTheory.Abelian.Ext.{0} N M i)}\n\nnoncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=\n  moduleDepth (ModuleCat.of R (R ⧸ I)) M\n\nnoncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=\n  (IsLocalRing.maximalIdeal R).depth M\n\nvariable (R)\n\nclass IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)\n\nclass IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)\n\nend\n\nopen MvPolynomial\n\n/--\nProve that the homogeneous coordinate ring of a smooth rational quartic in three-space\n\\[\nR=k[s^4, s^3t, st^3, t^4] \\subset k[s,t]\n\\]\nis not Cohen-Macaulay.\n-/\ntheorem homogeneous_coordinate_ring_not_isCohenMacaulayRing (k : Type) [Field k] :\n    ¬ IsCohenMacaulayRing (Algebra.adjoin k ({(X 0) ^ 4, (X 0) ^ 3 * X 1,\n      X 0 * (X 1) ^ 3, (X 1) ^ 4} : Set (MvPolynomial (Fin 2) k))) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+    ]
+  },
+  {
+    "id": 65,
+    "informal_statement": "If \\( A \\) is a Neotherian Gorenstein ring, then so is the polynomial ring \\( A[X] \\).",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing ModuleCat CategoryTheory Polynomial\n\ninstance (R : Type) [CommRing R] : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives.{0} (ModuleCat.{0} R)\n\n/-- A Noetherian local ring $R$ is a Gorenstein ring if $\\mathrm{inj}.\\dim_R R < +\\infty$. -/\nclass IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)\n\n/-- A Noetherian ring is a Gorenstein ring if its localization at every maximal ideal is a\n  Gorenstein local ring. -/\nclass IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)\n\n/--\nIf \\( A \\) is a Neotherian Gorenstein ring, then so is the polynomial ring \\( A[X] \\).\n-/\ntheorem Polynomial.isGorensteinRing {R : Type} [CommRing R] [IsGorensteinRing R] :\n    IsGorensteinRing R[X] := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Homological Methods"
+    ]
+  },
+  {
+    "id": 66,
+    "informal_statement": "Show that if an ideal \\( I \\) in a Noetherian ring \\( R \\) can be generated by a regular sequence, then it can be generated by a set of elements that is a regular sequence in any order.",
+    "formal_statement": "import Mathlib\n\nopen RingTheory\n\n/-- Show that if an ideal $I$ in a Noetherian ring $R$ can be generated by a regular sequence,\nthen it can be generated by a set of elements that is a regular sequence in any order. -/\ntheorem exists_eq_ofList_and_isRegular_of_perm {R : Type} [CommRing R] [IsNoetherianRing R] (I : Ideal R) (rs : List R)\n    (gen : I = Ideal.ofList rs) (h₂ : Sequence.IsRegular R rs) : ∃ rs' : List R,\n    I = Ideal.ofList rs' ∧ (∀ l : List R, (l.Perm rs') → Sequence.IsRegular R l) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+    ]
+  },
+  {
+    "id": 67,
+    "informal_statement": "Let $A$ be the ring $k[[x_1, \\dots, x_n]]$, where $k$ is a field, $n \\in \\mathbb{N}$, $n \\ne 0$. Show that\nthere is \\textbf{no} isomorphism \\[\nA \\otimes_k A \\cong k[[x_1, \\dots, x_n, y_1, \\dots, y_n]].\n\\]",
+    "formal_statement": "import Mathlib\n\nopen scoped TensorProduct\n\n/--\nLet $A$ be the ring $k[[x_1, \\dots, x_n]]$, where $k$ is a field, $n \\in \\mathbb{N}$, $n \\ne 0$.\nShow that there is \\textbf{no} isomorphism\n\\[\nA \\otimes_k A \\cong k[[x_1, \\dots, x_n, y_1, \\dots, y_n]].\n\\]\n-/\ntheorem isEmpty_mvPowerSeries_tensor_mvPowerSeries_algEquiv\n    {k : Type} [Field k] (n : ℕ) (hn : n ≠ 0) :\n    IsEmpty ((MvPowerSeries (Fin n) k) ⊗[k] (MvPowerSeries (Fin n) k) ≃ₐ[k]\n    (MvPowerSeries (Fin (n + n)) k)) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
+    ]
+  },
+  {
+    "id": 68,
+    "informal_statement": "    Let $A$ be a Noetherian local ring with maximal ideal $\\mathfrak{m}$. For any $f\\in \\mathfrak{m}$ such that $f$ is not nilpotent, $A_f$ is Jacobson.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $A$ be a Noetherian local ring with maximal ideal $\\mathfrak{m}$.\nFor any $f\\in \\mathfrak{m}$ such that $f$ is not nilpotent, $A_f$ is Jacobson.\n-/\ntheorem localization_jacobson_of_one_lt_ringKrullDim (R : Type) [CommRing R] [IsLocalRing R]\n    [IsNoetherianRing R] (f : R) (hf : f ∈ IsLocalRing.maximalIdeal R) (ne0 : ¬ IsNilpotent f) :\n    IsJacobsonRing (Localization.Away f) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+    ]
+  },
+  {
+    "id": 69,
+    "informal_statement": "If \\( R \\) is a regular local ring with maximal ideal \\( \\mathfrak{m} \\) and \\( P \\in \\operatorname{Spec}(R[x]) \\) is a prime ideal with \\( \\mathfrak{m} = P \\cap R \\), then \\( R[x]_P \\) is regular.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing Polynomial\n\n/-- A commutative local noetherian ring $R$ is regular if $\\dim m/m^2 = \\dim R$. -/\nclass IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R\n\n/--\nLet \\( A \\) be a Noetherian ring.\nIf \\( R \\) is a regular local ring with maximal ideal \\( \\mathfrak{m} \\) and \\( P \\in \\operatorname{Spec}(R[x]) \\)\nis a prime ideal with \\( \\mathfrak{m} = P \\cap R \\), then \\( R[x]_P \\) is regular.\n-/\ntheorem IsRegularLocalRing.regularAtPrime {R : Type} [CommRing R] [IsRegularLocalRing R]\n    (P : Ideal R[X]) [P.IsPrime] [P.LiesOver (maximalIdeal R)] :\n    IsRegularLocalRing (Localization.AtPrime P) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+    ]
+  },
+  {
+    "id": 70,
+    "informal_statement": "All rings considered are noetherian. Show that if \\( R \\) is an integral domain contained in the local ring \\( (S, Q) \\), then there is a minimal prime of \\( S \\) contracting to \\( 0 \\) in \\( R \\).",
+    "formal_statement": "import Mathlib\n\n/--\nAll rings considered are noetherian.\nShow that if \\( R \\) is an integral domain contained in the local ring \\( (S, Q) \\),\nthen there is a minimal prime of \\( S \\) contracting to \\( 0 \\) in \\( R \\).\n-/\ntheorem exists_minimalPrime_map_zero (R S : Type) [CommRing R] [IsDomain R] [IsNoetherianRing R]\n    [CommRing S] [IsNoetherianRing S] [IsLocalRing S] [Algebra R S] [NoZeroSMulDivisors R S] :\n    ∃ (p : minimalPrimes S), Ideal.comap (algebraMap R S) p.1 = ⊥ := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Regular Sequences and Regular Local Rings"
+    ]
+  },
+  {
+    "id": 71,
+    "informal_statement": "Let \\( G \\) be a finite group acting as automorphisms of an algebra \\( R \\) over a field of characteristic \\( 0 \\). Show that if \\( R \\) is Cohen-Macaulay, then the ring of invariants \\( R^G \\) is Cohen-Macaulay.",
+    "formal_statement": "import Mathlib\n\nsection\n\nvariable (A B : Type) [CommRing A] [CommRing B] [Algebra A B]\nvariable (G : Type) [Monoid G] [MulSemiringAction G B] [SMulCommClass G A B]\n\n/-- The set of fixed points under a group action, as a subring. -/\ndef FixedPoints.subring : Subring B where\n  __ := FixedPoints.addSubgroup G B\n  __ := FixedPoints.submonoid G B\n\n/-- The set of fixed points under a group action, as a subalgebra. -/\ndef FixedPoints.subalgebra : Subalgebra A B where\n  __ := FixedPoints.addSubgroup G B\n  __ := FixedPoints.submonoid G B\n  algebraMap_mem' r := by simp\n\nend\n\nsection\n\nopen CategoryTheory Abelian\n\nvariable {R : Type} [CommRing R]\n\ninstance : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives (ModuleCat R)\n\nnoncomputable def moduleDepth (N M : ModuleCat.{0} R) : ℕ∞ :=\n  sSup {n : ℕ∞ | ∀ i : ℕ, i < n → Subsingleton (CategoryTheory.Abelian.Ext.{0} N M i)}\n\nnoncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=\n  moduleDepth (ModuleCat.of R (R ⧸ I)) M\n\nnoncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=\n  (IsLocalRing.maximalIdeal R).depth M\n\nvariable (R)\n\nclass IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)\n\nclass IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)\n\nend\n\n/--\nLet \\( G \\) be a finite group acting as automorphisms of an algebra \\( R \\) over a field of characteristic \\( 0 \\).\nShow that if \\( R \\) is Cohen-Macaulay, then the ring of invariants \\( R^G \\) is Cohen-Macaulay.\n-/\ntheorem fixedPoints_isCohenMacaulayRing {R : Type} [CommRing R] (k : Type) [Field k]\n    [CharZero k] [Algebra k R] [IsNoetherianRing R] [IsCohenMacaulayRing R]\n    (G : Subgroup (R ≃ₐ[k] R)) [Finite G] :\n    IsCohenMacaulayRing (FixedPoints.subalgebra k R G) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Regular Sequences and Regular Local Rings"
+    ]
+  },
+  {
+    "id": 72,
+    "informal_statement": "Let \\( R \\) be a Noetherian ring. Let \\( M \\) be a Cohen-Macaulay module over \\( R \\). Then \\( M \\otimes_R R[x_1, \\dots, x_n] \\) is a Cohen-Macaulay module over \\( R[x_1, \\dots, x_n] \\).",
+    "formal_statement": "import Mathlib\n\n/-- The krull dimension of module, defined as `krullDim` of its support. -/\nnoncomputable def Module.supportDim (R : Type) [CommRing R] (M : Type) [AddCommGroup M]\n    [Module R M] : WithBot ℕ∞ :=\n  Order.krullDim (Module.support R M)\n\nsection\n\nopen CategoryTheory Abelian\n\nvariable {R : Type} [CommRing R]\n\ninstance : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives (ModuleCat R)\n\nnoncomputable def moduleDepth (N M : ModuleCat.{0} R) : ℕ∞ :=\n  sSup {n : ℕ∞ | ∀ i : ℕ, i < n → Subsingleton (CategoryTheory.Abelian.Ext.{0} N M i)}\n\nnoncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=\n  moduleDepth (ModuleCat.of R (R ⧸ I)) M\n\nnoncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=\n  (IsLocalRing.maximalIdeal R).depth M\n\nclass ModuleCat.IsCohenMacaulay [IsLocalRing R] (M : ModuleCat.{0} R) : Prop where\n  depth_eq_dim : Subsingleton M ∨ Module.supportDim R M = IsLocalRing.depth M\n\nvariable (R)\n\nclass Module.IsCohenMacaulay (M : Type) [AddCommGroup M] [Module R M] : Prop where\n  depth_eq_dim : ∀ p : Ideal R, ∀ (_ : p.IsPrime), (ModuleCat.of (Localization.AtPrime p)\n    (LocalizedModule.AtPrime p M)).IsCohenMacaulay\n\nend\n\nopen TensorProduct\n\n/--\nLet \\( R \\) be a Noetherian ring. Let \\( M \\) be a Cohen-Macaulay module over \\( R \\).\nThen \\( M \\otimes_R R[x_1, \\dots, x_n] \\) is a Cohen-Macaulay module over \\( R[x_1, \\dots, x_n] \\).\n-/\ntheorem isCohenMacaulay_extendScalars_over_mvPolynomial_of_isCohenMacaulay\n    (R : Type) [CommRing R] (M : Type) [AddCommGroup M] [Module R M]\n    [IsNoetherianRing R] [Module.IsCohenMacaulay R M] (n : ℕ) :\n    Module.IsCohenMacaulay (MvPolynomial (Fin n) R) ((MvPolynomial (Fin n) R) ⊗[R] M) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Completions and Hensel's lemma"
+    ]
+  },
+  {
+    "id": 73,
+    "informal_statement": "If $I$ is an homogeneous ideal of $k[x_0, \\dots, x_n]$, \\( R = k[x_0, \\dots, x_n]/I \\), then \\( R \\) is Cohen-Macaulay if and only if \\( R_P \\) is Cohen-Macaulay, where \\( P = (x_0, \\dots, x_n) \\).",
+    "formal_statement": "import Mathlib\n\nsection\n\nopen CategoryTheory Abelian\n\nvariable {R : Type} [CommRing R]\n\ninstance : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives (ModuleCat R)\n\nnoncomputable def moduleDepth (N M : ModuleCat.{0} R) : ℕ∞ :=\n  sSup {n : ℕ∞ | ∀ i : ℕ, i < n → Subsingleton (CategoryTheory.Abelian.Ext.{0} N M i)}\n\nnoncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=\n  moduleDepth (ModuleCat.of R (R ⧸ I)) M\n\nnoncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=\n  (IsLocalRing.maximalIdeal R).depth M\n\nvariable (R)\n\nclass IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)\n\nclass IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)\n\nend\n\nattribute [local instance] MvPolynomial.gradedAlgebra\n\n/--\nIf $I$ is an homogeneous ideal of $k[x_0, \\dots, x_n]$, \\( R = k[x_0, \\dots, x_n]/I \\),\nthen \\( R \\) is Cohen-Macaulay if and only if \\( R_P \\) is Cohen-Macaulay, where \\( P = (x_0, \\dots, x_n) \\).\n-/\ntheorem mvPolynomial_quotient_isCohenMacaulayRing_iff (k : Type) [Field k] (n : ℕ)\n    (R : Type) [CommRing R] (f : (MvPolynomial (Fin n) k) →+* R) (surj : Function.Surjective f)\n    (homo : (RingHom.ker f).IsHomogeneous (MvPolynomial.homogeneousSubmodule (Fin n) k))\n    (le : RingHom.ker f ≤ RingHom.ker MvPolynomial.constantCoeff) :\n    IsCohenMacaulayRing R ↔\n    IsCohenMacaulayRing (Localization.AtPrime ((RingHom.ker MvPolynomial.constantCoeff).map f)\n      (hp := Ideal.map_isPrime_of_surjective surj le (H := RingHom.ker_isPrime _))) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Tensor Product and Flatness"
+    ]
+  },
+  {
+    "id": 74,
+    "informal_statement": "Let $R$ be a regular local ring and let $x_1, \\dots, x_c$ be a regular sequence in $R$. Let $y \\in R$, $y \\notin (x_1, \\dots, x_c)$, and set $J := ((x_1, \\dots, x_c) : y)$. Prove that $R/J$ is Gorenstein.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing ModuleCat CategoryTheory\n\ninstance (R : Type) [CommRing R] : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives.{0} (ModuleCat.{0} R)\n\n/-- A commutative local noetherian ring $R$ is regular if $\\dim m/m^2 = \\dim R$. -/\nclass IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R\n\n/-- A Noetherian local ring $R$ is a Gorenstein ring if $\\mathrm{inj}.\\dim_R R < +\\infty$. -/\nclass IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)\n\n/-- A Noetherian ring is a Gorenstein ring if its localization at every maximal ideal is a\n  Gorenstein local ring. -/\nclass IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)\nvariable {R : Type} [CommRing R]\n\n/--\nLet $R$ be a regular local ring and let $x_1, \\dots, x_c$ be a regular sequence in $R$.\nLet $y \\in R$, $y \\notin (x_1, \\dots, x_c)$, and set $J := ((x_1, \\dots, x_c) : y)$. Prove that $R/J$ is Gorenstein.\n-/\ntheorem IsRegularLocalRing.gorensteinAtRegularSequence {R : Type} [CommRing R]\n    [IsRegularLocalRing R] {rs : List R} (reg : RingTheory.Sequence.IsRegular R rs) (y : R)\n    (h : y ∉ Ideal.ofList rs) : IsGorensteinRing (R ⧸ (Ideal.ofList rs / Ideal.span {y})) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+    ]
+  },
+  {
+    "id": 75,
+    "informal_statement": "Let $A$ be a graded Noetherian ring, with $A_0$ a field and $A$ generated by $A_1$.\nShow that $A$ is Cohen-Macaulay if and only if for all homogeneously prime $\\mathfrak{p}$,\n$(A_{\\mathfrak{p}})_0$ is Cohen-Macaulay.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing ModuleCat CategoryTheory\n\nsection\n\nvariable {R : Type} [CommRing R]\n\ninstance : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives (ModuleCat R)\n\nnoncomputable def moduleDepth (N M : ModuleCat.{0} R) : ℕ∞ :=\n  sSup {n : ℕ∞ | ∀ i : ℕ, i < n → Subsingleton (CategoryTheory.Abelian.Ext.{0} N M i)}\n\nnoncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=\n  moduleDepth (ModuleCat.of R (R ⧸ I)) M\n\nnoncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=\n  (IsLocalRing.maximalIdeal R).depth M\n\nvariable (R)\n\nclass IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)\n\nclass IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)\n\nend\n\n/--\nLet $A$ be a graded Noetherian ring, with $A_0$ a field and $A$ generated by $A_1$.\nShow that $A$ is Cohen-Macaulay if and only if for all homogeneously prime $\\mathfrak{p}$,\n$(A_{\\mathfrak{p}})_0$ is Cohen-Macaulay.\n-/\ntheorem gradedAlgebra_isCohenMacaulay_iff_homogeneously_localize {A : Type} [CommRing A] [IsNoetherianRing A]\n    (𝒜 : ℕ → Submodule ℤ A) [GradedAlgebra 𝒜] (h : IsField (𝒜 0)) (h1 : Algebra.adjoin (𝒜 0) (𝒜 1) = (⊤ : Subalgebra (𝒜 0) A)) : IsCohenMacaulayRing A ↔\n    ∀ p : Ideal A, (_ : p.IsPrime) → p.IsHomogeneous 𝒜 →\n    IsCohenMacaulayLocalRing (HomogeneousLocalization.AtPrime 𝒜 p) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Ideals and Modules"
+    ]
+  },
+  {
+    "id": 76,
+    "informal_statement": "Let $A$ be a Noetherian UFD of dimension $d \\leq 3$. Prove that $A$ is catenary.",
+    "formal_statement": "import Mathlib\n\nopen List\n\n/-- A ring $R$ is said to be \\textit{catenary} if for any pair of prime ideals $\\mathfrak{p} \\subset\n  \\mathfrak{q}$, there exists an integer bounding the lengths of all finite chains of prime ideals\n  $\\mathfrak{p} = \\mathfrak{p}_0 \\subset \\mathfrak{p}_1 \\subset \\dots \\subset \\mathfrak{p}_e =\n  \\mathfrak{q}$ and all maximal such chains have the same length. -/\ndef IsCatenary (R : Type) [CommRing R] : Prop :=\n  ∀ p q : PrimeSpectrum R, p ≤ q →\n  ∃ n : ℕ, ∀ (l : LTSeries (PrimeSpectrum R)), l.head = p → l.last = q →\n  (∀ l' : LTSeries (PrimeSpectrum R), l'.head = p → l'.last = q → l.toList <+ l'.toList → l' = l) →\n  l.toList.length = n\n\n/--\nLet $A$ be a Noetherian UFD of dimension $d \\leq 3$. Prove that $A$ is catenary.\n-/\ntheorem IsCatenary.of_noetherian_ufd_of_dim_le_three {A : Type} [CommRing A] [IsNoetherianRing A]\n    [IsDomain A] [UniqueFactorizationMonoid A] (h : ringKrullDim A ≤ 3) : IsCatenary A := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
+    ]
+  },
+  {
+    "id": 77,
+    "informal_statement": "Let $A$ be a Noetherian ring, $P \\subset Q$ prime ideals such that $\\operatorname{ht} P = h$, $\\operatorname{ht} Q/P = d$, where $d > 1$. Prove that there exist infinitely many intermediate primes $P'$, $P \\subset P' \\subset Q$ such that $\\operatorname{ht} P' = h + 1$ and $\\operatorname{ht} Q/P' = d - 1$.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $A$ be a Noetherian ring, $P \\subset Q$ prime ideals such that\n$\\operatorname{ht} P = h$, $\\operatorname{ht} Q/P = d$, where $d > 1$.\nProve that there exist infinitely many intermediate primes $P'$, $P \\subset P' \\subset Q$\nsuch that $\\operatorname{ht} P' = h + 1$ and $\\operatorname{ht} Q/P' = d - 1$.\n-/\ntheorem infinite_intermediate_primes (R : Type) [CommRing R] (P Q : Ideal R) (le : P ≤ Q)\n    [P.IsPrime] [Q.IsPrime] (h d : ℕ) (lt : 1 < d) (ht1 : P.height = h)\n    (ht2 : (Q.map (Ideal.Quotient.mk P)).height = d) :\n    {P' : Ideal R | P ≤ P' ∧ P' ≤ Q ∧ P'.IsPrime ∧ P'.height = h + 1 ∧\n      (Q.map (Ideal.Quotient.mk P')).height = d - 1}.Infinite := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Ideals and Modules"
+    ]
+  },
+  {
+    "id": 78,
+    "informal_statement": "Let $A$ be a local Cohen–Macaulay (CM) ring that is a quotient of a regular local ring. If $A$ is a UFD, then $A$ is Gorenstein.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing ModuleCat CategoryTheory\n\nsection\n\nvariable {R : Type} [CommRing R]\n\ninstance : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives (ModuleCat R)\n\nnoncomputable def moduleDepth (N M : ModuleCat.{0} R) : ℕ∞ :=\n  sSup {n : ℕ∞ | ∀ i : ℕ, i < n → Subsingleton (CategoryTheory.Abelian.Ext.{0} N M i)}\n\nnoncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=\n  moduleDepth (ModuleCat.of R (R ⧸ I)) M\n\nnoncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=\n  (IsLocalRing.maximalIdeal R).depth M\n\nvariable (R)\n\nclass IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)\n\nclass IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)\n\nend\n\n/-- A commutative local noetherian ring $R$ is regular if $\\dim m/m^2 = \\dim R$. -/\nclass IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R\n\n/-- A Noetherian local ring $R$ is a Gorenstein ring if $\\mathrm{inj}.\\dim_R R < +\\infty$. -/\nclass IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)\n\n/-- A Noetherian ring is a Gorenstein ring if its localization at every maximal ideal is a\n  Gorenstein local ring. -/\nclass IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)\n\n/--\nLet $A$ be a local Cohen–Macaulay (CM) ring that is a quotient of a regular local ring.\nIf $A$ is a UFD, then $A$ is Gorenstein.\n-/\ntheorem IsCohenMacaulayLocalRing.isGorensteinRing_of_ufd {A B : Type} [CommRing A]\n    [IsCohenMacaulayLocalRing A] [IsDomain A] [UniqueFactorizationMonoid A] [CommRing B]\n    [IsRegularLocalRing B] {f : B →+* A} (hf : Function.Surjective f) :\n    IsGorensteinRing A := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 79,
+    "informal_statement": "Let $B$ be a regular local ring and $I \\subset B$ an ideal such that $B/I$ is Gorenstein but not a complete intersection. Show that $I$ cannot have height $0$ or $1$.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing ModuleCat CategoryTheory\n\ninstance (R : Type) [CommRing R] : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives.{0} (ModuleCat.{0} R)\n\n/-- A commutative local noetherian ring $R$ is regular if $\\dim m/m^2 = \\dim R$. -/\nclass IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R\n\n/-- A Noetherian local ring $R$ is a Gorenstein ring if $\\mathrm{inj}.\\dim_R R < +\\infty$. -/\nclass IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)\n\n/-- A Noetherian ring is a Gorenstein ring if its localization at every maximal ideal is a\n  Gorenstein local ring. -/\nclass IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)\n\n/-- A Noetherian local ring $A$ is a local complete intersection if every surjection of local rings\n  $R \\to \\widehat{A}$ with $R$ a regular local ring, the kernel of $R \\to \\hat{A}$ is generated by a\n  regular sequence. -/\n@[stacks 09Q3]\nclass IsLocalCompleteIntersectionRing (A : Type) [CommRing A] : Prop extends\n    IsLocalRing A, IsNoetherianRing A where\n  out (R : Type) [CommRing R] [IsRegularLocalRing R]\n    (f : R →+* (AdicCompletion (maximalIdeal A) A)) (_ : IsLocalHom f) (_ : Function.Surjective f) :\n      ∃ (rs : List R), RingTheory.Sequence.IsRegular R rs ∧ RingHom.ker f = Ideal.ofList rs\n\n/--\nLet $B$ be a regular local ring and $I \\subset B$ an ideal such that\n$B/I$ is Gorenstein but not a local complete intersection.\nShow that $I$ cannot have height $0$ or $1$.\n-/\ntheorem IsLocalRing.not_isCompleteIntersection.height_not_zero_and_not_one (B : Type) [CommRing B]\n    [IsRegularLocalRing B] (I : Ideal B) [IsGorensteinRing (B ⧸ I)]\n    (hc : ¬ IsLocalCompleteIntersectionRing (B ⧸ I)) : I.height ≠ 0 ∧ I.height ≠ 1 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Group Theory",
+      "Group Actions and Sylow theorems"
+    ]
+  },
+  {
+    "id": 80,
+    "informal_statement": "Consider the ideal \\( I \\subset k[x_1, \\dots, x_6] \\) generated by the following polynomials:\n\\[\n\\begin{aligned}\nf_1 &= x_2x_4 + x_3x_6, \\\\\nf_2 &= x_3x_5 + x_1x_6, \\\\\nf_3 &= x_1x_2 - x_2x_5 + x_3x_5 - x_5x_6, \\\\\nf_4 &= x_2x_3 + x_2x_4 + x_2x_6 + x_6^2, \\\\\nf_5 &= x_3^2 + x_3x_4 + x_3x_6 - x_4x_6, \\\\\nf_6 &= x_1x_3 + x_1x_4 + x_4x_5 + x_1x_6.\n\\end{aligned}\n\\]\nProve that \\( R/I \\) is Cohen–Macaulay of dimension \\( 3 \\).",
+    "formal_statement": "import Mathlib\n\nsection\n\nopen CategoryTheory Abelian\n\nvariable {R : Type} [CommRing R]\n\ninstance : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives (ModuleCat R)\n\nnoncomputable def moduleDepth (N M : ModuleCat.{0} R) : ℕ∞ :=\n  sSup {n : ℕ∞ | ∀ i : ℕ, i < n → Subsingleton (CategoryTheory.Abelian.Ext.{0} N M i)}\n\nnoncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=\n  moduleDepth (ModuleCat.of R (R ⧸ I)) M\n\nnoncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=\n  (IsLocalRing.maximalIdeal R).depth M\n\nvariable (R)\n\nclass IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)\n\nclass IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)\n\nend\n\nopen MvPolynomial\n\nabbrev target_ring_aux (k : Type) [Field k] :=\n    (MvPolynomial (Fin 6) k) ⧸ Ideal.span ({\n    X 1 * X 3 + X 2 * X 5, X 2 * X 4 + X 0 * X 5, X 0 * X 1 - X 1 * X 4 + X 2 * X 4 - X 4 * X 5,\n    X 1 * X 2 + X 1 * X 3 + X 1 * X 5 + (X 5)^2, (X 2)^2 + X 2 * X 3 + X 2 * X 5 - X 3 * X 5,\n    X 0 * X 2 + X 0 * X 3 + X 3 * X 4 + X 0 * X 5} : Set (MvPolynomial (Fin 6) k))\n\n/--\nConsider the ideal \\( I \\subset k[x_1, \\dots, x_6] \\) generated by the following polynomials:\n\\[\n\\begin{aligned}\nf_1 &= x_2x_4 + x_3x_6, \\\\\nf_2 &= x_3x_5 + x_1x_6, \\\\\nf_3 &= x_1x_2 - x_2x_5 + x_3x_5 - x_5x_6, \\\\\nf_4 &= x_2x_3 + x_2x_4 + x_2x_6 + x_6^2, \\\\\nf_5 &= x_3^2 + x_3x_4 + x_3x_6 - x_4x_6, \\\\\nf_6 &= x_1x_3 + x_1x_4 + x_4x_5 + x_1x_6.\n\\end{aligned}\n\\]\nProve that \\( R/I \\) is Cohen–Macaulay of dimension \\( 3 \\).\n-/\ntheorem isCohenMacaulayRing_of_dimension_three (k : Type) [Field k] :\n    IsCohenMacaulayRing (target_ring_aux k) ∧ (ringKrullDim (target_ring_aux k) = 3) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Abstract Algebra",
+      "Ring Theory",
+      "Polynomials"
+    ]
+  },
+  {
+    "id": 81,
+    "informal_statement": "Let \\( A \\) be a local Noetherian ring, \\( I \\subset A \\) an ideal. Show that\n\\( I \\) is generated by a regular sequence if and only if \\( I/I^2 \\) is free over \\( A/I \\) and\n\\( \\operatorname{pd}_A I < \\infty \\).",
+    "formal_statement": "import Mathlib\n\n/--\nLet \\( A \\) be a local Noetherian ring, \\( I \\subset A \\) an ideal. Show that\n\\( I \\) is generated by a regular sequence if and only if \\( I/I^2 \\) is free over \\( A/I \\) and\n\\( \\operatorname{pd}_A I < \\infty \\).\n-/\ntheorem generated_by_regular_sequence_iff (R : Type) [CommRing R] [IsLocalRing R]\n    [IsNoetherianRing R] (I : Ideal R) (netop : I ≠ ⊤) :\n    ∃ (rs : List R), (RingTheory.Sequence.IsRegular R rs) ∧ Ideal.ofList rs = I ↔\n    Module.Free (R ⧸ I) I.Cotangent ∧\n    (∃ n, CategoryTheory.HasProjectiveDimensionLE (ModuleCat.of R I) n) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Homological Methods"
+    ]
+  },
+  {
+    "id": 82,
+    "informal_statement": "Let \\( A \\) be a Noetherian complete local ring of dimension \\( d \\), of mixed characteristic (i.e., $\\mathrm{Char} A = 0$ and $\\mathrm{Char} A / \\mathfrak{m}$), and let \\( p = \\text{char}(A/\\mathfrak{m}) \\). Assume that \\( \\text{ht}(p \\cdot A) = 1 \\). Prove that \\( A \\) is a finitely generated module over a subring \\( B \\subset A \\) such that\n\\[\nB \\cong C[[x_1, \\dots, x_{d-1}]],\n\\]\nwhere \\( C \\) is a discrete valuation ring (DVR).",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing\n\n/--\nLet \\( A \\) be a complete local ring of dimension \\( d \\), of mixed characteristic\n(i.e., $\\mathrm{Char} A = 0$ and $\\mathrm{Char} A / \\mathfrak{m}$), and let \\( p = \\text{char}(A/\\mathfrak{m}) \\).\nAssume that \\( \\text{ht}(p \\cdot A) = 1 \\).\nProve that \\( A \\) is a finitely generated module over a subring \\( B \\subset A \\) such that\n\\[\nB \\cong C[[x_1, \\dots, x_{d-1}]],\n\\]\nwhere \\( C \\) is a discrete valuation ring (DVR). -/\ntheorem subring_iso_mvPowerSeries_over_DVR (d : ℕ) (A : Type) [CommRing A] [IsLocalRing A]\n    [IsAdicComplete (maximalIdeal A) A] (dim : ringKrullDim A = d) (p : ℕ) [Fact p.Prime]\n    [CharZero A] [CharP (ResidueField A) p] (ht : (Ideal.span {(p : A)}).height = 1) :\n    ∃ B : Subring A, Module.Finite B A ∧\n    ∃ (C : Type) (_ : CommRing C) (_ : IsDomain C), IsDiscreteValuationRing C ∧\n    Nonempty (B ≃+* MvPowerSeries (Fin (d - 1)) C) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
+    ]
+  },
+  {
+    "id": 83,
+    "informal_statement": "Let \\( f \\colon A \\to B \\) be a flat local homomorphism of Noetherian rings, having maximal ideals \\( \\mathfrak{M}_A \\) and \\( \\mathfrak{M}_B \\) respectively. Prove that if \\( A \\) and \\( B/\\mathfrak{M}_A B \\) are regular, then \\( B \\) is regular.",
+    "formal_statement": "import Mathlib\n\nopen IsLocalRing\n\n/-- A commutative local noetherian ring $R$ is regular if $\\dim m/m^2 = \\dim R$. -/\nclass IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R\n\n/--\nLet \\( f \\colon A \\to B \\) be a flat local homomorphism of Noetherian rings,\nhaving maximal ideals \\( \\mathfrak{M}_A \\) and \\( \\mathfrak{M}_B \\) respectively.\nProve that if \\( A \\) and \\( B/\\mathfrak{M}_A B \\) are regular, then \\( B \\) is regular.\n-/\ntheorem IsRegularLocalRing.flat_local_of_regular {A B : Type} [CommRing A] [CommRing B]\n    [IsRegularLocalRing A] [IsNoetherianRing B] [IsLocalRing B] {f : A →+* B} (hfl : IsLocalHom f)\n    (hff : f.Flat) [IsRegularLocalRing (B ⧸ (maximalIdeal A).map f)] : IsRegularLocalRing B := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
+    ]
+  },
+  {
+    "id": 84,
+    "informal_statement": "For a projective module \\(M\\) over a commutative ring \\(R\\), there exists a free \\(R\\)-module \\(N\\), such that \\(M \\oplus N\\) is free.",
+    "formal_statement": "import Mathlib\n\n/--\nFor a projective module \\(M\\) over a commutative ring \\(R\\),\nthere exists a free \\(R\\)-module \\(N\\), such that \\(M \\oplus N\\) is free.\n-/\ntheorem exists_directSum_free_free_of_projective (R M : Type) [CommRing R] [AddCommGroup M]\n    [Module R M] [Module.Projective R M] : ∃ (N : Type) (_ : AddCommGroup N) (_ : Module R N),\n    Module.Free R N ∧ Module.Free R (N × M) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
+    ]
+  },
+  {
+    "id": 85,
+    "informal_statement": "There exists a transfinite Euclidean domain such that it cannot be given a Euclidean norm taking value in \\(\\mathbb{N}\\).",
+    "formal_statement": "import Mathlib\n\n/--\nDefinition of a Euclidean norm taking value in \\(\\mathbb{N}\\).\n-/\nclass EuclideanNormNat (R : Type) [CommRing R] extends Nontrivial R where\n  quotient : R → R → R\n  quotient_zero : ∀ a, quotient a 0 = 0\n  remainder : R → R → R\n  quotient_mul_add_remainder_eq : ∀ a b, b * quotient a b + remainder a b = a\n  norm : R → ℕ\n  remainder_lt : ∀ (a) {b}, b ≠ 0 → norm (remainder a b) < norm b\n  mul_left_not_lt : ∀ (a) {b}, b ≠ 0 → ¬ norm (a * b) < norm a\n\n/--\nThere exists a transfinite Euclidean domain such that it cannot be given a Euclidean norm taking value in \\(\\mathbb{N}\\).-/\ntheorem exist_euclideanDomain_not_norm_nat :\n    ∃ (R : Type) (_ : EuclideanDomain R), IsEmpty (EuclideanNormNat R) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
+    ]
+  },
+  {
+    "id": 86,
+    "informal_statement": "For a commutative ring \\( A \\), \\( dim A[x, y] + dim A \\le 2 * dim A[x]\\). ",
+    "formal_statement": "import Mathlib\n\n/--\nFor a commutative ring \\( A \\), \\( dim A[x, y] + dim A \\le 2 * dim A[x]\\).\n-/\ntheorem dimension_convex (A : Type) [CommRing A] :\n    ringKrullDim (MvPolynomial A (Fin 2)) + ringKrullDim A ≤ 2 * ringKrullDim (Polynomial A) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
+    ]
+  },
+  {
+    "id": 87,
+    "informal_statement": "There exists two commutative rings \\(R, S\\), such that \\(R[x]\\) is isomorphic to \\(S[x]\\) but \\(R\\) is not isomorphic to \\(S\\).",
+    "formal_statement": "import Mathlib\n\n/--\nThere exists two commutative rings \\(R, S\\), such that \\(R[x]\\) is isomorphic to \\(S[x]\\) but \\(R\\) is not isomorphic to \\(S\\).\n-/\ntheorem exists_polynomial_ringEquiv_isEmpty_ringEquiv :\n    ∃ (R S : Type) (_ : CommRing R) (_ : CommRing S),\n    Nonempty ((Polynomial R) ≃+* (Polynomial S)) ∧ IsEmpty (R ≃+* S) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
+    ]
+  },
+  {
+    "id": 88,
+    "informal_statement": "$\\mathbb{C}[x, y, z] / (x^2 + y^3 + z^7)$ is a UFD.",
+    "formal_statement": "import Mathlib\n\n/--\nThe ring $R = \\mathbb{C}[x, y, z] / (x^2 + y^3 + z^7)$.\n-/\nabbrev R : Type := (MvPolynomial (Fin 3) ℂ) ⧸ Ideal.span {(.X 0 ^ 2 + .X 1 ^ 3 + .X 2 ^ 7 : MvPolynomial (Fin 3) ℂ)}\n\n/--\n$\\mathbb{C}[x, y, z] / (x^2 + y^3 + z^7)$ is a UFD.\n-/\ntheorem quotient_not_UFD :\n    ∃ (h : IsDomain R),\n    (UniqueFactorizationMonoid R) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 89,
+    "informal_statement": "    Prove that if $\\#G = 336$ then $G$ is not simple.",
+    "formal_statement": "import Mathlib\n\n/--\nProve that if $\\#G = 336$ then $G$ is not simple.\n-/\ntheorem not_isSimpleGroup_of_card_eq_336 (G : Type) [Group G]\n    [Finite G] (h_card : Nat.card G = 336) : ¬ IsSimpleGroup G := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 90,
+    "informal_statement": "Given a field $k$, there exists some $n > 0$, there exists some subfield $K \\subseteq k(x_1, \\cdots ,x_n) $, such that $K \\cap k [X_1, \\cdots, x_n]$ is not a finitely generated $k$-algebra.  \n\n    ",
+    "formal_statement": "import Mathlib\n\n/--\nGiven a field $k$, there exists some $n > 0$, there exists some subfield $K \\subseteq k(x_1, \\cdots ,x_n) $,\nsuch that $K \\cap k [X_1, \\cdots, x_n]$ is not a finitely generated $k$-algebra.\n-/\ntheorem not_finiteType_inf_algebraMap_range (k : Type) [Field k] :\n    ∃ (n : ℕ) (K : IntermediateField k (FractionRing (MvPolynomial (Fin n) k))),\n    ¬ Algebra.FiniteType k (K.toSubalgebra ⊓ (Algebra.algHom k (MvPolynomial (Fin n) k)\n    (FractionRing (MvPolynomial (Fin n) k))).range :\n    Subalgebra k (FractionRing (MvPolynomial (Fin n) k))) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 91,
+    "informal_statement": "Let $ k $ be a field, $ A := k[x, y]/(xy(x + y - 1)) $, then $ \\mathrm{Pic}\\ A \\cong k^{\\times} $.",
+    "formal_statement": "import Mathlib\n\nopen CategoryTheory MvPolynomial\n\n/-- The Picard group of a commutative ring R consists of the invertible R-modules,\n  up to isomorphism. -/\nabbrev CommRing.Pic (R : Type) [CommRing R] : Type 1 := (Skeleton <| ModuleCat.{0} R)ˣ\n\n/--\nLet $ k $ be a field, $ A := k[x, y]/(xy(x + y - 1)) $, then $ \\mathrm{Pic}\\ A \\cong k^{\\times} $.\n-/\ntheorem pic_three_lines {k : Type} [Field k] : Nonempty <|\n    CommRing.Pic (MvPolynomial (Fin 2) k ⧸ Ideal.span ({(X 0) * (X 1) * (X 0 + X 1 - 1)} :\n    Set (MvPolynomial (Fin 2) k))) ≃* kˣ := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 92,
+    "informal_statement": "Let $A$ be a commutative ring with identity, $\\dim A = 1$.\nThen all possible sequences for \\(a_n = dim A[x_1, \\ldots, x_n] ( n \\in \\mathbb{N})\\) are exactly the sequences of the form: \\(a_n = 2n+1\\) if \\(n \\le k\\) else \\(a_n = n + k + 1\\), for some \\(k \\in \\mathbb{N} \\cup \\{+\\infty\\}\\).",
+    "formal_statement": "import Mathlib\n\n/--\n\\(a_n = 2n+1\\) if \\(n \\le k\\) else \\(a_n = n + k + 1\\), for some \\(k \\in \\mathbb{N} \\{+\\infty\\}\\).\n-/\ndef a (k : ℕ∞) (n : ℕ) :=\n  if h : n ≤ k then 2 * n + 1\n  else n + WithTop.untop k (by rintro rfl; exact h le_top) + 1\n\n/--\nLet $A$ be a commutative ring with identity, $\\dim A = 1$.\nThen all possible sequences for \\(a_n = dim A[x_1, \\ldots, x_n] ( n \\in \\mathbb{N})\\) are exactly the sequences of the form:\n\\(a_n = 2n+1\\) if \\(n \\le k\\) else \\(a_n = n + k + 1\\), for some \\(k \\in \\mathbb{N} \\cup \\{+\\infty\\}\\).\n-/\ntheorem dimension_sequences_of_one_dimensional_rings :\n    (∀ (A : Type) [CommRing A] (h : ringKrullDim A = 1),\n      ∃ (k : ℕ∞), (∀ (n : ℕ), ringKrullDim (MvPolynomial (Fin n) A) = a k n)) ∧\n    (∀ (k : ℕ), ∃ (A : Type) (_ : CommRing A) (h : ringKrullDim A = 1),\n      (∀ (n : ℕ), ringKrullDim (MvPolynomial (Fin n) A) = a k n)):= by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 93,
+    "informal_statement": "    There exists a field $k$ and a (not necessarily commutative) ring $A$ such that $A$ is integral and finitely generated over $k$ but $\\dim_k A$ is not finite.",
+    "formal_statement": "import Mathlib\n\n/--\nThere exists a field $k$ and a (not necessarily commutative) ring $A$\nsuch that $A$ is integral and finitely generated over $k$ but $\\dim_k A$ is not finite.\n-/\ntheorem exists_integral_finiteType_not_finiteDimensional : ∃ (k A : Type) (_ : Field k)\n    (_ : Ring A) (_ : Algebra k A),\n    Algebra.IsIntegral k A ∧ Algebra.FiniteType k A ∧ ¬ FiniteDimensional k A := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 94,
+    "informal_statement": "    Let $k$ be field, $\\mathrm{char}\\ k=0$, $ A $ be a finite-type $k$-algebra, $f: A \\to A$ be an \\'etale endomorphsim, $\\varphi: A \\to k$, $I \\subset A$ be a ideal. If $A$ is a domain, then $$\\left\\lbrace  n \\in \\mathbb{N} \\mid \\left. \\varphi \\circ f^n \\right|_I = 0 \\right\\rbrace $$ is either finite or contains an arithmetic progression with a positive common difference.",
+    "formal_statement": "import Mathlib\n\nvariable {k A : Type} [Field k] [CharZero k] [CommRing A] [IsDomain A] [Algebra k A]\n  [Algebra.FiniteType k A] (f : A →ₐ[k] A) (ϕ : A →ₐ[k] k) (I : Ideal A)\n\n/-- The set $\\{ n \\in \\mathbb{N} \\mid \\left. \\varphi \\circ f^n \\right|_I = 0 \\right\\rbrace \\}$. -/\ndef zeroSet : Set ℕ := {n | ∀ x : I, (ϕ.comp (f ^ n)) (x : A) = 0}\n\n/--\nLet $k$ be field, $\\mathrm{char}\\ k=0$, $ A $ be a finite-type $k$-algebra, $f: A \\to A$ be an \\'etale endomorphsim, $\\varphi: A \\to k$, $I \\subset A$ be a ideal.\nIf $A$ is a domain, then $$\\left\\lbrace  n \\in \\mathbb{N} \\mid \\left. \\varphi \\circ f^n \\right|_I = 0 \\right\\rbrace $$ is either finite or contains an arithmetic progression with a positive common difference. -/\ntheorem zeroSet_finite_or_contain_arithmetic_progression (hf : f.FormallyEtale) :\n    (zeroSet f ϕ I).Finite ∨ ∃ (d : ℕ+) (a : ℕ), ∀ n : ℕ, a + d * n ∈ zeroSet f ϕ I := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 95,
+    "informal_statement": "   Let $f : \\mathbb{C}[x, y] \\to \\mathbb{C}[x, y]$, $x \\mapsto p(x) + ay, y \\mapsto x$, where $a \\in \\mathbb{C}$, $a \\ne 0$, $p(x) \\in \\mathbb{C}[x]$ have degree $>1$, $\\mathfrak{p} \\subset \\mathbb{C}[x, y]$ be a prime ideal. If $\\mathrm{height}\\ \\mathfrak{p} = 1 $, then $f(\\mathfrak{p}) \\ne \\mathfrak{p}$.",
+    "formal_statement": "import Mathlib\n\nopen Polynomial Bivariate\n\n/--\nLet $f : \\mathbb{C}[x, y] \\to \\mathbb{C}[x, y]$, $x \\mapsto p(x) + ay, y \\mapsto x$,\nwhere $a \\in \\mathbb{C}$, $p(x) \\in \\mathbb{C}[x]$.\n-/\nnoncomputable\ndef f (a : ℂ) (p : ℂ[X]): ℂ[X][Y] →+* ℂ[X][Y] :=\n  eval₂RingHom (aeval (a • Y + C p)).toRingHom (C X)\n\n/--\nLet $f : \\mathbb{C}[x, y] \\to \\mathbb{C}[x, y]$, $x \\mapsto p(x) + ay, y \\mapsto x$,\nwhere $a \\in \\mathbb{C}$, $a \\ne 0$, $p(x) \\in \\mathbb{C}[x]$ have degree $>1$, $\\mathfrak{p} \\subset \\mathbb{C}[x, y]$ be a prime ideal.\nIf $\\mathrm{height}\\ \\mathfrak{p} = 1 $, then $f(\\mathfrak{p}) \\ne \\mathfrak{p}$.\n-/\ntheorem p_map_ne_p (p : ℂ[X]) (h : p.natDegree > 1) {a : ℂ} (ha : a ≠ 0)\n    (𝔭 : Ideal ℂ[X][Y]) (h𝔭 : 𝔭.IsPrime) (h : 𝔭.height = 1) :\n    𝔭.map (f a p) ≠ 𝔭 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 96,
+    "informal_statement": "    Let $f(x) \\in \\mathbb{Q}(x)$ be a rational function of degree at least 2, $\\alpha \\in \\mathbb{Q}$. If the orbit $\\mathcal{O}_f(\\alpha)$ contains infinitely many integers, then $f^2(x)$ is a polynomial.",
+    "formal_statement": "import Mathlib\n\nopen RatFunc\n\n/--\nLet $f(x) \\in \\mathbb{Q}(x)$ be a rational function of degree at least 2, $\\alpha \\in \\mathbb{Q}$.\nIf the orbit $\\mathcal{O}_f(\\alpha)$ contains infinitely many integers, then $f^2(x)$ is a polynomial.\n-/\ntheorem ratFunc_square_is_poly_of_orbit_contain_infinite_integer\n    {f : RatFunc ℚ} (hf : f.num.natDegree ≥ 2 ∨ f.denom.natDegree ≥ 2) {a : ℚ}\n    (h : ∀ n : ℕ, (f.eval (RingHom.id ℚ))^[n] a ≠ 0) -- exclude the case that the `denom` is zero\n    (ha : {m : ℤ | ∃ n : ℕ, m = (f.eval (RingHom.id ℚ))^[n] a}.Infinite) :\n    ∃ g : Polynomial ℚ, g = f.eval C f := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 97,
+    "informal_statement": "    If $k$ is a field of characteristic zero, $n \\in \\mathbb{N}$, $n \\ne 0$, and $\\phi \\colon k[x_1, \\dots, x_n] \\to k[x_1, \\dots, x_n]$ is given by $(x_1, \\dots, x_n) \\mapsto (f_1(x_1), \\dots, f_n(x_n))$, where $f_i(x_i) \\in k[x_i]$ having degree at least two, then there is a point $a \\in k^n$ such that for any non-zero polyminal $p \\in k[x_1, \\dots, x_n]$, there exists $m \\in \\mathbb{N}$ such that $p(\\phi^m(a)) \\ne 0$.",
+    "formal_statement": "import Mathlib\n\nopen scoped Polynomial\n\n/--\nIf $k$ is a field of characteristic zero, $n \\in \\mathbb{N}$, $n \\ne 0$,\nand $\\phi \\colon k[x_1, \\dots, x_n] \\to k[x_1, \\dots, x_n]$ is given by $(x_1, \\dots, x_n) \\mapsto (f_1(x_1), \\dots, f_n(x_n))$,\nwhere $f_i(x_i) \\in k[x_i]$ having degree at least two, then there is a point $a \\in k^n$\nsuch that for any non-zero polyminal $p \\in k[x_1, \\dots, x_n]$,\nthere exists $m \\in \\mathbb{N}$ such that $p(\\phi^m(a)) \\ne 0$. -/\ntheorem exists_point_not_in_zero_set {τ k : Type} [Finite τ] [Nonempty τ] [Field k] [CharZero k]\n    {f : τ → k[X]} (hfd : ∀ i : τ, (f i).natDegree ≥ 2): ∃ a : τ → k,\n    ∀ p : MvPolynomial τ k, p ≠ 0 →\n    ∃ m : ℕ, (((MvPolynomial.aeval (fun i ↦ (f i).toMvPolynomial i)) ^ m) p).aeval a ≠ 0 := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 98,
+    "informal_statement": "    If $K$ be a number field, $A$ be a finite-type $K$-algebra, $f : A \\to A$ be an endomorphism. If $A$ is a domain and $f$ is not of finite order, then there exists a maximal ideal $m \\subset A$ such that for all $n \\in \\mathbb{N}_+$, $f^{-n}(m) \\ne m$.",
+    "formal_statement": "import Mathlib\n\n/--\nIf $K$ be a number field, $A$ be a finite-type $K$-algebra, $f : A \\to A$ be an endomorphism.\nIf $A$ is a domain and $f$ is not of finite order, then there exists a maximal ideal $m \\subset A$\nsuch that for all $n \\in \\mathbb{N}_+$, $f^{-n}(m) \\ne m$.\n-/\ntheorem exists_maximal_ideal_not_in_finite_order {K A : Type} [Field K] [NumberField K] [CommRing A]\n    [IsDomain A] [Algebra K A] [Algebra.FiniteType K A] {f : A →ₐ[K] A} (hf : ∀ n > 0, f ^ n ≠ 1) :\n    ∃ m : Ideal A, m.IsMaximal ∧ ∀ n > 0, m.comap (f ^ n) ≠ m := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 99,
+    "informal_statement": "    Let $A$ be a finite-type $\\mathbb{C}$-algebra, $n \\in \\mathbb{N}$, $n \\ge 1$. If $A$ is a domain, and $\\mathrm{Aut}_\\mathbb{C}\\ A$ is isomorphic to $\\mathrm{Aut}_\\mathbb{C}\\ \\mathbb{C}[x_1, \\dots, x_n]$, then $A$ is isomorphic to $\\mathbb{C}[x_1, \\dots, x_n]$ as $\\mathbb{C}$-algebras.",
+    "formal_statement": "import Mathlib\n\n/--\nLet $A$ be a finite-type $\\mathbb{C}$-algebra, $n \\in \\mathbb{N}$, $n \\ge 1$. If $A$ is a domain,\nand $\\mathrm{Aut}_\\mathbb{C}\\ A$ is isomorphic to $\\mathrm{Aut}_\\mathbb{C}\\ \\mathbb{C}[x_1, \\dots, x_n]$,\nthen $A$ is isomorphic to $\\mathbb{C}[x_1, \\dots, x_n]$ as $\\mathbb{C}$-algebras.\n-/\ntheorem equiv_of_aut_equiv {A : Type} [CommRing A] [IsDomain A] [Algebra ℂ A]\n    [Algebra.FiniteType ℂ A] {n : ℕ} (hn : n ≥ 1)\n    (e : (A ≃ₐ[ℂ] A) ≃* (MvPolynomial (Fin n) ℂ ≃ₐ[ℂ] MvPolynomial (Fin n) ℂ)) :\n    Nonempty (A ≃ₐ[ℂ] MvPolynomial (Fin n) ℂ) := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  },
+  {
+    "id": 100,
+    "informal_statement": "    Let $R$ be a Noetherian ring, $P$ be a countably generated projective $R$-module such that $P_{\\mathfrak{m}}$ has infinite rank for all maximal ideals $\\mathfrak{m}$ of $R$. Then $P$ is free.",
+    "formal_statement": "import Mathlib\n\nopen Module\n\n/--\nLet $R$ be a Noetherian ring, $P$ be a countably generated projective $R$-module\nsuch that $P_{\\mathfrak{m}}$ has infinite rank for all maximal ideals $\\mathfrak{m}$ of $R$.\nThen $P$ is free.\n-/\ntheorem free_of_countably_generated_projective_of_local_infinite_rank {R : Type} [CommRing R]\n    [IsNoetherianRing R] (P : Type) [AddCommGroup P] [Module R P] [Projective R P]\n    (hcg : ∃ s : Set P, s.Countable ∧ Submodule.span R s = ⊤)\n    (hm : ∀ m : Ideal R, (_ : m.IsMaximal) →\n      ¬ Module.Finite (Localization.AtPrime m) (LocalizedModule.AtPrime m P)) : Free R P := by\n  sorry",
+    "source": "FATE-X",
+    "tag": [
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Localization and Decomposition of Ideals"
+    ]
+  }
+]
