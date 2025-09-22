@@ -83,8 +83,8 @@
     "source": "FATE-X",
     "tag": [
       "Abstract Algebra",
-      "Group Theory",
-      "Group Actions and Sylow theorems"
+      "Ring Theory",
+      "Basic Definitions and Examples"
     ]
   },
   {
@@ -94,8 +94,8 @@
     "source": "FATE-X",
     "tag": [
       "Abstract Algebra",
-      "Ring Theory",
-      "Polynomials"
+      "Group Theory",
+      "Group Actions and Sylow theorems"
     ]
   },
   {
@@ -104,9 +104,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet \\( A = \\mathbb{R}[X, Y]/(X^2 + Y^2 + 1) \\). Then it is a principal ideal domain. -/\ntheorem isPrincipalIdealRing_quot_X_pow_two_plus_Y_pow_two_plus_one :\n    IsPrincipalIdealRing ((MvPolynomial (Fin 2) ℝ) ⧸\n    Ideal.span {(.X 0 ^ 2 + .X 1 ^ 2 + .C 1 : (MvPolynomial (Fin 2) ℝ))}) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Other Topics",
-      "Algebraic Number Theory and Valuation Theory"
+      "Abstract Algebra",
+      "Ring Theory",
+      "Polynomials"
     ]
   },
   {
@@ -115,9 +115,9 @@
     "formal_statement": "import Mathlib\n\n/--\nDefinition of a Euclidean norm taking value in \\(\\mathbb{N}\\).\n-/\nclass EuclideanNormNat (R : Type) [CommRing R] extends Nontrivial R where\n  quotient : R → R → R\n  quotient_zero : ∀ a, quotient a 0 = 0\n  remainder : R → R → R\n  quotient_mul_add_remainder_eq : ∀ a b, b * quotient a b + remainder a b = a\n  norm : R → ℕ\n  remainder_lt : ∀ (a) {b}, b ≠ 0 → norm (remainder a b) < norm b\n  mul_left_not_lt : ∀ (a) {b}, b ≠ 0 → ¬ norm (a * b) < norm a\n\n/--\nLet \\( A = \\mathbb{R}[X, Y]/(X^2 + Y^2 + 1) \\). Then it is not a Euclidean domain.\n-/\ntheorem not_isomorphic_euclideanDomain : IsEmpty <| EuclideanNormNat (((MvPolynomial ℝ (Fin 2)) ⧸ Ideal.span {(.X 0 ^ 2 + .X 1 ^ 2 + .C 1: MvPolynomial ℝ (Fin 2))})) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Abstract Algebra",
-      "Ring Theory",
-      "Basic Definitions and Examples"
+      "Commutative Algebra",
+      "Other Topics",
+      "Algebraic Number Theory and Valuation Theory"
     ]
   },
   {
@@ -127,8 +127,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Integral Dependence and the Nullstellensatz"
+      "Other Topics",
+      "Algebraic Number Theory and Valuation Theory"
     ]
   },
   {
@@ -138,8 +138,8 @@
     "source": "FATE-X",
     "tag": [
       "Abstract Algebra",
-      "Field Theory",
-      "Galois theory"
+      "Ring Theory",
+      "Basic Definitions and Examples"
     ]
   },
   {
@@ -148,9 +148,9 @@
     "formal_statement": "import Mathlib\n\n/--\nShow that if $R$ is a unique factorization domain such that the quotient field of $R$ is isomorphic\nto $\\mathbb{R}$, then R is isomorphic to $\\mathbb{R}$.\n-/\ntheorem isomorphic_real_of_fractionRing_isomorphic_real_of_UFD (R : Type) [CommRing R] [IsDomain R]\n    [UniqueFactorizationMonoid R] (h : Nonempty ((FractionRing R) ≃+* ℝ)) :\n    Nonempty (R ≃+* ℝ) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Abstract Algebra",
-      "Field Theory",
-      "Galois theory"
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
     ]
   },
   {
@@ -160,8 +160,8 @@
     "source": "FATE-X",
     "tag": [
       "Abstract Algebra",
-      "Field Theory",
-      "Galois theory"
+      "Group Theory",
+      "Subgroups and Quotient groups"
     ]
   },
   {
@@ -172,7 +172,7 @@
     "tag": [
       "Abstract Algebra",
       "Field Theory",
-      "Explicit Computations"
+      "Galois theory"
     ]
   },
   {
@@ -203,9 +203,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet $E$ denote the algebra $\\mathbb{Q}(\\sqrt{(2+\\sqrt 2)(3+\\sqrt 3)})\n-/\nabbrev E : Type := (Algebra.adjoin ℚ {Real.sqrt ((2 + Real.sqrt 2) * (3 + Real.sqrt 3))})\n\n/--\nLet $\\alpha = \\sqrt{(2+\\sqrt 2)(3+\\sqrt 3)}$ and consider the extension $E =\\mathbb{Q}(\\alpha)$.\nShow that $\\mathrm{Gal}(E/\\mathbb{Q}) \\cong Q_8$, the quaternion group of order $8$.\n-/\ntheorem galoisGroup_iso_quaternion_group : Nonempty ((E ≃ₐ[ℚ] E) ≃* (QuaternionGroup 2)) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Other Topics",
-      "Algebraic Number Theory and Valuation Theory"
+      "Abstract Algebra",
+      "Field Theory",
+      "Explicit Computations"
     ]
   },
   {
@@ -216,7 +216,7 @@
     "tag": [
       "Abstract Algebra",
       "Field Theory",
-      "Galois theory"
+      "Field Extensions"
     ]
   },
   {
@@ -247,9 +247,9 @@
     "formal_statement": "import Mathlib\n\nlocal instance (p : Nat.Primes) : NeZero p.1 := ⟨p.2.ne_zero⟩\nlocal instance (p : Nat.Primes) : IsDomain (ZMod p) := @ZMod.instIsDomain p ⟨p.2⟩\n\n/--\nLet $f(X)\\in\\mathbb{Z}[X]$ be an irreducible polynomial, $n_p$ is the number of solutions of $f(X)$ in $\\mathbb{F}_p$,\nshow that $$\\lim\\limits_{s\\rightarrow 1^{+}}\\frac{\\sum\\limits_{p\\textbf{ prime}}\\frac{n_p}{p^s}}{\\sum\\limits_{p\\textbf{ prime}}\\frac{1}{p^s}}=1$$.\n-/\ntheorem ratio_tendsto_one_of_irreducible (f : Polynomial ℤ) (h_irr : Irreducible f) :\n    Function.rightLim\n    (fun (s : ℝ) ↦\n    (tsum (fun p : Nat.Primes ↦ (f.rootSet (ZMod p)).ncard * ((p : ℝ) ^ (-s)))) /\n    (tsum (fun p : Nat.Primes ↦ (p : ℝ) ^ (-s)))) 1 = 1 := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Abstract Algebra",
-      "Field Theory",
-      "Galois theory"
+      "Commutative Algebra",
+      "Other Topics",
+      "Algebraic Number Theory and Valuation Theory"
     ]
   },
   {
@@ -269,9 +269,9 @@
     "formal_statement": "import Mathlib\n\n/--\nProve that the automorphism group of $\\mathbb{F}_2(t)$ is isomorphic to $S_3$, and its fixed field is\n$\\mathbb{F}_2(u)$ with $$u = \\frac{(t^4-t)^3}{(t^2-t)^5} = \\frac{(t^2+t+1)^3}{(t^2-t)^2}$$.\n-/\ntheorem fixedField_eq_algebra_adjoin :\n    Nonempty ((RatFunc (ZMod 2) ≃+* RatFunc (ZMod 2)) ≃* (Equiv.Perm (Fin 3))) ∧\n    IntermediateField.fixedField (F := ZMod 2) (E := RatFunc (ZMod 2)) ⊤ =\n    IntermediateField.adjoin (ZMod 2) {((.X ^ 4 - .X) ^ 3 / (.X ^ 2 - .X) ^ 5 : (RatFunc (ZMod 2)))} := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Integral Dependence and the Nullstellensatz"
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
     ]
   },
   {
@@ -280,9 +280,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet $K/\\mathbb{Q}$ be a finite extension.\nLet $H$ be a closed subgroup of the absolute Galois group $G(K)$ of $K$.\nIf $H$ is finite, then the cardinality of $H$ is either one or two.\n-/\ntheorem card_one_or_two_of_finite_closed_subgroup_of_absoluteGaloisGroup\n    (K : Type) [Field K] [Algebra ℚ K] [Module.Finite ℚ K]\n    (H : Subgroup (Field.absoluteGaloisGroup K))\n    (h_closed : IsClosed (H : Set (Field.absoluteGaloisGroup K)))\n    (h_fin : Finite H) : Nat.card H = 1 ∨ Nat.card H = 2 := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Integral Dependence and the Nullstellensatz"
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
     ]
   },
   {
@@ -291,9 +291,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet $p$ be a prime number. Let $K/\\mathbb{Q}$ be a finite extension, such that the $p^{2}$th root of unity is contained in $K$.\nLet $L/K$ be a Galois extension of degree $p$, show that there exists a Galois extension $L'/L$ of degree $p$,\nsuch that the extension $L'/K$ is Galois.\n-/\ntheorem isGalois_and_rank_eq_of_isPrimitiveRoot_sq (p : ℕ) (hp : p.Prime) {K : Type} [Field K]\n    [NumberField K] {ζ : K} (h : IsPrimitiveRoot ζ (p^2))\n    {L : IntermediateField K (AlgebraicClosure K)} [IsGalois K L]\n    (hdeg : Module.rank K L = p) :\n    ∃ (L' : Type) (_ : Field L') (_ : Algebra K L')\n    (_ : Algebra L L') (_ : IsScalarTower K L L'),\n    IsGalois K L' ∧ IsGalois L L' ∧ Module.rank L L' = p := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Integral Dependence and the Nullstellensatz"
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
     ]
   },
   {
@@ -302,9 +302,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet $K/\\mathbb{Q}$ be a finite extension.\nLet $g$ be a nontrivial element of the absolute Galois group $G(K)$ of $K$.\nShow that $g$ admits an infinite number of conjugates.\n-/\ntheorem infinite_conj_of_ne_1_absoluteGaloisGroup (K : Type)\n    [Field K] [Algebra ℚ K] [Module.Finite ℚ K] (g : Field.absoluteGaloisGroup K) (h : g ≠ 1) :\n    {g' : Field.absoluteGaloisGroup K | IsConj g g'}.Infinite := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
     ]
   },
   {
@@ -313,9 +313,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet $K/\\mathbb{Q}$ be a finite extension. Let $g$ be an element of the absolute Galois group $G(K)$ of $K$.\nShow that the subgroup generated by $g$ is closed in $G(K)$ if and only if $g$ is torsion.\n-/\ntheorem isClosed_zpowers_iff_isOfFinOrder (K : Type)\n    [Field K] [Algebra ℚ K] [Module.Finite ℚ K] (g : Field.absoluteGaloisGroup K) :\n    IsClosed ((Subgroup.zpowers g) : Set (Field.absoluteGaloisGroup K)) ↔ IsOfFinOrder g := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Abstract Algebra",
+      "Field Theory",
+      "Galois theory"
     ]
   },
   {
@@ -335,9 +335,9 @@
     "formal_statement": "import Mathlib\n\nopen MvPolynomial\n\n/--\nLet \\( R = \\mathbb{C}[x_1, \\dots, x_n]/(x_1^2 + x_2^2 + \\dots + x_n^2) \\).\n-/\nabbrev R (n : ℕ) : Type :=\n  MvPolynomial (Fin n) ℂ ⧸ Ideal.span {(∑ i : Fin n, X i ^ 2 : MvPolynomial (Fin n) ℂ)}\n\n/--\nLet \\( R = \\mathbb{C}[x_1, \\dots, x_n]/(x_1^2 + x_2^2 + \\dots + x_n^2) \\).\nThen \\( R \\) is a unique factorization domain for \\( n \\geq 5 \\).-/\ntheorem UFD_of_ge_5 (n : ℕ) (h : n ≥ 5) :\n    ∃ (h : IsDomain (R n)), UniqueFactorizationMonoid (R n) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Abstract Algebra",
+      "Ring Theory",
+      "PID, ED and UFD"
     ]
   },
   {
@@ -348,7 +348,7 @@
     "tag": [
       "Commutative Algebra",
       "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Tensor Product and Flatness"
     ]
   },
   {
@@ -357,9 +357,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet $A\\subset B$ be commutative rings such that $B$ is finitely generated as a module over $A$.\nIf $B$ is a noetherian ring, show that $A$ is also a noetherian ring.\n-/\ntheorem isNoetherianRing_of_fg_of_isNoetherianRing (B : Type) [CommRing B] [IsNoetherianRing B]\n    (A : Subring B) (h : Module.Finite A B) : IsNoetherianRing A := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Abstract Algebra",
-      "Ring Theory",
-      "PID, ED and UFD"
+      "Commutative Algebra",
+      "Ideal Theory",
+      "Noetherian rings and Chain Conditions"
     ]
   },
   {
@@ -370,7 +370,7 @@
     "tag": [
       "Commutative Algebra",
       "Ideal Theory",
-      "Tensor Product and Flatness"
+      "Integral Dependence and the Nullstellensatz"
     ]
   },
   {
@@ -381,7 +381,7 @@
     "tag": [
       "Commutative Algebra",
       "Ideal Theory",
-      "Ideals and Modules"
+      "Noetherian rings and Chain Conditions"
     ]
   },
   {
@@ -392,7 +392,7 @@
     "tag": [
       "Commutative Algebra",
       "Ideal Theory",
-      "Integral Dependence and the Nullstellensatz"
+      "Localization and Decomposition of Ideals"
     ]
   },
   {
@@ -401,9 +401,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet $R=\\mathbb{C}[x_{11},x_{12},\\dots,x_{1n},x_{21},x_{22},\\dots,\nx_{2n},\\dots,x_{n1},x_{n2},\\dots,x_{nn}]/(\\det(x_{ij})-1)$.\n-/\nabbrev QuotDetSubOne (n : ℕ) : Type := MvPolynomial ((Fin n) × (Fin n)) ℂ ⧸ Ideal.span {\n      Matrix.det (fun (i : Fin n) ↦ (fun (j : Fin n) ↦ (.X ⟨i, j⟩ : (MvPolynomial ((Fin n) × (Fin n)) ℂ)))) - .C 1}\n\n/--\nLet $R=\\mathbb{C}[x_{11},x_{12},\\dots,x_{1n},x_{21},x_{22},\\dots,\nx_{2n},\\dots,x_{n1},x_{n2},\\dots,x_{nn}]/(\\det(x_{ij})-1)$,\nshow that $R$ is a unique factorization domain.\n-/\ntheorem ufd_quotDetSubOne (n : ℕ) (h : n ≥ 1) : ∃ (h : IsDomain (QuotDetSubOne n)),\n    UniqueFactorizationMonoid (QuotDetSubOne n) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Integral Dependence and the Nullstellensatz"
+      "Abstract Algebra",
+      "Ring Theory",
+      "PID, ED and UFD"
     ]
   },
   {
@@ -414,7 +414,7 @@
     "tag": [
       "Commutative Algebra",
       "Ideal Theory",
-      "Tensor Product and Flatness"
+      "Ideals and Modules"
     ]
   },
   {
@@ -424,8 +424,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Heights and Dimensions"
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
     ]
   },
   {
@@ -435,8 +435,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Regular Sequences and Regular Local Rings"
+      "Ideal Theory",
+      "Integral Dependence and the Nullstellensatz"
     ]
   },
   {
@@ -447,7 +447,7 @@
     "tag": [
       "Commutative Algebra",
       "Ideal Theory",
-      "Tensor Product and Flatness"
+      "Noetherian rings and Chain Conditions"
     ]
   },
   {
@@ -457,8 +457,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Tensor Product and Flatness"
+      "Other Topics",
+      "Completions and Hensel's lemma"
     ]
   },
   {
@@ -469,7 +469,7 @@
     "tag": [
       "Commutative Algebra",
       "Ideal Theory",
-      "Ideals and Modules"
+      "Tensor Product and Flatness"
     ]
   },
   {
@@ -479,8 +479,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Completions and Hensel's lemma"
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
     ]
   },
   {
@@ -490,8 +490,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Completions and Hensel's lemma"
+      "Dimension Theory and Smoothness",
+      "Regular Sequences and Regular Local Rings"
     ]
   },
   {
@@ -502,7 +502,7 @@
     "tag": [
       "Commutative Algebra",
       "Ideal Theory",
-      "Ideals and Modules"
+      "Tensor Product and Flatness"
     ]
   },
   {
@@ -512,8 +512,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+      "Ideal Theory",
+      "Dedekind Domains and DVRs"
     ]
   },
   {
@@ -523,8 +523,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Smoothness and the Module of Differentials"
+      "Ideal Theory",
+      "Tensor Product and Flatness"
     ]
   },
   {
@@ -545,8 +545,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Tensor Product and Flatness"
+      "Other Topics",
+      "Completions and Hensel's lemma"
     ]
   },
   {
@@ -555,9 +555,9 @@
     "formal_statement": "import Mathlib\n\n/--\nA Noetherian topological ring in which the topology is defined by an ideal contained in the Jacobson radical is called a \\textit{Zariski ring}.\nLet \\( A \\) be a Noetherian ring, \\( \\mathfrak{a} \\) an ideal of \\( A \\), and \\( \\widehat{A} \\) the \\( \\mathfrak{a} \\)-adic completion of $A$.\nProve that \\( \\widehat{A} \\) is faithfully flat over \\( A \\) if and only if \\( A \\) is a Zariski ring for the \\( \\mathfrak{a} \\)-topology.\n-/\ntheorem adicCompletion_faithfullyFlat_iff (A : Type) [CommRing A] [IsNoetherianRing A]\n    (I : Ideal A) : Module.FaithfullyFlat A (AdicCompletion I A) ↔ I ≤ Ring.jacobson A := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Abstract Algebra",
-      "Ring Theory",
-      "Polynomials"
+      "Commutative Algebra",
+      "Other Topics",
+      "Completions and Hensel's lemma"
     ]
   },
   {
@@ -567,8 +567,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Regular Sequences and Regular Local Rings"
+      "Ideal Theory",
+      "Ideals and Modules"
     ]
   },
   {
@@ -578,8 +578,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Tensor Product and Flatness"
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ]
   },
   {
@@ -588,9 +588,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet \\( A \\) be a $\\mathbb{Q}$-algebra.\nSuppose that \\( x \\in A \\) and \\( D \\in \\operatorname{Der}(A) \\) are such that \\( Dx = 1 \\) and \\( \\bigcap_{n=1}^{\\infty} x^n A = (0) \\).\nShow that \\( x \\) is a non-zero-divisor of \\( A \\).\n-/\ntheorem not_zero_divisor_of_hausdorff_of_der_eq_one (A : Type) [CommRing A] [Algebra ℚ A]\n    (x : A) (D : Derivation ℤ A A) (h_dx : D x = 1) (h_hausdorff : IsHausdorff (Ideal.span {x}) A) :\n    x ∈ nonZeroDivisors A := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Abstract Algebra",
-      "Ring Theory",
-      "Basic Definitions and Examples"
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Smoothness and the Module of Differentials"
     ]
   },
   {
@@ -611,8 +611,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Smoothness and the Module of Differentials"
+      "Ideal Theory",
+      "Tensor Product and Flatness"
     ]
   },
   {
@@ -621,9 +621,9 @@
     "formal_statement": "import Mathlib\n\n/--\nLet \\( A \\) be a domain and \\( K \\) its field of fractions.\n\\( x \\in K \\) is called almost integral if there exists an element \\( r\\in A, r \\ne 0 \\) such that \\( rx^n \\in A \\) for all \\( n \\ge 0 \\).\n-/\ndef IsAlmostIntegral {A : Type} [CommRing A] [IsDomain A] (x : FractionRing A) : Prop :=\n  ∃ r : A, r ≠ 0 ∧ ∀ n : ℕ, ∃ y : A, r • (x ^ n) = algebraMap A (FractionRing A) y\n\n/--\n\\( A \\) is called \\textit{completely integrally closed} if every almost integral element of \\( K \\) is contained in \\( A \\).\n-/\ndef IsCompletelyIntegrallyClosed (A : Type) [CommRing A] [IsDomain A] : Prop :=\n  ∀ x : FractionRing A, IsAlmostIntegral x → ∃ y : A, x = algebraMap A (FractionRing A) y\n\n/--\nLet \\( A \\) be a domain. Show that if \\( A \\) is completely integrally closed, so is \\( A[X] \\). -/\ntheorem completely_integrally_closed_polynomial_ring {A : Type} [CommRing A] [IsDomain A]\n    (h : IsCompletelyIntegrallyClosed A) : IsCompletelyIntegrallyClosed (Polynomial A) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Dedekind Domains and DVRs"
+      "Abstract Algebra",
+      "Ring Theory",
+      "Polynomials"
     ]
   },
   {
@@ -633,8 +633,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Homological Methods"
+      "Ideal Theory",
+      "Tensor Product and Flatness"
     ]
   },
   {
@@ -645,7 +645,7 @@
     "tag": [
       "Abstract Algebra",
       "Ring Theory",
-      "Polynomials"
+      "Basic Definitions and Examples"
     ]
   },
   {
@@ -655,8 +655,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+      "Ideal Theory",
+      "Ideals and Modules"
     ]
   },
   {
@@ -667,7 +667,7 @@
     "tag": [
       "Commutative Algebra",
       "Dimension Theory and Smoothness",
-      "Heights and Dimensions"
+      "Smoothness and the Module of Differentials"
     ]
   },
   {
@@ -677,8 +677,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Tensor Product and Flatness"
+      "Dimension Theory and Smoothness",
+      "Smoothness and the Module of Differentials"
     ]
   },
   {
@@ -688,8 +688,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Ideals and Modules"
+      "Dimension Theory and Smoothness",
+      "Smoothness and the Module of Differentials"
     ]
   },
   {
@@ -710,8 +710,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Homological Methods"
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
     ]
   },
   {
@@ -722,7 +722,7 @@
     "tag": [
       "Commutative Algebra",
       "Dimension Theory and Smoothness",
-      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+      "Regular Sequences and Regular Local Rings"
     ]
   },
   {
@@ -732,8 +732,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Heights and Dimensions"
+      "Ideal Theory",
+      "Tensor Product and Flatness"
     ]
   },
   {
@@ -743,8 +743,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+      "Ideal Theory",
+      "Ideals and Modules"
     ]
   },
   {
@@ -755,7 +755,7 @@
     "tag": [
       "Commutative Algebra",
       "Dimension Theory and Smoothness",
-      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+      "Regular Sequences and Regular Local Rings"
     ]
   },
   {
@@ -765,8 +765,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Regular Sequences and Regular Local Rings"
+      "Ideal Theory",
+      "Ideals and Modules"
     ]
   },
   {
@@ -777,7 +777,7 @@
     "tag": [
       "Commutative Algebra",
       "Dimension Theory and Smoothness",
-      "Regular Sequences and Regular Local Rings"
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ]
   },
   {
@@ -787,8 +787,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Completions and Hensel's lemma"
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ]
   },
   {
@@ -798,8 +798,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Tensor Product and Flatness"
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ]
   },
   {
@@ -809,8 +809,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
+      "Other Topics",
+      "Homological Methods"
     ]
   },
   {
@@ -820,8 +820,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Ideals and Modules"
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ]
   },
   {
@@ -842,8 +842,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Ideals and Modules"
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
     ]
   },
   {
@@ -853,8 +853,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ]
   },
   {
@@ -863,9 +863,9 @@
     "formal_statement": "import Mathlib\n\nopen IsLocalRing ModuleCat CategoryTheory\n\ninstance (R : Type) [CommRing R] : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives.{0} (ModuleCat.{0} R)\n\n/-- A commutative local noetherian ring $R$ is regular if $\\dim m/m^2 = \\dim R$. -/\nclass IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R\n\n/-- A Noetherian local ring $R$ is a Gorenstein ring if $\\mathrm{inj}.\\dim_R R < +\\infty$. -/\nclass IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)\n\n/-- A Noetherian ring is a Gorenstein ring if its localization at every maximal ideal is a\n  Gorenstein local ring. -/\nclass IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)\n\n/-- A Noetherian local ring $A$ is a local complete intersection if every surjection of local rings\n  $R \\to \\widehat{A}$ with $R$ a regular local ring, the kernel of $R \\to \\hat{A}$ is generated by a\n  regular sequence. -/\n@[stacks 09Q3]\nclass IsLocalCompleteIntersectionRing (A : Type) [CommRing A] : Prop extends\n    IsLocalRing A, IsNoetherianRing A where\n  out (R : Type) [CommRing R] [IsRegularLocalRing R]\n    (f : R →+* (AdicCompletion (maximalIdeal A) A)) (_ : IsLocalHom f) (_ : Function.Surjective f) :\n      ∃ (rs : List R), RingTheory.Sequence.IsRegular R rs ∧ RingHom.ker f = Ideal.ofList rs\n\n/--\nLet $B$ be a regular local ring and $I \\subset B$ an ideal such that\n$B/I$ is Gorenstein but not a local complete intersection.\nShow that $I$ cannot have height $0$ or $1$.\n-/\ntheorem IsLocalRing.not_isCompleteIntersection.height_not_zero_and_not_one (B : Type) [CommRing B]\n    [IsRegularLocalRing B] (I : Ideal B) [IsGorensteinRing (B ⧸ I)]\n    (hc : ¬ IsLocalCompleteIntersectionRing (B ⧸ I)) : I.height ≠ 0 ∧ I.height ≠ 1 := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Abstract Algebra",
-      "Group Theory",
-      "Group Actions and Sylow theorems"
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ]
   },
   {
@@ -874,9 +874,9 @@
     "formal_statement": "import Mathlib\n\nsection\n\nopen CategoryTheory Abelian\n\nvariable {R : Type} [CommRing R]\n\ninstance : CategoryTheory.HasExt.{0} (ModuleCat.{0} R) :=\n  CategoryTheory.hasExt_of_enoughProjectives (ModuleCat R)\n\nnoncomputable def moduleDepth (N M : ModuleCat.{0} R) : ℕ∞ :=\n  sSup {n : ℕ∞ | ∀ i : ℕ, i < n → Subsingleton (CategoryTheory.Abelian.Ext.{0} N M i)}\n\nnoncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=\n  moduleDepth (ModuleCat.of R (R ⧸ I)) M\n\nnoncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=\n  (IsLocalRing.maximalIdeal R).depth M\n\nvariable (R)\n\nclass IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)\n\nclass IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)\n\nend\n\nopen MvPolynomial\n\nabbrev target_ring_aux (k : Type) [Field k] :=\n    (MvPolynomial (Fin 6) k) ⧸ Ideal.span ({\n    X 1 * X 3 + X 2 * X 5, X 2 * X 4 + X 0 * X 5, X 0 * X 1 - X 1 * X 4 + X 2 * X 4 - X 4 * X 5,\n    X 1 * X 2 + X 1 * X 3 + X 1 * X 5 + (X 5)^2, (X 2)^2 + X 2 * X 3 + X 2 * X 5 - X 3 * X 5,\n    X 0 * X 2 + X 0 * X 3 + X 3 * X 4 + X 0 * X 5} : Set (MvPolynomial (Fin 6) k))\n\n/--\nConsider the ideal \\( I \\subset k[x_1, \\dots, x_6] \\) generated by the following polynomials:\n\\[\n\\begin{aligned}\nf_1 &= x_2x_4 + x_3x_6, \\\\\nf_2 &= x_3x_5 + x_1x_6, \\\\\nf_3 &= x_1x_2 - x_2x_5 + x_3x_5 - x_5x_6, \\\\\nf_4 &= x_2x_3 + x_2x_4 + x_2x_6 + x_6^2, \\\\\nf_5 &= x_3^2 + x_3x_4 + x_3x_6 - x_4x_6, \\\\\nf_6 &= x_1x_3 + x_1x_4 + x_4x_5 + x_1x_6.\n\\end{aligned}\n\\]\nProve that \\( R/I \\) is Cohen–Macaulay of dimension \\( 3 \\).\n-/\ntheorem isCohenMacaulayRing_of_dimension_three (k : Type) [Field k] :\n    IsCohenMacaulayRing (target_ring_aux k) ∧ (ringKrullDim (target_ring_aux k) = 3) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Abstract Algebra",
-      "Ring Theory",
-      "Polynomials"
+      "Commutative Algebra",
+      "Dimension Theory and Smoothness",
+      "Regular Sequences and Regular Local Rings"
     ]
   },
   {
@@ -886,8 +886,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Homological Methods"
+      "Dimension Theory and Smoothness",
+      "Regular Sequences and Regular Local Rings"
     ]
   },
   {
@@ -897,8 +897,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Heights and Dimensions"
+      "Other Topics",
+      "Completions and Hensel's lemma"
     ]
   },
   {
@@ -908,8 +908,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Dimension Theory and Smoothness",
-      "Heights and Dimensions"
+      "Ideal Theory",
+      "Tensor Product and Flatness"
     ]
   },
   {
@@ -919,8 +919,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Algebraic and Arithmetic Dynamics"
+      "Ideal Theory",
+      "Ideals and Modules"
     ]
   },
   {
@@ -929,9 +929,9 @@
     "formal_statement": "import Mathlib\n\n/--\nDefinition of a Euclidean norm taking value in \\(\\mathbb{N}\\).\n-/\nclass EuclideanNormNat (R : Type) [CommRing R] extends Nontrivial R where\n  quotient : R → R → R\n  quotient_zero : ∀ a, quotient a 0 = 0\n  remainder : R → R → R\n  quotient_mul_add_remainder_eq : ∀ a b, b * quotient a b + remainder a b = a\n  norm : R → ℕ\n  remainder_lt : ∀ (a) {b}, b ≠ 0 → norm (remainder a b) < norm b\n  mul_left_not_lt : ∀ (a) {b}, b ≠ 0 → ¬ norm (a * b) < norm a\n\n/--\nThere exists a transfinite Euclidean domain such that it cannot be given a Euclidean norm taking value in \\(\\mathbb{N}\\).-/\ntheorem exist_euclideanDomain_not_norm_nat :\n    ∃ (R : Type) (_ : EuclideanDomain R), IsEmpty (EuclideanNormNat R) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Other Topics",
-      "Algebraic and Arithmetic Dynamics"
+      "Abstract Algebra",
+      "Ring Theory",
+      "PID, ED and UFD"
     ]
   },
   {
@@ -941,8 +941,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Algebraic and Arithmetic Dynamics"
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
     ]
   },
   {
@@ -952,8 +952,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Other Topics",
-      "Algebraic and Arithmetic Dynamics"
+      "Ideal Theory",
+      "Ideals and Modules"
     ]
   },
   {
@@ -973,9 +973,9 @@
     "formal_statement": "import Mathlib\n\n/--\nProve that if $\\#G = 336$ then $G$ is not simple.\n-/\ntheorem not_isSimpleGroup_of_card_eq_336 (G : Type) [Group G]\n    [Finite G] (h_card : Nat.card G = 336) : ¬ IsSimpleGroup G := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Abstract Algebra",
+      "Group Theory",
+      "Group Actions and Sylow theorems"
     ]
   },
   {
@@ -984,9 +984,9 @@
     "formal_statement": "import Mathlib\n\n/--\nGiven a field $k$, there exists some $n > 0$, there exists some subfield $K \\subseteq k(x_1, \\cdots ,x_n) $,\nsuch that $K \\cap k [X_1, \\cdots, x_n]$ is not a finitely generated $k$-algebra.\n-/\ntheorem not_finiteType_inf_algebraMap_range (k : Type) [Field k] :\n    ∃ (n : ℕ) (K : IntermediateField k (FractionRing (MvPolynomial (Fin n) k))),\n    ¬ Algebra.FiniteType k (K.toSubalgebra ⊓ (Algebra.algHom k (MvPolynomial (Fin n) k)\n    (FractionRing (MvPolynomial (Fin n) k))).range :\n    Subalgebra k (FractionRing (MvPolynomial (Fin n) k))) := by\n  sorry",
     "source": "FATE-X",
     "tag": [
-      "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Abstract Algebra",
+      "Ring Theory",
+      "Polynomials"
     ]
   },
   {
@@ -996,8 +996,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Other Topics",
+      "Homological Methods"
     ]
   },
   {
@@ -1007,8 +1007,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Dimension Theory and Smoothness",
+      "Heights and Dimensions"
     ]
   },
   {
@@ -1018,8 +1018,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Other Topics",
+      "Noncommutative Algebras"
     ]
   },
   {
@@ -1029,8 +1029,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
     ]
   },
   {
@@ -1040,8 +1040,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
     ]
   },
   {
@@ -1051,8 +1051,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
     ]
   },
   {
@@ -1062,8 +1062,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
     ]
   },
   {
@@ -1073,8 +1073,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
     ]
   },
   {
@@ -1084,8 +1084,8 @@
     "source": "FATE-X",
     "tag": [
       "Commutative Algebra",
-      "Ideal Theory",
-      "Localization and Decomposition of Ideals"
+      "Other Topics",
+      "Algebraic and Arithmetic Dynamics"
     ]
   },
   {
