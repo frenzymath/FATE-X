@@ -15,5 +15,6 @@ class EuclideanNormNat (R : Type) [CommRing R] extends Nontrivial R where
 /--
 Let \( A = \mathbb{R}[X, Y]/(X^2 + Y^2 + 1) \). Then it is not a Euclidean domain.
 -/
-theorem not_isomorphic_euclideanDomain : IsEmpty <| EuclideanNormNat (((MvPolynomial ℝ (Fin 2)) ⧸ Ideal.span {(.X 0 ^ 2 + .X 1 ^ 2 + .C 1: MvPolynomial ℝ (Fin 2))})) := by
+theorem not_isomorphic_euclideanDomain : IsEmpty <| EuclideanNormNat (((MvPolynomial (Fin 2) ℝ) ⧸
+    Ideal.span {(.X 0 ^ 2 + .X 1 ^ 2 + .C 1: MvPolynomial (Fin 2) ℝ)})) := by
   sorry
