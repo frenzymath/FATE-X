@@ -11,6 +11,9 @@ structure Subgroup.IsMaximalNormal {G : Type} [Group G] (H₁ H₂ : Subgroup G)
   subgroupOf_normal : (H₁.subgroupOf H₂).Normal
   is_maximal : ∀ H : Subgroup G, H₁ ≤ H → H ≤ H₂ → (H.subgroupOf H₂).Normal → (H = H₁ ∨ H = H₂)
 
+def Subgroup.IsMaximalNormal.setRel {G : Type} [Group G] : SetRel (Subgroup G) (Subgroup G) :=
+  fun (H₁, H₂) ↦ Subgroup.IsMaximalNormal H₁ H₂
+
 /--
 A normal subgroup composition series of a group `G` is a *maximal* finite chain of normal subgroups
 \[
@@ -19,22 +22,24 @@ A normal subgroup composition series of a group `G` is a *maximal* finite chain 
 such that each quotient `G_{i+1}/G_i` is a simple group.
 -/
 structure NormalSubgroupCompositionSeries (G : Type) [Group G] : Type where
-  toRelSeries : RelSeries (Subgroup.IsMaximalNormal (G := G))
-  maximal : ∀ s : RelSeries (Subgroup.IsMaximalNormal (G := G)), s.length ≤ toRelSeries.length
+  toRelSeries : RelSeries (Subgroup.IsMaximalNormal.setRel (G := G))
+  maximal : ∀ s : RelSeries (Subgroup.IsMaximalNormal.setRel (G := G)),
+      s.length ≤ toRelSeries.length
 
 /--
-The \(i\)-th factor of a normal subgroup composition series, which is the quotient of the \(i + 1\)-th
-subgroup by the previous one.
+The \(i\)-th factor of a normal subgroup composition series, which is the quotient of the
+\(i + 1\)-th subgroup by the previous one.
 -/
-def StepwiseQuotient {G : Type} [Group G] (s : NormalSubgroupCompositionSeries G) (i : Fin s.toRelSeries.length) :
-    Type :=
+def StepwiseQuotient {G : Type} [Group G] (s : NormalSubgroupCompositionSeries G)
+    (i : Fin s.toRelSeries.length) : Type :=
   s.toRelSeries i.succ ⧸ (s.toRelSeries i.castSucc).subgroupOf _
 
 /--
 The \(i\)-th factor of a normal subgroup composition series is a group.
 -/
-instance {G : Type} [Group G] (s : NormalSubgroupCompositionSeries G) (i : Fin s.toRelSeries.length) :
-    Group (StepwiseQuotient s i) := QuotientGroup.Quotient.group _ (nN := (s.toRelSeries.step i).subgroupOf_normal)
+instance {G : Type} [Group G] (s : NormalSubgroupCompositionSeries G)
+    (i : Fin s.toRelSeries.length) : Group (StepwiseQuotient s i) :=
+  QuotientGroup.Quotient.group _ (nN := (s.toRelSeries.step i).subgroupOf_normal)
 
 /--
 Let $p,q,r$ be three distinct prime numbers, $t$ a positive integer. Let $G$ be a finite group,
