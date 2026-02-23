@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem88
+
 /--
 The ring $R = \mathbb{C}[x, y, z] / (x^2 + y^3 + z^7)$.
 -/
@@ -12,3 +14,5 @@ theorem quotient_not_UFD :
     ∃ (h : IsDomain R),
     (UniqueFactorizationMonoid R) := by
   sorry
+
+end Problem88

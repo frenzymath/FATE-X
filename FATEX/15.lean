@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem15
+
 /--
 A subgroup `H₁` is a maximal normal subgroup of `H₂` if it is contained in `H₂`,
 and `H₁` is maximal normal in `H₂`.
@@ -65,3 +67,5 @@ theorem exists_swap_stepwiseQuotient {p q r t : ℕ} (hp : p.Prime) (hq : q.Prim
     Nonempty (StepwiseQuotient Hs' ⟨0, by omega⟩  ≃* ZMod q) ∧
     Nonempty (StepwiseQuotient Hs' ⟨1, by omega⟩  ≃* ZMod p) := by
   sorry
+
+end Problem15

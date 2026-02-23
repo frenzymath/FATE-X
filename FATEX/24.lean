@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem24
+
 /--
 The field $K = \mathbb{Q}(\sqrt{p_1}, \dots, \sqrt{p_r})$
 for a finite list of integers $p_1, \dots, p_r$.
@@ -16,3 +18,5 @@ theorem galoisGroup_iso_of_distinct_primes {I : Type} [Finite I] (p : I → ℕ)
     (hp : ∀ (i : I), (p i).Prime) (h_inj : p.Injective) :
     Nonempty ((RatAdjoinSqrt p ≃ₐ[ℚ] RatAdjoinSqrt p) ≃* (Multiplicative (I → (ZMod 2)))) := by
   sorry
+
+end Problem24

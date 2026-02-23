@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem19
+
 /--
 Let $E$ denote the algebra $\mathbb{Q}(\sqrt{(2+\sqrt 2)(3+\sqrt 3)})
 -/
@@ -11,3 +13,5 @@ Show that $\mathrm{Gal}(E/\mathbb{Q}) \cong Q_8$, the quaternion group of order 
 -/
 theorem galoisGroup_iso_quaternion_group : Nonempty ((E ≃ₐ[ℚ] E) ≃* (QuaternionGroup 2)) := by
   sorry
+
+end Problem19

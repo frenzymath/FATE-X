@@ -1,8 +1,12 @@
 import Mathlib
 
+namespace Problem83
+
 open IsLocalRing
 
-/-- A commutative local noetherian ring $R$ is regular if $\dim m/m^2 = \dim R$. -/
+/--
+A commutative local noetherian ring $R$ is regular if $\dim m/m^2 = \dim R$.
+-/
 class IsRegularLocalRing (R : Type) [CommRing R] : Prop extends
     IsLocalRing R, IsNoetherianRing R where
   reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R
@@ -16,3 +20,5 @@ theorem IsRegularLocalRing.flat_local_of_regular {A B : Type} [CommRing A] [Comm
     [IsRegularLocalRing A] [IsNoetherianRing B] [IsLocalRing B] {f : A →+* B} (hfl : IsLocalHom f)
     (hff : f.Flat) [IsRegularLocalRing (B ⧸ (maximalIdeal A).map f)] : IsRegularLocalRing B := by
   sorry
+
+end Problem83

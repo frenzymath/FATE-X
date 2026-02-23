@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem77
+
 /--
 Let $A$ be a Noetherian ring, $P \subset Q$ prime ideals such that
 $\operatorname{ht} P = h$, $\operatorname{ht} Q/P = d$, where $d > 1$.
@@ -12,3 +14,5 @@ theorem infinite_intermediate_primes (R : Type) [CommRing R] [IsNoetherianRing R
     {P' : Ideal R | P ≤ P' ∧ P' ≤ Q ∧ P'.IsPrime ∧ P'.height = h + 1 ∧
       (Q.map (Ideal.Quotient.mk P')).height = d - 1}.Infinite := by
   sorry
+
+end Problem77

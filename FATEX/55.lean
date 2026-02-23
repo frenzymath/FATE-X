@@ -1,7 +1,10 @@
 import Mathlib
 
+namespace Problem55
+
 /--
-A module \( M \) over a ring \( R \) is \textit{stably free} if there exists a free finitely generated module \( F \) over \( R \) such that
+A module \( M \) over a ring \( R \) is \textit{stably free} if there exists a free finitely
+generated module \( F \) over \( R \) such that
 \[
 M \oplus F
 \]
@@ -17,3 +20,5 @@ Prove that if $M$ is stably free and not finitely generated then $M$ is free.
 theorem stablyFree_iff_free_of_not_fg (R : Type) (M : Type) [CommRing R] [AddCommGroup M]
     [Module R M] (h : ¬ Module.Finite R M) : Module.Free R M ↔ IsStablyFree R M := by
   sorry
+
+end Problem55

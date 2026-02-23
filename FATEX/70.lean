@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem70
+
 /--
 All rings considered are noetherian.
 Show that if \( R \) is an integral domain contained in the local ring \( (S, Q) \),
@@ -9,3 +11,5 @@ theorem exists_minimalPrime_map_zero (R S : Type) [CommRing R] [IsDomain R] [IsN
     [CommRing S] [IsNoetherianRing S] [IsLocalRing S] [Algebra R S] [NoZeroSMulDivisors R S] :
     ∃ (p : minimalPrimes S), Ideal.comap (algebraMap R S) p.1 = ⊥ := by
   sorry
+
+end Problem70

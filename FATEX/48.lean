@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem48
+
 /--
 A commutative ring \( A \) is \textit{absolutely flat} if every \( A \)-module is flat.
 -/
@@ -12,3 +14,5 @@ Prove that \( A \) is absolutely flat if and only if every principal ideal is id
 theorem isAbsolutelyFlat_iff_principal_ideal_idempotent (R : Type) [CommRing R] :
     IsAbsolutelyFlat R ↔ (∀ I : Ideal R, I.IsPrincipal → I ^ 2 = I) := by
   sorry
+
+end Problem48

@@ -1,13 +1,17 @@
 import Mathlib
 
-/-- The krull dimension of module, defined as `krullDim` of its support. -/
+namespace Problem72
+
+/--
+The krull dimension of module, defined as `krullDim` of its support.
+-/
 noncomputable def Module.supportDim (R : Type) [CommRing R] (M : Type) [AddCommGroup M]
     [Module R M] : WithBot ℕ∞ :=
   Order.krullDim (Module.support R M)
 
 section
 
-open CategoryTheory Abelian
+open CategoryTheory Abelian Problem72
 
 variable {R : Type} [CommRing R]
 
@@ -45,3 +49,5 @@ theorem isCohenMacaulay_extendScalars_over_mvPolynomial_of_isCohenMacaulay
     [IsNoetherianRing R] [Module.IsCohenMacaulay R M] (n : ℕ) :
     Module.IsCohenMacaulay (MvPolynomial (Fin n) R) ((MvPolynomial (Fin n) R) ⊗[R] M) := by
   sorry
+
+end Problem72

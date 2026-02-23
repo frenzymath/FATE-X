@@ -1,8 +1,10 @@
 import Mathlib
 
+namespace Problem73
+
 section
 
-open CategoryTheory Abelian
+open CategoryTheory Abelian Problem73
 
 variable {R : Type} [CommRing R]
 
@@ -32,7 +34,8 @@ attribute [local instance] MvPolynomial.gradedAlgebra
 
 /--
 If $I$ is an homogeneous ideal of $k[x_0, \dots, x_n]$, \( R = k[x_0, \dots, x_n]/I \),
-then \( R \) is Cohen-Macaulay if and only if \( R_P \) is Cohen-Macaulay, where \( P = (x_0, \dots, x_n) \).
+then \( R \) is Cohen-Macaulay if and only if \( R_P \) is Cohen-Macaulay, where
+\( P = (x_0, \dots, x_n) \).
 -/
 theorem mvPolynomial_quotient_isCohenMacaulayRing_iff (k : Type) [Field k] (n : ℕ)
     (R : Type) [CommRing R] (f : (MvPolynomial (Fin n) k) →+* R) (surj : Function.Surjective f)
@@ -42,3 +45,5 @@ theorem mvPolynomial_quotient_isCohenMacaulayRing_iff (k : Type) [Field k] (n : 
     IsCohenMacaulayRing (Localization.AtPrime ((RingHom.ker MvPolynomial.constantCoeff).map f)
       (hp := Ideal.map_isPrime_of_surjective surj le (H := RingHom.ker_isPrime _))) := by
   sorry
+
+end Problem73

@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem2
+
 /--
 Let $G$ be a finite group and $L$ a maximal subgroup of $G$. Suppose $L$ is non-Abelian and simple.
 Then there exist at most two minimal normal subgroups in $G$.
@@ -9,3 +11,5 @@ theorem card_minimal_normal_subgroup_le_2 (G : Type) [Group G] [Finite G]
     (h_simple : IsSimpleGroup L) (h_non_comm : ∃ (x y : L), x * y ≠ y * x) :
     {H : {H : Subgroup G // H.Normal} | IsMin H}.ncard ≤ 2 := by
   sorry
+
+end Problem2

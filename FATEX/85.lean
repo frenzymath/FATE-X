@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem85
+
 /--
 Definition of a Euclidean norm taking value in \(\mathbb{N}\).
 -/
@@ -13,7 +15,11 @@ class EuclideanNormNat (R : Type) [CommRing R] extends Nontrivial R where
   mul_left_not_lt : ∀ (a) {b}, b ≠ 0 → ¬ norm (a * b) < norm a
 
 /--
-There exists a transfinite Euclidean domain such that it cannot be given a Euclidean norm taking value in \(\mathbb{N}\).-/
+There exists a transfinite Euclidean domain such that it cannot be given a Euclidean norm taking
+value in \(\mathbb{N}\).
+-/
 theorem exist_euclideanDomain_not_norm_nat :
     ∃ (R : Type) (_ : EuclideanDomain R), IsEmpty (EuclideanNormNat R) := by
   sorry
+
+end Problem85

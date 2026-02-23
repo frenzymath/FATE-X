@@ -1,8 +1,10 @@
 import Mathlib
 
+namespace Problem80
+
 section
 
-open CategoryTheory Abelian
+open CategoryTheory Abelian Problem80
 
 variable {R : Type} [CommRing R]
 
@@ -53,3 +55,5 @@ Prove that \( R/I \) is Cohen–Macaulay of dimension \( 3 \).
 theorem isCohenMacaulayRing_of_dimension_three (k : Type) [Field k] :
     IsCohenMacaulayRing (target_ring_aux k) ∧ (ringKrullDim (target_ring_aux k) = 3) := by
   sorry
+
+end Problem80

@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem16
+
 /--
 A Galois extension such that the degree of the extension is a power of a prime \( p \) is
 called a p-extension.
@@ -20,3 +22,5 @@ theorem normalClosure_isPExtension_of_isPExtension (F E : Type) [Field F] [Field
     [IsPExtension F K p] [IsGalois K L] [IsPExtension K L p]
     (h_normalClosure : IsNormalClosure F L E) : IsPExtension F E p := by
   sorry
+
+end Problem16

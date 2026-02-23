@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem67
+
 open scoped TensorProduct
 
 /--
@@ -14,3 +16,5 @@ theorem isEmpty_mvPowerSeries_tensor_mvPowerSeries_algEquiv
     IsEmpty ((MvPowerSeries (Fin n) k) ⊗[k] (MvPowerSeries (Fin n) k) ≃ₐ[k]
     (MvPowerSeries (Fin (n + n)) k)) := by
   sorry
+
+end Problem67

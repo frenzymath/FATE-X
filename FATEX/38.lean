@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem38
+
 open Polynomial DualNumber
 
 /--
@@ -26,3 +28,5 @@ Show that \( S = R[x]/(p) \) is a free \( R \)-module of rank \( 2 \).
 theorem free_dualNumber_and_rank_eq_2 (k : Type) [Field k] :
     Module.Free (DualNumber k) (S k) ∧ Module.rank (DualNumber k) (S k) = 2 := by
   sorry
+
+end Problem38

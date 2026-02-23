@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem61
+
 /--
 Let \( R \to S \) be a ring map. Let \( I \subset R \) be an ideal. Assume
 \begin{enumerate}
@@ -14,3 +16,5 @@ theorem formallySmooth_of_formallySmooth_quotient (R S : Type) [CommRing R] [Com
     [Algebra.FormallySmooth (R ⧸ I) (S ⧸ (I.map (algebraMap R S)))] :
     Algebra.FormallySmooth R S := by
   sorry
+
+end Problem61

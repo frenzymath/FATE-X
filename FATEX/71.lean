@@ -1,16 +1,22 @@
 import Mathlib
 
+namespace Problem71
+
 section
 
 variable (A B : Type) [CommRing A] [CommRing B] [Algebra A B]
 variable (G : Type) [Monoid G] [MulSemiringAction G B] [SMulCommClass G A B]
 
-/-- The set of fixed points under a group action, as a subring. -/
+/--
+The set of fixed points under a group action, as a subring.
+-/
 def FixedPoints.subring : Subring B where
   __ := FixedPoints.addSubgroup G B
   __ := FixedPoints.submonoid G B
 
-/-- The set of fixed points under a group action, as a subalgebra. -/
+/--
+The set of fixed points under a group action, as a subalgebra.
+-/
 def FixedPoints.subalgebra : Subalgebra A B where
   __ := FixedPoints.addSubgroup G B
   __ := FixedPoints.submonoid G B
@@ -20,7 +26,7 @@ end
 
 section
 
-open CategoryTheory Abelian
+open CategoryTheory Abelian Problem71
 
 variable {R : Type} [CommRing R]
 
@@ -47,11 +53,14 @@ class IsCohenMacaulayRing : Prop where
 end
 
 /--
-Let \( G \) be a finite group acting as automorphisms of an algebra \( R \) over a field of characteristic \( 0 \).
-Show that if \( R \) is Cohen-Macaulay, then the ring of invariants \( R^G \) is Cohen-Macaulay.
+Let \( G \) be a finite group acting as automorphisms of an algebra \( R \) over a field of
+characteristic \( 0 \). Show that if \( R \) is Cohen-Macaulay, then the ring of invariants
+\( R^G \) is Cohen-Macaulay.
 -/
 theorem fixedPoints_isCohenMacaulayRing {R : Type} [CommRing R] (k : Type) [Field k]
     [CharZero k] [Algebra k R] [IsNoetherianRing R] [IsCohenMacaulayRing R]
     (G : Subgroup (R ≃ₐ[k] R)) [Finite G] :
     IsCohenMacaulayRing (FixedPoints.subalgebra k R G) := by
   sorry
+
+end Problem71

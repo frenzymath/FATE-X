@@ -1,5 +1,7 @@
 import Mathlib
 
+namespace Problem52
+
 /--
 Let $R$ be a ring, \( \mathfrak{m} \) is an ideal in the Jacobson radical of \( R \),
 and \( G_{1}, G_{2} \in R[x] \) are polynomials such that $G_1$ is monic.
@@ -11,3 +13,5 @@ theorem generate_unit_ideal_of_quotient (R : Type) [CommRing R] (m : Ideal R)
     (h_gen : Ideal.span {G₁.map (Ideal.Quotient.mk m), G₂.map (Ideal.Quotient.mk m)} = ⊤) :
     Ideal.span {G₁, G₂} = ⊤ := by
   sorry
+
+end Problem52

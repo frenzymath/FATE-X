@@ -1,6 +1,8 @@
 import Mathlib
 
-open IsLocalRing ModuleCat CategoryTheory
+namespace Problem75
+
+open IsLocalRing ModuleCat CategoryTheory Problem75
 
 section
 
@@ -38,3 +40,5 @@ theorem gradedAlgebra_isCohenMacaulay_iff_homogeneously_localize {A : Type} [Com
     ∀ p : Ideal A, (_ : p.IsPrime) → p.IsHomogeneous 𝒜 →
     IsCohenMacaulayLocalRing (HomogeneousLocalization.AtPrime 𝒜 p) := by
   sorry
+
+end Problem75
