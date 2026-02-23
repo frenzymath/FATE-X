@@ -10,7 +10,7 @@
       "PID, ED and UFD"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 2,
@@ -23,7 +23,7 @@
       "Subgroups and Quotient groups"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 3,
@@ -36,7 +36,7 @@
       "Subgroups and Quotient groups"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 4,
@@ -49,7 +49,7 @@
       "Group Actions and Sylow theorems"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 5,
@@ -62,7 +62,7 @@
       "p-Groups, Nilpotent Groups and Solvable Groups"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 6,
@@ -75,7 +75,7 @@
       "Group Actions and Sylow theorems"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 7,
@@ -88,7 +88,7 @@
       "Group Actions and Sylow theorems"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 8,
@@ -101,7 +101,7 @@
       "Group Actions and Sylow theorems"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 9,
@@ -114,7 +114,7 @@
       "Polynomials"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 10,
@@ -127,7 +127,7 @@
       "Algebraic Number Theory and Valuation Theory"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 11,
@@ -142,7 +142,7 @@
     "declaration": [
       "class EuclideanNormNat (R : Type) [CommRing R] extends Nontrivial R where\n  quotient : R → R → R\n  quotient_zero : ∀ a, quotient a 0 = 0\n  remainder : R → R → R\n  quotient_mul_add_remainder_eq : ∀ a b, b * quotient a b + remainder a b = a\n  norm : R → ℕ\n  remainder_lt : ∀ (a) {b}, b ≠ 0 → norm (remainder a b) < norm b\n  mul_left_not_lt : ∀ (a) {b}, b ≠ 0 → ¬ norm (a * b) < norm a"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 12,
@@ -155,7 +155,7 @@
       "Integral Dependence and the Nullstellensatz"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 13,
@@ -168,7 +168,7 @@
       "Galois theory"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 14,
@@ -181,7 +181,7 @@
       "Galois theory"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 15,
@@ -198,7 +198,7 @@
       "structure NormalSubgroupCompositionSeries (G : Type) [Group G] : Type where\n  toRelSeries : RelSeries (Subgroup.IsMaximalNormal (G := G))\n  maximal : ∀ s : RelSeries (Subgroup.IsMaximalNormal (G := G)), s.length ≤ toRelSeries.length\n\n\ndef StepwiseQuotient {G : Type} [Group G] (s : NormalSubgroupCompositionSeries G) (i : Fin s.toRelSeries.length) :\n    Type :=\n  s.toRelSeries i.succ ⧸ (s.toRelSeries i.castSucc).subgroupOf _",
       "instance {G : Type} [Group G] (s : NormalSubgroupCompositionSeries G) (i : Fin s.toRelSeries.length) :\n    Group (StepwiseQuotient s i) := QuotientGroup.Quotient.group _ (nN := (s.toRelSeries.step i).subgroupOf_normal)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 16,
@@ -213,7 +213,7 @@
     "declaration": [
       "class IsPExtension (F E : Type) [Field F] [Field E] [Algebra F E]\n    (p : ℕ) : Prop extends IsGalois F E where\n    rank_eq_pow : ∃ (n : ℕ), Module.rank F E = p ^ n"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 17,
@@ -226,7 +226,7 @@
       "Galois theory"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 18,
@@ -241,7 +241,7 @@
     "declaration": [
       "def IsRadicalExtension (E F : Type) [CommRing E] [CommRing F] [Algebra E F] : Prop :=\n    ∃ (x : F), Algebra.adjoin E {x} = ⊤ ∧ (∃ (n : ℕ) (e : E), n ≥ 1 ∧ x ^ n - (algebraMap E F) e = 0)\n\n\ninductive IsRadicalTower : ∀ (E : Type) (F : Type) [CommRing E] [CommRing F] [Algebra E F], Prop\n  | of_isRadicalExtension (E : Type) (F : Type)\n      [CommRing E] [CommRing F] [Algebra E F] : IsRadicalExtension E F → IsRadicalTower E F\n  | of_composition (E : Type) (F : Type) [CommRing E] [CommRing F] [Algebra E F] (F' : Subalgebra E F) :\n      IsRadicalExtension F' F → IsRadicalTower E F' → IsRadicalTower E F"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 19,
@@ -256,7 +256,7 @@
     "declaration": [
       "abbrev E : Type := (Algebra.adjoin ℚ {Real.sqrt ((2 + Real.sqrt 2) * (3 + Real.sqrt 3))})"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 20,
@@ -269,7 +269,7 @@
       "Galois theory"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 21,
@@ -282,7 +282,7 @@
       "Galois theory"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 22,
@@ -295,7 +295,7 @@
       "Galois theory"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 23,
@@ -310,7 +310,7 @@
     "declaration": [
       "local instance (p : Nat.Primes) : NeZero p.1 := ⟨p.2.ne_zero⟩\nlocal instance (p : Nat.Primes) : IsDomain (ZMod p) := @ZMod.instIsDomain p ⟨p.2⟩"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 24,
@@ -325,7 +325,7 @@
     "declaration": [
       "abbrev RatAdjoinSqrt {I : Type} (p : I → ℕ) : Type :=\n  Algebra.adjoin ℚ (Set.range (fun i ↦ Real.sqrt (p i)))"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 25,
@@ -338,7 +338,7 @@
       "Integral Dependence and the Nullstellensatz"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 26,
@@ -351,7 +351,7 @@
       "Integral Dependence and the Nullstellensatz"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 27,
@@ -364,7 +364,7 @@
       "Integral Dependence and the Nullstellensatz"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 28,
@@ -377,7 +377,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 29,
@@ -390,7 +390,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 30,
@@ -403,7 +403,7 @@
       "Integral Dependence and the Nullstellensatz"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 31,
@@ -418,7 +418,7 @@
     "declaration": [
       "abbrev R (n : ℕ) : Type :=\n  MvPolynomial (Fin n) ℂ ⧸ Ideal.span {(∑ i : Fin n, X i ^ 2 : MvPolynomial (Fin n) ℂ)}"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 32,
@@ -431,7 +431,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 33,
@@ -444,7 +444,7 @@
       "PID, ED and UFD"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 34,
@@ -457,7 +457,7 @@
       "Tensor Product and Flatness"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 35,
@@ -470,7 +470,7 @@
       "Ideals and Modules"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 36,
@@ -483,7 +483,7 @@
       "Integral Dependence and the Nullstellensatz"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 37,
@@ -498,7 +498,7 @@
     "declaration": [
       "abbrev QuotDetSubOne (n : ℕ) : Type := MvPolynomial ((Fin n) × (Fin n)) ℂ ⧸ Ideal.span {\n      Matrix.det (fun (i : Fin n) ↦ (fun (j : Fin n) ↦ (.X ⟨i, j⟩ : (MvPolynomial ((Fin n) × (Fin n)) ℂ)))) - .C 1}"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 38,
@@ -514,7 +514,7 @@
       "abbrev S (k : Type) [Field k] : Type := ((DualNumber k)[X] ⧸ Ideal.span {((C ε) * X^3 + (C ε) * X^2 - X^2 - X : (DualNumber k)[X])})",
       "noncomputable instance (k : Type) [Field k] : Module (DualNumber k) (S k) := Module.compHom _ C"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 39,
@@ -527,7 +527,7 @@
       "Heights and Dimensions"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 40,
@@ -540,7 +540,7 @@
       "Regular Sequences and Regular Local Rings"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 41,
@@ -556,7 +556,7 @@
       "def compl_all {α R : Type} [CommRing R] (I : α → Ideal R) : Submonoid R :=\n  Submonoid.closure (⋃ (i : α), (I i : Set R))ᶜ\n\n\ndef ideal_x {α : Type} (R : Type) [CommRing R] (J : Set α) : Ideal (MvPolynomial α R) :=\n  Ideal.span ((MvPolynomial.X)'' J)",
       "abbrev SInvA (k : Type) [Field k] (m : ℕ → ℕ) : Type := (Localization (compl_all fun (n : ℕ) ↦ ideal_x k (Set.Ioc (m n) (m (n + 1)))))"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 42,
@@ -569,7 +569,7 @@
       "Tensor Product and Flatness"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 43,
@@ -584,7 +584,7 @@
     "declaration": [
       "class IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 44,
@@ -599,7 +599,7 @@
     "declaration": [
       "class IsGlobalCompleteIntersection (k : Type) [Field k] (S : Type) [CommRing S] [Algebra k S] :\n    Prop extends Algebra.FiniteType k S where\n  isGlobalCompleteIntersection : ∃ n : ℕ, ∃ rs : List (MvPolynomial (Fin n) k),\n    Nonempty (S ≃ₐ[k] (MvPolynomial (Fin n) k) ⧸ Ideal.ofList rs) ∧ ringKrullDim S + rs.length = n"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 45,
@@ -614,7 +614,7 @@
     "declaration": [
       "def IsGradedHom {R M N ι : Type} [CommRing R] [AddCommGroup M] [AddCommGroup N]\n    [Module R M] [Module R N] (𝓜 : ι → Submodule R M) (𝒩 : ι → Submodule R N)\n    (f : M →ₗ[R] N) : Prop := ∀ (i : ι) (x : 𝓜 i), f x ∈ 𝒩 i"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 46,
@@ -627,7 +627,7 @@
       "Ideals and Modules"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 47,
@@ -642,7 +642,7 @@
     "declaration": [
       "abbrev A {k : Type} [Field k] {n : ℕ} (t : (Fin n) → k) : Type := (MvPolynomial (Fin 2) k) ⧸ Ideal.span {(.X 1 ^ 2) - ∏ (m : Fin n), (.X 0 - .C (t m) : (MvPolynomial (Fin 2) k))}"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 48,
@@ -657,7 +657,7 @@
     "declaration": [
       "class IsAbsolutelyFlat (R : Type) [CommRing R] : Prop where\n  out ⦃P : Type⦄ [AddCommGroup P] [Module R P] : Module.Flat R P"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 49,
@@ -670,7 +670,7 @@
       "Ideals and Modules"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 50,
@@ -683,7 +683,7 @@
       "Tensor Product and Flatness"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 51,
@@ -696,7 +696,7 @@
       "Polynomials"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 52,
@@ -709,7 +709,7 @@
       "Regular Sequences and Regular Local Rings"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 53,
@@ -726,7 +726,7 @@
       "class IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)",
       "class IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 54,
@@ -739,7 +739,7 @@
       "Basic Definitions and Examples"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 55,
@@ -754,7 +754,7 @@
     "declaration": [
       "def IsStablyFree (R : Type) (M : Type) [CommRing R] [AddCommGroup M] [Module R M] : Prop :=\n    ∃ (N : Type) (_ : AddCommGroup N) (_ : Module R N),\n    Module.Finite R N ∧ Module.Free R N ∧ Module.Free R (M × N)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 56,
@@ -767,7 +767,7 @@
       "Smoothness and the Module of Differentials"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 57,
@@ -782,7 +782,7 @@
     "declaration": [
       "def IsAlmostIntegral {A : Type} [CommRing A] [IsDomain A] (x : FractionRing A) : Prop :=\n  ∃ r : A, r ≠ 0 ∧ ∀ n : ℕ, ∃ y : A, r • (x ^ n) = algebraMap A (FractionRing A) y\n\n\ndef IsCompletelyIntegrallyClosed (A : Type) [CommRing A] [IsDomain A] : Prop :=\n  ∀ x : FractionRing A, IsAlmostIntegral x → ∃ y : A, x = algebraMap A (FractionRing A) y"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 58,
@@ -795,7 +795,7 @@
       "Homological Methods"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 59,
@@ -808,7 +808,7 @@
       "Polynomials"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 60,
@@ -823,7 +823,7 @@
     "declaration": [
       "def Ideal.Invertible {R : Type} [CommRing R] [IsDomain R] (I : Ideal R) : Prop :=\n    I ≠ ⊥ ∧ ∃ (N : Ideal R), (N * I).IsPrincipal ∧ N ≠ ⊥"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 61,
@@ -836,7 +836,7 @@
       "Heights and Dimensions"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 62,
@@ -849,7 +849,7 @@
       "Tensor Product and Flatness"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 63,
@@ -864,7 +864,7 @@
     "declaration": [
       "def UniversalProperty.liftOfSqZeroIdeal {R S S' : Type} [CommRing R] [CommRing S] [CommRing S']\n    [Algebra R S] [Algebra R S'] (f : S' →ₐ[R] S) :=\n  ∀ (A : Type) [CommRing A] [Algebra R A] (I : Ideal A) (g : S →ₐ[R] A⧸I),\n  I^2 = 0 → (g.toRingHom.comp (algebraMap R S) = (Ideal.Quotient.mk I).comp (algebraMap R A)) →\n  ∃! (g' : S' →ₐ[R] A), (Ideal.Quotient.mk I).comp g'.toRingHom  = g.comp f"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 64,
@@ -884,7 +884,7 @@
       "class IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)",
       "class IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 65,
@@ -901,7 +901,7 @@
       "class IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)",
       "class IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 66,
@@ -914,7 +914,7 @@
       "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 67,
@@ -927,7 +927,7 @@
       "Heights and Dimensions"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 68,
@@ -940,7 +940,7 @@
       "Depth, Cohen-Macaulay Rings and Gorenstein rings"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 69,
@@ -955,7 +955,7 @@
     "declaration": [
       "class IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 70,
@@ -968,7 +968,7 @@
       "Regular Sequences and Regular Local Rings"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 71,
@@ -988,7 +988,7 @@
       "class IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)",
       "class IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 72,
@@ -1009,7 +1009,7 @@
       "class ModuleCat.IsCohenMacaulay [IsLocalRing R] (M : ModuleCat.{0} R) : Prop where\n  depth_eq_dim : Subsingleton M ∨ Module.supportDim R M = IsLocalRing.depth M",
       "class Module.IsCohenMacaulay (M : Type) [AddCommGroup M] [Module R M] : Prop where\n  depth_eq_dim : ∀ p : Ideal R, ∀ (_ : p.IsPrime), (ModuleCat.of (Localization.AtPrime p)\n    (LocalizedModule.AtPrime p M)).IsCohenMacaulay"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 73,
@@ -1029,7 +1029,7 @@
       "class IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)",
       "class IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 74,
@@ -1047,7 +1047,7 @@
       "class IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)",
       "class IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 75,
@@ -1067,7 +1067,7 @@
       "class IsCohenMacaulayLocalRing : Prop extends IsLocalRing R where\n  depth_eq_dim : ringKrullDim R = IsLocalRing.depth (ModuleCat.of R R)",
       "class IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 76,
@@ -1080,7 +1080,7 @@
       "Heights and Dimensions"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 77,
@@ -1093,7 +1093,7 @@
       "Ideals and Modules"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 78,
@@ -1116,7 +1116,7 @@
       "class IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  injDim_le_infity :\n    ∃ n : ℕ, ∀ i : ℕ, n ≤ i →\n    Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)",
       "class IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 79,
@@ -1135,7 +1135,7 @@
       "class IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R where\n  localization_maximal_isGorensteinLocalRing :\n    ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)\n\n\n@[stacks 09Q3]",
       "class IsLocalCompleteIntersectionRing (A : Type) [CommRing A] : Prop extends\n    IsLocalRing A, IsNoetherianRing A where\n  out (R : Type) [CommRing R] [IsRegularLocalRing R]\n    (f : R →+* (AdicCompletion (maximalIdeal A) A)) (_ : IsLocalHom f) (_ : Function.Surjective f) :\n      ∃ (rs : List R), RingTheory.Sequence.IsRegular R rs ∧ RingHom.ker f = Ideal.ofList rs"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 80,
@@ -1156,7 +1156,7 @@
       "class IsCohenMacaulayRing : Prop where\n  CM_localize : ∀ p : Ideal R, ∀ (_ : p.IsPrime), IsCohenMacaulayLocalRing (Localization.AtPrime p)",
       "abbrev target_ring_aux (k : Type) [Field k] :=\n    (MvPolynomial (Fin 6) k) ⧸ Ideal.span ({\n    X 1 * X 3 + X 2 * X 5, X 2 * X 4 + X 0 * X 5, X 0 * X 1 - X 1 * X 4 + X 2 * X 4 - X 4 * X 5,\n    X 1 * X 2 + X 1 * X 3 + X 1 * X 5 + (X 5)^2, (X 2)^2 + X 2 * X 3 + X 2 * X 5 - X 3 * X 5,\n    X 0 * X 2 + X 0 * X 3 + X 3 * X 4 + X 0 * X 5} : Set (MvPolynomial (Fin 6) k))"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 81,
@@ -1169,7 +1169,7 @@
       "Homological Methods"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 82,
@@ -1182,7 +1182,7 @@
       "Heights and Dimensions"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 83,
@@ -1197,7 +1197,7 @@
     "declaration": [
       "class IsRegularLocalRing (R : Type) [CommRing R] : Prop extends\n    IsLocalRing R, IsNoetherianRing R where\n  reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 84,
@@ -1210,7 +1210,7 @@
       "Algebraic and Arithmetic Dynamics"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 85,
@@ -1225,7 +1225,7 @@
     "declaration": [
       "class EuclideanNormNat (R : Type) [CommRing R] extends Nontrivial R where\n  quotient : R → R → R\n  quotient_zero : ∀ a, quotient a 0 = 0\n  remainder : R → R → R\n  quotient_mul_add_remainder_eq : ∀ a b, b * quotient a b + remainder a b = a\n  norm : R → ℕ\n  remainder_lt : ∀ (a) {b}, b ≠ 0 → norm (remainder a b) < norm b\n  mul_left_not_lt : ∀ (a) {b}, b ≠ 0 → ¬ norm (a * b) < norm a"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 86,
@@ -1238,7 +1238,7 @@
       "Algebraic and Arithmetic Dynamics"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 87,
@@ -1251,7 +1251,7 @@
       "Algebraic and Arithmetic Dynamics"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 88,
@@ -1266,7 +1266,7 @@
     "declaration": [
       "abbrev R : Type := (MvPolynomial (Fin 3) ℂ) ⧸ Ideal.span {(.X 0 ^ 2 + .X 1 ^ 3 + .X 2 ^ 7 : MvPolynomial (Fin 3) ℂ)}"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 89,
@@ -1279,7 +1279,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 90,
@@ -1292,7 +1292,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 91,
@@ -1307,7 +1307,7 @@
     "declaration": [
       "abbrev CommRing.Pic (R : Type) [CommRing R] : Type 1 := (Skeleton <| ModuleCat.{0} R)ˣ"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 92,
@@ -1322,7 +1322,7 @@
     "declaration": [
       "def a (k : ℕ∞) (n : ℕ) :=\n  if h : n ≤ k then 2 * n + 1\n  else n + WithTop.untop k (by rintro rfl; exact h le_top) + 1"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 93,
@@ -1335,7 +1335,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 94,
@@ -1348,7 +1348,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 95,
@@ -1363,7 +1363,7 @@
     "declaration": [
       "noncomputable\ndef f (a : ℂ) (p : ℂ[X]): ℂ[X][Y] →+* ℂ[X][Y] :=\n  eval₂RingHom (aeval (a • Y + C p)).toRingHom (C X)"
     ],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 96,
@@ -1376,7 +1376,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 97,
@@ -1389,7 +1389,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 98,
@@ -1402,7 +1402,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 99,
@@ -1415,7 +1415,7 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   },
   {
     "id": 100,
@@ -1428,6 +1428,6 @@
       "Localization and Decomposition of Ideals"
     ],
     "declaration": [],
-    "version": "v4.25.0"
+    "version": "v4.26.0"
   }
 ]
