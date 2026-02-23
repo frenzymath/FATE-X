@@ -40,6 +40,9 @@ end
 
 open TensorProduct
 
+noncomputable instance (R : Type) [CommRing R] (M : Type) [AddCommGroup M] [Module R M] (n : ℕ) :
+    Module (MvPolynomial (Fin n) R) ((MvPolynomial (Fin n) R) ⊗[R] M) := leftModule
+
 /--
 Let \( R \) be a Noetherian ring. Let \( M \) be a Cohen-Macaulay module over \( R \).
 Then \( M \otimes_R R[x_1, \dots, x_n] \) is a Cohen-Macaulay module over \( R[x_1, \dots, x_n] \).

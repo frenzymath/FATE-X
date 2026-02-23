@@ -34,4 +34,4 @@ Each Lean file consists of a single exercise, containing:
 </figure>
 
 ## Lean Toolchain
-The initial version of this benchmark uses `leanprover/lean4:v4.19.0`. This may change in future updates.
+The initial version of this benchmark uses `leanprover/lean4:v4.19.0`. For each supported minor version of Lean, a corresponding and updated iteration of the benchmark is available via the repository's tags.
