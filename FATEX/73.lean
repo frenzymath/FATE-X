@@ -33,9 +33,9 @@ end
 attribute [local instance] MvPolynomial.gradedAlgebra
 
 /--
-If $I$ is an homogeneous ideal of $k[x_0, \dots, x_n]$, \( R = k[x_0, \dots, x_n]/I \),
+If $I$ is a proper homogeneous ideal of $k[x_1, \dots, x_n]$, \( R = k[x_1, \dots, x_n]/I \),
 then \( R \) is Cohen-Macaulay if and only if \( R_P \) is Cohen-Macaulay, where
-\( P = (x_0, \dots, x_n) \).
+\( P = (x_1, \dots, x_n) \).
 -/
 theorem mvPolynomial_quotient_isCohenMacaulayRing_iff (k : Type) [Field k] (n : ℕ)
     (R : Type) [CommRing R] (f : (MvPolynomial (Fin n) k) →+* R) (surj : Function.Surjective f)

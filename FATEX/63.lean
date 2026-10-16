@@ -17,7 +17,7 @@ where \( I \subset A \) is an ideal of square zero, there is a unique \( R \)-al
 def UniversalProperty.liftOfSqZeroIdeal {R S S' : Type} [CommRing R] [CommRing S] [CommRing S']
     [Algebra R S] [Algebra R S'] (f : S' →ₐ[R] S) :=
   ∀ (A : Type) [CommRing A] [Algebra R A] (I : Ideal A) (g : S →ₐ[R] A⧸I),
-  I^2 = 0 → (g.toRingHom.comp (algebraMap R S) = (Ideal.Quotient.mk I).comp (algebraMap R A)) →
+  I^2 = 0 →
   ∃! (g' : S' →ₐ[R] A), (Ideal.Quotient.mk I).comp g'.toRingHom  = g.comp f
 
 /--
@@ -36,7 +36,8 @@ where \( I \subset A \) is an ideal of square zero, there is a unique \( R \)-al
 -/
 theorem surjection_of_formally_unramified (R S : Type) [CommRing R] [CommRing S]
     [Algebra R S] [Algebra.FormallyUnramified R S] :
-    ∃ (S' : Type) (_ : CommRing S') (_ : Algebra R S') (f : S' →ₐ[R] S), (RingHom.ker f) ^ 2 = 0 ∧ UniversalProperty.liftOfSqZeroIdeal f := by
+    ∃ (S' : Type) (_ : CommRing S') (_ : Algebra R S') (f : S' →ₐ[R] S),
+      Function.Surjective f ∧ (RingHom.ker f) ^ 2 = 0 ∧ UniversalProperty.liftOfSqZeroIdeal f := by
   sorry
 
 end Problem63

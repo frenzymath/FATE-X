@@ -3,11 +3,11 @@ import Mathlib
 namespace Problem15
 
 /--
-A subgroup `H₁` is a maximal normal subgroup of `H₂` if it is contained in `H₂`,
+A subgroup `H₁` is a maximal proper normal subgroup of `H₂` if it is strictly contained in `H₂`,
 and `H₁` is maximal normal in `H₂`.
 -/
 structure Subgroup.IsMaximalNormal {G : Type} [Group G] (H₁ H₂ : Subgroup G) : Prop where
-  le : H₁ ≤ H₂
+  lt : H₁ < H₂
   subgroupOf_normal : (H₁.subgroupOf H₂).Normal
   is_maximal : ∀ H : Subgroup G, H₁ ≤ H → H ≤ H₂ → (H.subgroupOf H₂).Normal → (H = H₁ ∨ H = H₂)
 
@@ -15,7 +15,7 @@ def Subgroup.IsMaximalNormal.setRel {G : Type} [Group G] : SetRel (Subgroup G) (
   fun (H₁, H₂) ↦ Subgroup.IsMaximalNormal H₁ H₂
 
 /--
-A normal subgroup composition series of a group `G` is a *maximal* finite chain of normal subgroups
+A normal subgroup composition series of a group `G` is a finite chain of strict normal inclusions
 \[
 \{e\} = G_0 \triangleleft G_1 \triangleleft \cdots \triangleleft G_n = G
 \]
@@ -23,8 +23,8 @@ such that each quotient `G_{i+1}/G_i` is a simple group.
 -/
 structure NormalSubgroupCompositionSeries (G : Type) [Group G] : Type where
   toRelSeries : RelSeries (Subgroup.IsMaximalNormal.setRel (G := G))
-  maximal : ∀ s : RelSeries (Subgroup.IsMaximalNormal.setRel (G := G)),
-      s.length ≤ toRelSeries.length
+  head_eq_bot : toRelSeries.head = ⊥
+  last_eq_top : toRelSeries.last = ⊤
 
 /--
 The \(i\)-th factor of a normal subgroup composition series, which is the quotient of the
@@ -46,31 +46,34 @@ Let $p,q,r$ be three distinct prime numbers, $t$ a positive integer. Let $G$ be 
 $H$ a normal subgroup of $G$ such that the cardinality of $G/H$ is $r^{t}$.
 Suppose that there exists a composition series
 \[
-\{e\} = H_0 \triangleleft H_1 \triangleleft \cdots \triangleleft H_n = H,
+\{e\} = H_0 \triangleleft H_1 \triangleleft H_2 = H,
 \]
-of $H$ that satisfies $n=2$, $H_1/H_0 = \mathbb{Z}/p\mathbb{Z}$,
-$H_2/H_1 = \mathbb{Z}/q\mathbb{Z}$. Further suppose that there exists a composition series
+of $H$ with $H_1/H_0 \cong \mathbb{Z}/p\mathbb{Z}$ and
+$H_2/H_1 \cong \mathbb{Z}/q\mathbb{Z}$. Further suppose that there exists a composition series
 \[
 \{e\} = G_0 \triangleleft G_1 \triangleleft \cdots \triangleleft G_n = G,
 \]
 and positive integers $i < j\leq n$ such that $G_{i}/G_{i-1} = \mathbb{Z}/q\mathbb{Z}$,
 $G_{j}/G_{j-1} = \mathbb{Z}/p\mathbb{Z}$. Show that there exists a composition series
 \[
-\{e\} = H_0 \triangleleft H_1 \triangleleft \cdots \triangleleft H_n = H,
+\{e\} = H'_0 \triangleleft H'_1 \triangleleft H'_2 = H,
 \]
-of $H$ that satisfies $n=2$, $H_1/H_0 = \mathbb{Z}/q\mathbb{Z}$,
-$H_2/H_1 = \mathbb{Z}/p\mathbb{Z}$.
+of $H$ with $H'_1/H'_0 \cong \mathbb{Z}/q\mathbb{Z}$ and
+$H'_2/H'_1 \cong \mathbb{Z}/p\mathbb{Z}$.
 -/
 theorem exists_swap_stepwiseQuotient {p q r t : ℕ} (hp : p.Prime) (hq : q.Prime) (hr : r.Prime)
+    (hpq : p ≠ q) (hpr : p ≠ r) (hqr : q ≠ r)
     (ht : 0 < t) (G : Type) [Group G] [Fintype G] (H : Subgroup G) [H.Normal]
     (hH : Nat.card (G ⧸ H) = r ^ t) (Hs : NormalSubgroupCompositionSeries H)
-    (hHs: Hs.toRelSeries.length = 2) (hHs0 : StepwiseQuotient Hs ⟨0, by omega⟩ ≃* ZMod p)
-    (hHs1 : StepwiseQuotient Hs ⟨1, by omega⟩ ≃* ZMod q)
+    (hHs: Hs.toRelSeries.length = 2)
+    (hHs0 : StepwiseQuotient Hs ⟨0, by omega⟩ ≃* Multiplicative (ZMod p))
+    (hHs1 : StepwiseQuotient Hs ⟨1, by omega⟩ ≃* Multiplicative (ZMod q))
     (Gs : NormalSubgroupCompositionSeries G) (i j : Fin Gs.toRelSeries.length) (hij : i < j)
-    (hGi : StepwiseQuotient Gs i ≃* ZMod q) (hGj : StepwiseQuotient Gs j ≃* ZMod p) :
+    (hGi : StepwiseQuotient Gs i ≃* Multiplicative (ZMod q))
+    (hGj : StepwiseQuotient Gs j ≃* Multiplicative (ZMod p)) :
     ∃ (Hs' : NormalSubgroupCompositionSeries H) (hlen : Hs'.toRelSeries.length = 2),
-    Nonempty (StepwiseQuotient Hs' ⟨0, by omega⟩  ≃* ZMod q) ∧
-    Nonempty (StepwiseQuotient Hs' ⟨1, by omega⟩  ≃* ZMod p) := by
+    Nonempty (StepwiseQuotient Hs' ⟨0, by omega⟩ ≃* Multiplicative (ZMod q)) ∧
+    Nonempty (StepwiseQuotient Hs' ⟨1, by omega⟩ ≃* Multiplicative (ZMod p)) := by
   sorry
 
 end Problem15

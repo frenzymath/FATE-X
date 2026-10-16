@@ -12,7 +12,6 @@ class IsRegularLocalRing (R : Type) [CommRing R] : Prop extends
   reg : Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R
 
 /--
-Let \( A \) be a Noetherian ring.
 If \( R \) is a regular local ring with maximal ideal \( \mathfrak{m} \) and
 \( P \in \operatorname{Spec}(R[x]) \) is a prime ideal with \( \mathfrak{m} = P \cap R \),
 then \( R[x]_P \) is regular.

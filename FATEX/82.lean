@@ -6,7 +6,7 @@ open IsLocalRing
 
 /--
 Let \( A \) be a Noetherian complete local ring of dimension \( d \), of mixed characteristic
-(i.e., $\mathrm{Char} A = 0$ and $\mathrm{Char} A / \mathfrak{m}$), and let
+(i.e., $\mathrm{char}(A) = 0$ and $\mathrm{char}(A/\mathfrak{m}) > 0$), and let
 \( p = \text{char}(A/\mathfrak{m}) \). Assume that \( \text{ht}(p \cdot A) = 1 \).
 Prove that \( A \) is a finitely generated module over a subring \( B \subset A \) such that
 \[

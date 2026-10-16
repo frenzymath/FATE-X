@@ -15,7 +15,7 @@ ring \(A\) is not trivial, where \(k\) is a field of characteristic not 2,
 \(f(x) = (x - t_{1})\ldots(x - t_{n})\) with \(t_{1},\ldots,t_{n} \in k\) distinct and
 \(n \geq 3\) is an odd integer.
 -/
-theorem isEmpty_isomorphism_UFD_of_quotient (k : Type) [Field k] (h_char : ¬ CharP k 2)
+theorem quotient_isDedekindDomain_and_nontrivial_classGroup (k : Type) [Field k] (h_char : ¬ CharP k 2)
     (n : ℕ) (h_ge : n ≥ 3) (h_odd : Odd n) (t : (Fin n) → k) (h_inj : Function.Injective t) :
     ∃ _ : IsDedekindDomain (A t), Nontrivial (ClassGroup (A t)) := by
   sorry

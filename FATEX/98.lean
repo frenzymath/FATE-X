@@ -3,7 +3,8 @@ import Mathlib
 namespace Problem98
 
 /--
-If $K$ be a number field, $A$ be a finite-type $K$-algebra, $f : A \to A$ be an endomorphism.
+Let $K$ be a number field, let $A$ be a finite-type $K$-algebra, and let $f : A \to A$ be a
+$K$-algebra endomorphism.
 If $A$ is a domain and $f$ is not of finite order, then there exists a maximal ideal $m \subset A$
 such that for all $n \in \mathbb{N}_+$, $f^{-n}(m) \ne m$.
 -/

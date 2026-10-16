@@ -12,7 +12,7 @@ A Noetherian local ring $R$ is a Gorenstein ring if $\mathrm{inj}.\dim_R R < +\i
 -/
 class IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends
     IsLocalRing R, IsNoetherianRing R where
-  injDim_le_infity :
+  injDim_finite :
     ∃ n : ℕ, ∀ i : ℕ, n ≤ i →
     Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)
 

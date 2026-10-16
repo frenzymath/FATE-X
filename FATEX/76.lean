@@ -12,9 +12,12 @@ A ring $R$ is said to be \textit{catenary} if for any pair of prime ideals $\mat
 -/
 def IsCatenary (R : Type) [CommRing R] : Prop :=
   ∀ p q : PrimeSpectrum R, p ≤ q →
-  ∃ n : ℕ, ∀ (l : LTSeries (PrimeSpectrum R)), l.head = p → l.last = q →
-  (∀ l' : LTSeries (PrimeSpectrum R), l'.head = p → l'.last = q → l.toList <+ l'.toList → l' = l) →
-  l.toList.length = n
+  ∃ n : ℕ,
+    (∀ l : LTSeries (PrimeSpectrum R), l.head = p → l.last = q → l.length ≤ n) ∧
+    ∀ l : LTSeries (PrimeSpectrum R), l.head = p → l.last = q →
+      (∀ l' : LTSeries (PrimeSpectrum R), l'.head = p → l'.last = q →
+        l.toList <+ l'.toList → l' = l) →
+      l.length = n
 
 /--
 Let $A$ be a Noetherian UFD of dimension $d \leq 3$. Prove that $A$ is catenary.

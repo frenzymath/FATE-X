@@ -11,4 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Check generated dataset and auxiliary declarations
+        run: |
+          python3 scripts/sync_dataset.py --check
+          python3 tests/check_statements.py --dataset-only
       - uses: leanprover/lean-action@v1

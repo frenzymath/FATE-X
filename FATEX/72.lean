@@ -3,7 +3,7 @@ import Mathlib
 namespace Problem72
 
 /--
-The krull dimension of module, defined as `krullDim` of its support.
+The Krull dimension of a module, defined as `krullDim` of its support.
 -/
 noncomputable def Module.supportDim (R : Type) [CommRing R] (M : Type) [AddCommGroup M]
     [Module R M] : WithBot ℕ∞ :=
@@ -27,12 +27,14 @@ noncomputable def Ideal.depth (I : Ideal R) (M : ModuleCat.{0} R) : ℕ∞ :=
 noncomputable def IsLocalRing.depth [IsLocalRing R] (M : ModuleCat.{0} R) : ℕ∞ :=
   (IsLocalRing.maximalIdeal R).depth M
 
-class ModuleCat.IsCohenMacaulay [IsLocalRing R] (M : ModuleCat.{0} R) : Prop where
+class ModuleCat.IsCohenMacaulay [IsLocalRing R] (M : ModuleCat.{0} R) : Prop extends
+    Module.Finite R M where
   depth_eq_dim : Subsingleton M ∨ Module.supportDim R M = IsLocalRing.depth M
 
 variable (R)
 
-class Module.IsCohenMacaulay (M : Type) [AddCommGroup M] [Module R M] : Prop where
+class Module.IsCohenMacaulay (M : Type) [AddCommGroup M] [Module R M] : Prop extends
+    Module.Finite R M where
   depth_eq_dim : ∀ p : Ideal R, ∀ (_ : p.IsPrime), (ModuleCat.of (Localization.AtPrime p)
     (LocalizedModule.AtPrime p M)).IsCohenMacaulay
 
@@ -44,7 +46,7 @@ noncomputable instance (R : Type) [CommRing R] (M : Type) [AddCommGroup M] [Modu
     Module (MvPolynomial (Fin n) R) ((MvPolynomial (Fin n) R) ⊗[R] M) := leftModule
 
 /--
-Let \( R \) be a Noetherian ring. Let \( M \) be a Cohen-Macaulay module over \( R \).
+Let \( R \) be a Noetherian ring. Let \( M \) be a finitely generated Cohen-Macaulay module over \( R \).
 Then \( M \otimes_R R[x_1, \dots, x_n] \) is a Cohen-Macaulay module over \( R[x_1, \dots, x_n] \).
 -/
 theorem isCohenMacaulay_extendScalars_over_mvPolynomial_of_isCohenMacaulay

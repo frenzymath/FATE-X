@@ -15,7 +15,9 @@ def IsStablyFree (R : Type) (M : Type) [CommRing R] [AddCommGroup M] [Module R M
     Module.Finite R N ∧ Module.Free R N ∧ Module.Free R (M × N)
 
 /--
-Prove that if $M$ is stably free and not finitely generated then $M$ is free.
+An $R$-module $M$ is stably free if $M \oplus F$ is free for some finitely generated
+free $R$-module $F$. For a commutative ring $R$ and a module $M$ that is not finitely generated,
+prove that $M$ is free if and only if it is stably free.
 -/
 theorem stablyFree_iff_free_of_not_fg (R : Type) (M : Type) [CommRing R] [AddCommGroup M]
     [Module R M] (h : ¬ Module.Finite R M) : Module.Free R M ↔ IsStablyFree R M := by

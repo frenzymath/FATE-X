@@ -3,9 +3,9 @@ import Mathlib
 namespace Problem52
 
 /--
-Let $R$ be a ring, \( \mathfrak{m} \) is an ideal in the Jacobson radical of \( R \),
+Let $R$ be a commutative ring, let \( \mathfrak{m} \) be an ideal contained in its Jacobson radical,
 and \( G_{1}, G_{2} \in R[x] \) are polynomials such that $G_1$ is monic.
-If $G_i \mod \mathfrak{m}$ gnerate the unit ideal of $R/\mathfrak{m}[x]$,
+If the reductions of $G_1$ and $G_2$ generate the unit ideal of $(R/\mathfrak{m})[x]$,
 then \( G_{1}, G_{2} \) together generate the unit ideal of \( R[x] \).
 -/
 theorem generate_unit_ideal_of_quotient (R : Type) [CommRing R] (m : Ideal R)

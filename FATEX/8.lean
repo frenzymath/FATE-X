@@ -13,6 +13,8 @@ in which the multiplication satisfies relations: $\boldsymbol{i}^2 = A$, $\bolds
 and $\boldsymbol{i}\boldsymbol{j}= -\boldsymbol{j}\boldsymbol{i} = \boldsymbol{k}$.
 Show that $D_{A, B, \mathbb{R}}$ is either isomorphic to $\mathbb{H}$ (Hamilton quaternion) or
 isomorphic to $\mathrm{Mat}_{2\times 2}(\mathbb{R})$ as $\mathbb{R}$-algebras.
+Also show that $\mathrm{Mat}_{2\times 2}(\mathbb{R})$ and $\mathbb{H}$ are not isomorphic
+as $\mathbb{R}$-algebras.
 -/
 theorem quaternionAlgebra_isomorphic_to_matrix_ring_or_quaternion_ring
     (A B : ℚ) (ha : A ≠ 0) (hb : B ≠ 0) :

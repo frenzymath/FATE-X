@@ -12,7 +12,7 @@ A Noetherian local ring $R$ is a Gorenstein ring if $\mathrm{inj}.\dim_R R < +\i
 -/
 class IsGorensteinLocalRing (R : Type) [CommRing R] : Prop extends
     IsLocalRing R, IsNoetherianRing R where
-  injDim_le_infity :
+  injDim_finite :
     ∃ n : ℕ, ∀ i : ℕ, n ≤ i →
     Subsingleton (Abelian.Ext.{0} (of.{0} R (ResidueField R)) (of.{0} R R) i)
 
@@ -25,7 +25,7 @@ class IsGorensteinRing (R : Type) [CommRing R] : Prop extends IsNoetherianRing R
     ∀ m : Ideal R, (_ : m.IsMaximal) → IsGorensteinLocalRing (Localization.AtPrime m)
 
 /--
-If \( A \) is a Neotherian Gorenstein ring, then so is the polynomial ring \( A[X] \).
+If \( A \) is a Noetherian Gorenstein ring, then so is the polynomial ring \( A[X] \).
 -/
 theorem Polynomial.isGorensteinRing {R : Type} [CommRing R] [IsGorensteinRing R] :
     IsGorensteinRing R[X] := by
